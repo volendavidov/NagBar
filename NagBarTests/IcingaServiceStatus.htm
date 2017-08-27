@@ -1,0 +1,763 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="shortcut icon" href="/icinga/images/favicon.ico" type="image/ico">
+<meta http-equiv='Pragma' content='no-cache'>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Current Network Status</title>
+<link rel='stylesheet' type='text/css' href='/icinga/stylesheets/common.css'>
+<link rel='stylesheet' type='text/css' href='/icinga/stylesheets/status.css'>
+<script type='text/javascript' src='/icinga/js/jquery-1.12.4.min.js'></script>
+<script type='text/javascript' src='/icinga/js/common_functions.js'></script>
+<script type="text/javascript">
+var refresh_rate=90;
+var do_refresh=true;
+var counter_seconds=refresh_rate;
+</script>
+<script type='text/javascript' src='/icinga/js/page_refresh.js'></script>
+<script type='text/javascript' src='/icinga/jquery-ui/ui/minified/jquery.ui.core.min.js'></script>
+<script type='text/javascript' src='/icinga/jquery-ui/ui/minified/jquery.ui.widget.min.js'></script>
+<link rel='stylesheet' type='text/css' href='/icinga/jquery-ui/themes/base/jquery.ui.all.css'>
+<script type='text/javascript' src='/icinga/jquery-ui/ui/minified/jquery.ui.effect.min.js'></script>
+<script type='text/javascript' src='/icinga/jquery-ui/ui/minified/jquery.ui.effect-blind.min.js'></script>
+<script type='text/javascript' src='/icinga/jquery-ui/ui/minified/jquery.ui.button.min.js'></script>
+<script type='text/javascript' src='/icinga/js/status_filter_functions.js'></script>
+<script type='text/javascript' src='/icinga/js/jquery.dd.min.js'></script>
+<link rel='stylesheet' type='text/css' href='/icinga/stylesheets/dd.css'>
+<script type='text/javascript' src='/icinga/js/checkbox_functions.js'></script>
+</head>
+<body class='status'>
+
+<!-- Produced by Icinga (http://www.icinga.org).
+Copyright (c) 1999-2009 Ethan Galstad (egalstad@nagios.org)
+Copyright (c) 2009-2015 Icinga Development Team -->
+
+<script type='text/javascript' src='/icinga/js/skinnytip.js'>
+<!-- SkinnyTip (c) Elliott Brueggeman -->
+</script>
+<div id='tiplayer' style='position:absolute; visibility:hidden; z-index:1000;'></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("table.status tr").hover(function( e ) {
+			$(this).find("td").each(function(){
+				if($(this).attr("class")) {
+					$(this).addClass("highlightRow");
+				}
+			});
+		}, function(){
+			$(this).find("td").each(function(){
+				if($(this).attr("class")) {
+					$(this).removeClass("highlightRow");
+				}
+			});
+		});
+	});
+</script>
+<form name='tableformservice' id='tableformservice' action='cmd.cgi' method='POST' style='margin:0px' onkeypress='var key = (window.event) ? event.keyCode : event.which; return (key != 13);'>
+<input type='hidden' name='hiddenforcefield'><input type='hidden' name='hiddencmdfield'><input type='hidden' name='buttonValidChoice'><input type='hidden' name='buttonCheckboxChecked'><input type='hidden' name='force_check'>
+<table border='0' width='100%' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='top' width='33%'>
+<table class='infoBox' border='1' cellspacing='0' cellpadding='0'>
+<tr><td class='infoBox' nowrap>
+<div class='infoBoxTitle'>Current Network Status</div>
+Last Updated: Sat Feb 11 19:22:06 UTC 2017 - <span id='refresh_text'>Refresh done......</span>&nbsp;<small><a href='#' onClick='icinga_toggle_refresh(); return false;'><span id='refresh_button'></span></a> <a href='#' onClick='icinga_do_refresh(); return false;'><img src='/icinga/images/icon_reload.png' border='0' style='margin-bottom:-2px;'></a></small>
+<br><a href='http://www.icinga.org' target='_new' class='homepageURL'>Icinga Classic UI <b>1.14.0</b> (Backend <b>1.14.0</b>)</a> -
+Logged in as <i>icingaadmin</i>
+</td></tr>
+</table>
+</td>
+<td align='center' valign='top' width='33%'>
+</td>
+<td align='center' valign='top' width='33%'>
+</td>
+</tr>
+</table>
+<br>
+<table border='0' width='100%' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='top' width='50%'>
+<table border='1' cellpadding='0' cellspacing='0' class='linkBox'>
+<tr><td class='linkBox'>
+<a href='history.cgi?host=all'>View <b>Alert History</b> For <b>All Hosts</b></a><br>
+<a href='notifications.cgi?host=all'>View <b>Notifications</b> For <b>All Hosts</b></a>
+<br><a href='status.cgi?host=all&amp;style=hostservicedetail'>View <b>Host AND Services</b> For <b>All Hosts</b></a>
+<br><a href='status.cgi?host=all&amp;style=hostdetail'>View <b>Host Status Detail</b> For <b>All Hosts</b></a>
+</td></tr>
+</table>
+</td>
+<td align='right' width='50%'>
+<div class='serviceTotalsCommands'>Commands for checked services</div>
+<select style='display:none;width:400px' name='cmd_typ' id='cmd_typ_service' onchange='showValue("tableformservice",this.value,96,7)' class='DropDownService'>
+<option value='nothing'>Select command</option>
+<option value='3' title='/icinga/images/comment.gif'>Add a Comment to Checked Service(s)</option>
+<option value='6' title='/icinga/images/disabled.gif'>Disable Active Checks Of Checked Service(s)</option>
+<option value='5' title='/icinga/images/enabled.gif'>Enable Active Checks Of Checked Service(s)</option>
+<option value='7' title='/icinga/images/delay.gif'>Re-schedule Next Service Check</option>
+<option value='30' title='/icinga/images/passiveonly.gif'>Submit Passive Check Result For Checked Service(s)</option>
+<option value='40' title='/icinga/images/disabled.gif'>Stop Accepting Passive Checks For Checked Service(s)</option>
+<option value='39' title='/icinga/images/enabled.gif'>Start Accepting Passive Checks For Checked Service(s)</option>
+<option value='100' title='/icinga/images/disabled.gif'>Stop Obsessing Over Checked Service(s)</option>
+<option value='99' title='/icinga/images/enabled.gif'>Start Obsessing Over Checked Service(s)</option>
+<option value='34' title='/icinga/images/ack.gif'>Acknowledge Checked Service(s) Problem</option>
+<option value='52' title='/icinga/images/noack.gif'>Remove Problem Acknowledgement for Checked Service(s)</option>
+<option value='23' title='/icinga/images/disabled.gif'>Disable Notifications For Checked Service(s)</option>
+<option value='22' title='/icinga/images/enabled.gif'>Enable Notifications For Checked Service(s)</option>
+<option value='160' title='/icinga/images/notify.gif'>Send Custom Notification For Checked Service(s)</option>
+<option value='9' title='/icinga/images/delay.gif'>Delay Next Notification For Checked Service(s)</option>
+<option value='56' title='/icinga/images/downtime.gif'>Schedule Downtime For Checked Service(s)</option>
+<option value='46' title='/icinga/images/disabled.gif'>Disable Event Handler For Checked Service(s)</option>
+<option value='45' title='/icinga/images/enabled.gif'>Enable Event Handler For Checked Service(s)</option>
+<option value='60' title='/icinga/images/disabled.gif'>Disable Flap Detection For Checked Service(s)</option>
+<option value='59' title='/icinga/images/enabled.gif'>Enable Flap Detection For Checked Service(s)</option>
+<option value='166' title='/icinga/images/disabled.gif'>Reset Modified Attributes For Checked Service(s)</option>
+</select>
+<script language='javascript' type="text/javascript">
+$(document).ready(function() { 
+document.tableformservice.cmd_typ.selectedIndex = 0;
+document.tableformservice.cmd_typ.options[0].selected = true;
+document.tableformservice.buttonValidChoice.value = 'false';
+document.tableformservice.buttonCheckboxChecked.value = 'false';
+checked = true;
+checkAll("tableformservice");
+checked = false;
+try { 
+$(".DropDownService").msDropDown({visibleRows:25}).data("dd").visible(true);
+} catch(e) {
+if (console) { console.log(e); }
+}
+});
+</script>
+<br><br><b><input type='submit' name='CommandButton' value='Submit' class='serviceTotalsCommands' disabled='disabled'></b>
+</td>
+</tr>
+</table>
+ <table style='margin-top:5px;' cellspacing='0' cellpadding='0' border='0' width='100%'>
+<tr>
+<td valign='top' align='left' width='33%'>
+<script language='javascript' type='text/javascript'>
+all_host_status_types = 15;
+all_host_problems = 12;
+all_service_status_types = 31;
+all_service_problems = 28;
+org_host_status_types = host_status_types = 15;
+org_host_properties = host_properties = 0;
+org_service_status_types = service_status_types = 31;
+org_service_properties = service_properties = 0;
+</script>
+<style>.ui-button-text-only .ui-button-text { padding: 0em 1em; width: 5em;} </style>
+<table border='0' cellspacing='2' cellpadding='0'><tr><td>
+<a href='#' class='filterTitle' onClick="return icinga_filter_toggle('display_filters');">&nbsp;&nbsp;<span title='Click To Modify'>Set Filters</span></a></td>
+<td><div id='display_filters_box' class='ui-widget-content ui-corner-all' style='display:none;'>
+<table border='0' cellspacing='5' cellpadding='5'>
+<tr><td valign='top' align='left' class='filterName' nowrap>Host Status Types:</td>
+<td valign='top' align='left' class='filterValue ui-corner-all' id='host_status_types_text_cell' nowrap>
+<div id='host_status_types_box' class='ui-widget-content ui-corner-all' style='display:none;'>
+<table border='0' cellspacing='2' cellpadding='0'>
+<tr><td align='left' class='filterName'>Pending</td><td><input id='host_status_types_1' type='checkbox' value='1'></td></tr>
+<tr><td align='left' class='filterName'>Up</td><td><input id='host_status_types_2' type='checkbox' value='2'></td></tr>
+<tr><td align='left' class='filterName'>Down</td><td><input id='host_status_types_4' type='checkbox' value='4'></td></tr>
+<tr><td align='left' class='filterName'>Unreachable</td><td><input id='host_status_types_8' type='checkbox' value='8'></td></tr>
+<tr><td align='center' colspan='2'><button id='apply_button' onClick="return icinga_filter_toggle('host_status_types');">Apply</button></td></tr>
+</table>
+</div>
+<span id='host_status_types_text' onClick="return icinga_filter_toggle('host_status_types');" style='cursor:pointer;' title='Click To Modify'>UNSET</span></td></tr>
+<tr><td valign='top' align='left' class='filterName' nowrap>Host Properties:</td>
+<td valign='top' align='left' class='filterValue ui-corner-all' id='host_properties_text_cell' nowrap>
+<div id='host_properties_box' class='ui-widget-content ui-corner-all' style='display:none;'><table border='0' cellspacing='2' cellpadding='0'>
+<tr><td align='left' class='filterName' nowrap>In Scheduled Donwtime</td><td><div id='radio' nowrap>
+<input id='filter_hp_scheduled_downtime_1' name='filter_hp_scheduled_downtime' type='radio' value='1'><label for='filter_hp_scheduled_downtime_1'>Yes</label>
+<input id='filter_hp_scheduled_downtime_2' name='filter_hp_scheduled_downtime' type='radio' value='2'><label for='filter_hp_scheduled_downtime_2'>No</label>
+<input id='filter_hp_scheduled_downtime_3' name='filter_hp_scheduled_downtime' type='radio' value='0' ><label for='filter_hp_scheduled_downtime_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Stat Is Acknowledged</td><td><div id='radio' nowrap>
+<input id='filter_hp_acknowledge_1' name='filter_hp_acknowledge' type='radio' value='4'><label for='filter_hp_acknowledge_1'>Yes</label>
+<input id='filter_hp_acknowledge_2' name='filter_hp_acknowledge' type='radio' value='8'><label for='filter_hp_acknowledge_2'>No</label>
+<input id='filter_hp_acknowledge_3' name='filter_hp_acknowledge' type='radio' value='0' ><label for='filter_hp_acknowledge_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Active Checks</td><td><div id='radio' nowrap>
+<input id='filter_hp_active_checks_1' name='filter_hp_active_checks' type='radio' value='32'><label for='filter_hp_active_checks_1'>Enabled</label>
+<input id='filter_hp_active_checks_2' name='filter_hp_active_checks' type='radio' value='16'><label for='filter_hp_active_checks_2'>Disabled</label>
+<input id='filter_hp_active_checks_3' name='filter_hp_active_checks' type='radio' value='0' ><label for='filter_hp_active_checks_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Passive Checks</td><td><div id='radio' nowrap>
+<input id='filter_hp_passive_checks_1' name='filter_hp_passive_checks' type='radio' value='32768'><label for='filter_hp_passive_checks_1'>Enabled</label>
+<input id='filter_hp_passive_checks_2' name='filter_hp_passive_checks' type='radio' value='16384'><label for='filter_hp_passive_checks_2'>Disabled</label>
+<input id='filter_hp_passive_checks_3' name='filter_hp_passive_checks' type='radio' value='0' ><label for='filter_hp_passive_checks_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Event Handler</td><td><div id='radio' nowrap>
+<input id='filter_hp_eventhandler_1' name='filter_hp_eventhandler' type='radio' value='128'><label for='filter_hp_eventhandler_1'>Enabled</label>
+<input id='filter_hp_eventhandler_2' name='filter_hp_eventhandler' type='radio' value='64'><label for='filter_hp_eventhandler_2'>Disabled</label>
+<input id='filter_hp_eventhandler_3' name='filter_hp_eventhandler' type='radio' value='0' ><label for='filter_hp_eventhandler_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Flap Detection</td><td><div id='radio' nowrap>
+<input id='filter_hp_flap_detection_1' name='filter_hp_flap_detection' type='radio' value='512'><label for='filter_hp_flap_detection_1'>Enabled</label>
+<input id='filter_hp_flap_detection_2' name='filter_hp_flap_detection' type='radio' value='256'><label for='filter_hp_flap_detection_2'>Disabled</label>
+<input id='filter_hp_flap_detection_3' name='filter_hp_flap_detection' type='radio' value='0' ><label for='filter_hp_flap_detection_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Is Flapping</td><td><div id='radio' nowrap>
+<input id='filter_hp_is_flapping_1' name='filter_hp_is_flapping' type='radio' value='1024'><label for='filter_hp_is_flapping_1'>Yes</label>
+<input id='filter_hp_is_flapping_2' name='filter_hp_is_flapping' type='radio' value='2048'><label for='filter_hp_is_flapping_2'>No</label>
+<input id='filter_hp_is_flapping_3' name='filter_hp_is_flapping' type='radio' value='0' ><label for='filter_hp_is_flapping_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Notifications</td><td><div id='radio' nowrap>
+<input id='filter_hp_notifications_1' name='filter_hp_notifications' type='radio' value='8192'><label for='filter_hp_notifications_1'>Enabled</label>
+<input id='filter_hp_notifications_2' name='filter_hp_notifications' type='radio' value='4096'><label for='filter_hp_notifications_2'>Disabled</label>
+<input id='filter_hp_notifications_3' name='filter_hp_notifications' type='radio' value='0' ><label for='filter_hp_notifications_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>State Type</td><td><div id='radio' nowrap>
+<input id='filter_hp_state_type_1' name='filter_hp_state_type' type='radio' value='262144'><label for='filter_hp_state_type_1'>Hard</label>
+<input id='filter_hp_state_type_2' name='filter_hp_state_type' type='radio' value='524288'><label for='filter_hp_state_type_2'>Soft</label>
+<input id='filter_hp_state_type_3' name='filter_hp_state_type' type='radio' value='0' ><label for='filter_hp_state_type_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Modified Attributes</td><td><div id='radio' nowrap>
+<input id='filter_hp_modified_attributes_1' name='filter_hp_modified_attributes' type='radio' value='65536'><label for='filter_hp_modified_attributes_1'>Yes</label>
+<input id='filter_hp_modified_attributes_2' name='filter_hp_modified_attributes' type='radio' value='131072'><label for='filter_hp_modified_attributes_2'>No</label>
+<input id='filter_hp_modified_attributes_3' name='filter_hp_modified_attributes' type='radio' value='0' ><label for='filter_hp_modified_attributes_3'>No Filter</label>
+</div></td></tr>
+<tr><td style='height:10px; line-height:10px;'>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td align='left' class='filterName' nowrap>Host State Handled</td><td><div id='radio' nowrap>
+<input id='filter_hp_state_handled_1' name='filter_hp_state_handled' type='radio' value='1048576'><label for='filter_hp_state_handled_1'>Yes</label>
+<input id='filter_hp_state_handled_2' name='filter_hp_state_handled' type='radio' value='0' ><label for='filter_hp_state_handled_2'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Not All Checks Disabled</td><td><div id='radio' nowrap>
+<input id='filter_hp_not_all_checks_disabled_1' name='filter_hp_not_all_checks_disabled' type='radio' value='2097152'><label for='filter_hp_not_all_checks_disabled_1'>Yes</label>
+<input id='filter_hp_not_all_checks_disabled_2' name='filter_hp_not_all_checks_disabled' type='radio' value='0' ><label for='filter_hp_not_all_checks_disabled_2'>No Filter</label>
+</div></td></tr>
+<tr><td style='height:10px; line-height:10px;'>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td align='right' colspan='2'><button id='apply_button' onClick="return icinga_filter_toggle('host_properties');">Apply</button></td></tr>
+</table>
+</div>
+<span id='host_properties_text' onClick="return icinga_filter_toggle('host_properties');" style='cursor:pointer;' title='Click To Modify'>UNSET</span></td></tr>
+<tr style='display:;'><td valign='top' align='left' class='filterName' nowrap>Service Status Types:</td>
+<td valign='top' align='left' class='filterValue ui-corner-all' id='service_status_types_text_cell' nowrap>
+<div id='service_status_types_box' class='ui-widget-content ui-corner-all' style='display:none;'>
+<table border='0' cellspacing='2' cellpadding='0'>
+<tr><td align='left' class='filterName'>Pending</td><td><input id='service_status_types_1' type='checkbox' value='1'></td></tr>
+<tr><td align='left' class='filterName'>Ok</td><td><input id='service_status_types_2' type='checkbox' value='2'></td></tr>
+<tr><td align='left' class='filterName'>Warning</td><td><input id='service_status_types_4' type='checkbox' value='4'></td></tr>
+<tr><td align='left' class='filterName'>Unknown</td><td><input id='service_status_types_8' type='checkbox' value='8'></td></tr>
+<tr><td align='left' class='filterName'>Critical</td><td><input id='service_status_types_16' type='checkbox' value='16'></td></tr>
+<tr><td align='right' colspan='2'><button id='apply_button' onClick="return icinga_filter_toggle('service_status_types');">Apply</button></td></tr>
+</table>
+</div>
+<span id='service_status_types_text' onClick="return icinga_filter_toggle('service_status_types');" style='cursor:pointer;' title='Click To Modify'>UNSET</span></td></tr>
+<tr style='display:;'><td valign='top' align='left' class='filterName' nowrap>Service Properties:</td>
+<td valign='top' align='left' class='filterValue ui-corner-all' id='service_properties_text_cell' nowrap>
+<div id='service_properties_box' class='ui-widget-content ui-corner-all' style='display:none;'><table border='0' cellspacing='2' cellpadding='0'>
+<tr><td align='left' class='filterName' nowrap>In Scheduled Donwtime</td><td><div id='radio' nowrap>
+<input id='filter_sp_scheduled_downtime_1' name='filter_sp_scheduled_downtime' type='radio' value='1'><label for='filter_sp_scheduled_downtime_1'>Yes</label>
+<input id='filter_sp_scheduled_downtime_2' name='filter_sp_scheduled_downtime' type='radio' value='2'><label for='filter_sp_scheduled_downtime_2'>No</label>
+<input id='filter_sp_scheduled_downtime_3' name='filter_sp_scheduled_downtime' type='radio' value='0' ><label for='filter_sp_scheduled_downtime_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Stat Is Acknowledged</td><td><div id='radio' nowrap>
+<input id='filter_sp_acknowledge_1' name='filter_sp_acknowledge' type='radio' value='4'><label for='filter_sp_acknowledge_1'>Yes</label>
+<input id='filter_sp_acknowledge_2' name='filter_sp_acknowledge' type='radio' value='8'><label for='filter_sp_acknowledge_2'>No</label>
+<input id='filter_sp_acknowledge_3' name='filter_sp_acknowledge' type='radio' value='0' ><label for='filter_sp_acknowledge_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Active Checks</td><td><div id='radio' nowrap>
+<input id='filter_sp_active_checks_1' name='filter_sp_active_checks' type='radio' value='32'><label for='filter_sp_active_checks_1'>Enabled</label>
+<input id='filter_sp_active_checks_2' name='filter_sp_active_checks' type='radio' value='16'><label for='filter_sp_active_checks_2'>Disabled</label>
+<input id='filter_sp_active_checks_3' name='filter_sp_active_checks' type='radio' value='0' ><label for='filter_sp_active_checks_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Passive Checks</td><td><div id='radio' nowrap>
+<input id='filter_sp_passive_checks_1' name='filter_sp_passive_checks' type='radio' value='32768'><label for='filter_sp_passive_checks_1'>Enabled</label>
+<input id='filter_sp_passive_checks_2' name='filter_sp_passive_checks' type='radio' value='16384'><label for='filter_sp_passive_checks_2'>Disabled</label>
+<input id='filter_sp_passive_checks_3' name='filter_sp_passive_checks' type='radio' value='0' ><label for='filter_sp_passive_checks_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Event Handler</td><td><div id='radio' nowrap>
+<input id='filter_sp_eventhandler_1' name='filter_sp_eventhandler' type='radio' value='128'><label for='filter_sp_eventhandler_1'>Enabled</label>
+<input id='filter_sp_eventhandler_2' name='filter_sp_eventhandler' type='radio' value='64'><label for='filter_sp_eventhandler_2'>Disabled</label>
+<input id='filter_sp_eventhandler_3' name='filter_sp_eventhandler' type='radio' value='0' ><label for='filter_sp_eventhandler_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Flap Detection</td><td><div id='radio' nowrap>
+<input id='filter_sp_flap_detection_1' name='filter_sp_flap_detection' type='radio' value='256'><label for='filter_sp_flap_detection_1'>Enabled</label>
+<input id='filter_sp_flap_detection_2' name='filter_sp_flap_detection' type='radio' value='512'><label for='filter_sp_flap_detection_2'>Disabled</label>
+<input id='filter_sp_flap_detection_3' name='filter_sp_flap_detection' type='radio' value='0' ><label for='filter_sp_flap_detection_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Is Flapping</td><td><div id='radio' nowrap>
+<input id='filter_sp_is_flapping_1' name='filter_sp_is_flapping' type='radio' value='1024'><label for='filter_sp_is_flapping_1'>Yes</label>
+<input id='filter_sp_is_flapping_2' name='filter_sp_is_flapping' type='radio' value='2048'><label for='filter_sp_is_flapping_2'>No</label>
+<input id='filter_sp_is_flapping_3' name='filter_sp_is_flapping' type='radio' value='0' ><label for='filter_sp_is_flapping_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Notifications</td><td><div id='radio' nowrap>
+<input id='filter_sp_notifications_1' name='filter_sp_notifications' type='radio' value='8192'><label for='filter_sp_notifications_1'>Enabled</label>
+<input id='filter_sp_notifications_2' name='filter_sp_notifications' type='radio' value='4096'><label for='filter_sp_notifications_2'>Disabled</label>
+<input id='filter_sp_notifications_3' name='filter_sp_notifications' type='radio' value='0' ><label for='filter_sp_notifications_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>State Type</td><td><div id='radio' nowrap>
+<input id='filter_sp_state_type_1' name='filter_sp_state_type' type='radio' value='262144'><label for='filter_sp_state_type_1'>Hard</label>
+<input id='filter_sp_state_type_2' name='filter_sp_state_type' type='radio' value='524288'><label for='filter_sp_state_type_2'>Soft</label>
+<input id='filter_sp_state_type_3' name='filter_sp_state_type' type='radio' value='0' ><label for='filter_sp_state_type_3'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Modified Attributes</td><td><div id='radio' nowrap>
+<input id='filter_sp_modified_attributes_1' name='filter_sp_modified_attributes' type='radio' value='65536'><label for='filter_sp_modified_attributes_1'>Yes</label>
+<input id='filter_sp_modified_attributes_2' name='filter_sp_modified_attributes' type='radio' value='131072'><label for='filter_sp_modified_attributes_2'>No</label>
+<input id='filter_sp_modified_attributes_3' name='filter_sp_modified_attributes' type='radio' value='0' ><label for='filter_sp_modified_attributes_3'>No Filter</label>
+</div></td></tr>
+<tr><td style='height:10px; line-height:10px;'>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td align='left' class='filterName' nowrap>Service State Handled</td><td><div id='radio' nowrap>
+<input id='filter_sp_state_handled_1' name='filter_sp_state_handled' type='radio' value='1048576'><label for='filter_sp_state_handled_1'>Yes</label>
+<input id='filter_sp_state_handled_2' name='filter_sp_state_handled' type='radio' value='0' ><label for='filter_sp_state_handled_2'>No Filter</label>
+</div></td></tr>
+<tr><td align='left' class='filterName' nowrap>Not All Checks Disabled</td><td><div id='radio' nowrap>
+<input id='filter_sp_not_all_checks_disabled_1' name='filter_sp_not_all_checks_disabled' type='radio' value='2097152'><label for='filter_sp_not_all_checks_disabled_1'>Yes</label>
+<input id='filter_sp_not_all_checks_disabled_2' name='filter_sp_not_all_checks_disabled' type='radio' value='0' ><label for='filter_sp_not_all_checks_disabled_2'>No Filter</label>
+</div></td></tr>
+<tr><td style='height:10px; line-height:10px;'>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td align='right' colspan='2'><button id='apply_button' onClick="return icinga_filter_toggle('service_properties');">Apply</button></td></tr>
+</table>
+</div>
+<span id='service_properties_text' onClick="return icinga_filter_toggle('service_properties');" style='cursor:pointer;' title='Click To Modify'>UNSET</span></td></tr>
+<tr><td align='right' colspan='3'><a href='#' id='submit_button' onClick="icinga_apply_new_filters();">Submit</a></td></tr>
+</table>
+</div>
+</td></tr></table>
+</td><td valign='top' align='center' width='33%'>
+<div class='statusTitle'>Service Status Details For All Hosts</div>
+<div class='page_selector'>
+<div id='page_navigation_copy'></div><div class='page_select_dd'>
+<select style='display:none; vertical-align:middle; width:140px;' name='limit' id='limit_dd_0' class='result_limit_dd' onChange='if (this.value) window.location.href = "status.cgi" + "?limit=" + this.value + "&amp;start=1";'>
+<option>Results: 50</option>
+<option value='50'>50</option>
+<option value='100'>100</option>
+<option value='250'>250</option>
+<option value='1000'>1000</option>
+<option value='0'>All</option>
+</select>
+<script language='javascript' type='text/javascript'>
+$(document).ready(function() { 
+try { 
+$("#limit_dd_0").msDropDown({visibleRows:6}).data("dd").visible(true);
+} catch(e) {
+if (console) { console.log(e); }
+}
+});
+</script>
+</div>
+</div>
+</td>
+<td valign='bottom' width='33%'><div style='padding-right:5px;' class='csv_export_link'><a href='status.cgi?csvoutput' target='_blank'><img src='/icinga/images/export_csv.png' style='vertical-align: middle;' border='0' alt='Export to CSV' title='Export to CSV'></a>
+<a href='status.cgi?jsonoutput' target='_blank'><img src='/icinga/images/export_json.png' style='vertical-align: middle;' border='0' alt='Export to JSON' title='Export to JSON'></a>
+<a href='status.cgi' target='_blank'><img src='/icinga/images/export_link.png' style='vertical-align: middle;' border='0' alt='Link to this page' title='Link to this page'></a>
+</div></td>
+</tr>
+</table>
+<table border='0' width='100%' class='status' align='center'>
+<tr>
+<th class='status'>Host&nbsp;<a href='status.cgi?host=all&amp;style=detail&amp;sortobject=services&amp;sorttype=1&amp;sortoption=1'><img src='/icinga/images/up.gif' border='0' alt='Sort by host name (ascending)' title='Sort by host name (ascending)'></a><a href='status.cgi?host=all&amp;style=detail&amp;sortobject=services&amp;sorttype=2&amp;sortoption=1'><img src='/icinga/images/down.gif' border='0' alt='Sort by host name (descending)' title='Sort by host name (descending)'></a></th>
+<th class='status'>Service&nbsp;<a href='status.cgi?host=all&amp;style=detail&amp;sortobject=services&amp;sorttype=1&amp;sortoption=2'><img src='/icinga/images/up.gif' border='0' alt='Sort by service name (ascending)' title='Sort by service name (ascending)'></a><a href='status.cgi?host=all&amp;style=detail&amp;sortobject=services&amp;sorttype=2&amp;sortoption=2'><img src='/icinga/images/down.gif' border='0' alt='Sort by service name (descending)' title='Sort by service name (descending)'></a></th>
+<th class='status'>Status&nbsp;<a href='status.cgi?host=all&amp;style=detail&amp;sortobject=services&amp;sorttype=1&amp;sortoption=3'><img src='/icinga/images/up.gif' border='0' alt='Sort by service status (ascending)' title='Sort by service status (ascending)'></a><a href='status.cgi?host=all&amp;style=detail&amp;sortobject=services&amp;sorttype=2&amp;sortoption=3'><img src='/icinga/images/down.gif' border='0' alt='Sort by service status (descending)' title='Sort by service status (descending)'></a></th>
+<th class='status'>Last Check&nbsp;<a href='status.cgi?host=all&amp;style=detail&amp;sortobject=services&amp;sorttype=1&amp;sortoption=4'><img src='/icinga/images/up.gif' border='0' alt='Sort by last check time (ascending)' title='Sort by last check time (ascending)'></a><a href='status.cgi?host=all&amp;style=detail&amp;sortobject=services&amp;sorttype=2&amp;sortoption=4'><img src='/icinga/images/down.gif' border='0' alt='Sort by last check time (descending)' title='Sort by last check time (descending)'></a></th>
+<th class='status'>Duration&nbsp;<a href='status.cgi?host=all&amp;style=detail&amp;sortobject=services&amp;sorttype=1&amp;sortoption=6'><img src='/icinga/images/up.gif' border='0' alt='Sort by state duration (ascending)' title='Sort by state duration (ascending)'></a><a href='status.cgi?host=all&amp;style=detail&amp;sortobject=services&amp;sorttype=2&amp;sortoption=6'><img src='/icinga/images/down.gif' border='0' alt='Sort by state duration time (descending)' title='Sort by state duration time (descending)'></a></th>
+<th class='status'>Attempt&nbsp;<a href='status.cgi?host=all&amp;style=detail&amp;sortobject=services&amp;sorttype=1&amp;sortoption=5'><img src='/icinga/images/up.gif' border='0' alt='Sort by current attempt (ascending)' title='Sort by current attempt (ascending)'></a><a href='status.cgi?host=all&amp;style=detail&amp;sortobject=services&amp;sorttype=2&amp;sortoption=5'><img src='/icinga/images/down.gif' border='0' alt='Sort by current attempt (descending)' title='Sort by current attempt (descending)'></a></th>
+<th class='status'>Status Information</th>
+<th class='status' width='16'><input type='checkbox' value='all' onclick="checkAll('tableformservice');isValidForSubmit('tableformservice');"></th>
+</tr>
+<tr>
+<td class='statusHOSTDOWN'><table border='0' width='100%' cellpadding='0' cellspacing='0'>
+<tr>
+<td align='left'>
+<table border='0' cellpadding='0' cellspacing='0'>
+<tr>
+<td align='left' valign='middle' class='statusHOSTDOWN'><a href='extinfo.cgi?type=1&amp;host=hplj2605dn' title='192.168.1.30 (HP LaserJet 2605dn)'>hplj2605dn</a></td>
+</tr>
+</table>
+</td>
+<td align='right' valign='middle'>
+<table border='0' cellpadding='0' cellspacing='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusBGCRITICAL'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusBGCRITICAL'><a href='extinfo.cgi?type=2&amp;host=hplj2605dn&amp;service=PING'>PING</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusBGCRITICAL'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_1','tableformservice');" class='statusCRITICAL'>CRITICAL</td>
+<td onClick="toggle_checkbox('service_1','tableformservice');" class='statusBGCRITICAL' nowrap>02-11-2017 19:18:11</td>
+<td onClick="toggle_checkbox('service_1','tableformservice');" class='statusBGCRITICAL' nowrap>0d  0h  3m 55s</td>
+<td onClick="toggle_checkbox('service_1','tableformservice');" class='statusBGCRITICAL'>3/3 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_1','tableformservice');" class='statusBGCRITICAL' valign='middle'>CRITICAL &#45; Network Unreachable &#40;192&#46;168&#46;1&#46;30&#41;</td>
+<td onClick="toggle_checkbox('service_1','tableformservice');" class='statusBGCRITICAL' nowrap align='center'><input onClick="toggle_checkbox('service_1','tableformservice');" type='checkbox' id='service_1' name='hostservice' value='hplj2605dn^PING'></td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGCRITICAL'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusBGCRITICAL'><a href='extinfo.cgi?type=2&amp;host=hplj2605dn&amp;service=Printer+Status'>Printer Status</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusBGCRITICAL'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_2','tableformservice');" class='statusCRITICAL'>CRITICAL</td>
+<td onClick="toggle_checkbox('service_2','tableformservice');" class='statusBGCRITICAL' nowrap>02-11-2017 19:19:31</td>
+<td onClick="toggle_checkbox('service_2','tableformservice');" class='statusBGCRITICAL' nowrap>0d  0h  2m 35s</td>
+<td onClick="toggle_checkbox('service_2','tableformservice');" class='statusBGCRITICAL'>3/3 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_2','tableformservice');" class='statusBGCRITICAL' valign='middle'>Timeout&#58; No Response from 192&#46;168&#46;1&#46;30&#58;161&#46; &#58; Timeout from host 192&#46;168&#46;1&#46;30</td>
+<td onClick="toggle_checkbox('service_2','tableformservice');" class='statusBGCRITICAL' nowrap align='center'><input onClick="toggle_checkbox('service_2','tableformservice');" type='checkbox' id='service_2' name='hostservice' value='hplj2605dn^Printer Status'></td>
+</tr>
+<tr><td colspan='8'></td></tr>
+<tr>
+<td class='statusHOSTDOWN'><table border='0' width='100%' cellpadding='0' cellspacing='0'>
+<tr>
+<td align='left'>
+<table border='0' cellpadding='0' cellspacing='0'>
+<tr>
+<td align='left' valign='middle' class='statusHOSTDOWN'><a href='extinfo.cgi?type=1&amp;host=linksys-srw224p' title='192.168.1.253 (Linksys SRW224P Switch)'>linksys&#45;srw224p</a></td>
+</tr>
+</table>
+</td>
+<td align='right' valign='middle'>
+<table border='0' cellpadding='0' cellspacing='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusBGCRITICAL'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusBGCRITICAL'><a href='extinfo.cgi?type=2&amp;host=linksys-srw224p&amp;service=PING'>PING</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusBGCRITICAL'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_3','tableformservice');" class='statusCRITICAL'>CRITICAL</td>
+<td onClick="toggle_checkbox('service_3','tableformservice');" class='statusBGCRITICAL' nowrap>02-11-2017 19:20:51</td>
+<td onClick="toggle_checkbox('service_3','tableformservice');" class='statusBGCRITICAL' nowrap>0d  0h  1m 15s</td>
+<td onClick="toggle_checkbox('service_3','tableformservice');" class='statusBGCRITICAL'>1/3 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_3','tableformservice');" class='statusBGCRITICAL' valign='middle'>CRITICAL &#45; Network Unreachable &#40;192&#46;168&#46;1&#46;253&#41;</td>
+<td onClick="toggle_checkbox('service_3','tableformservice');" class='statusBGCRITICAL' nowrap align='center'><input onClick="toggle_checkbox('service_3','tableformservice');" type='checkbox' id='service_3' name='hostservice' value='linksys-srw224p^PING'></td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGUNKNOWN'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusBGUNKNOWN'><a href='extinfo.cgi?type=2&amp;host=linksys-srw224p&amp;service=Port+1+Bandwidth+Usage'>Port 1 Bandwidth Usage</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusBGUNKNOWN'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_4','tableformservice');" class='statusUNKNOWN'>UNKNOWN</td>
+<td onClick="toggle_checkbox('service_4','tableformservice');" class='statusBGUNKNOWN' nowrap>02-11-2017 19:21:19</td>
+<td onClick="toggle_checkbox('service_4','tableformservice');" class='statusBGUNKNOWN' nowrap>0d  0h  0m 47s</td>
+<td onClick="toggle_checkbox('service_4','tableformservice');" class='statusBGUNKNOWN'>1/3 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_4','tableformservice');" class='statusBGUNKNOWN' valign='middle'>check&#95;mrtgtraf&#58; Unable to open MRTG log file</td>
+<td onClick="toggle_checkbox('service_4','tableformservice');" class='statusBGUNKNOWN' nowrap align='center'><input onClick="toggle_checkbox('service_4','tableformservice');" type='checkbox' id='service_4' name='hostservice' value='linksys-srw224p^Port 1 Bandwidth Usage'></td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGCRITICAL'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusBGCRITICAL'><a href='extinfo.cgi?type=2&amp;host=linksys-srw224p&amp;service=Port+1+Link+Status'>Port 1 Link Status</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusBGCRITICAL'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_5','tableformservice');" class='statusCRITICAL'>CRITICAL</td>
+<td onClick="toggle_checkbox('service_5','tableformservice');" class='statusBGCRITICAL' nowrap>02-11-2017 19:21:28</td>
+<td onClick="toggle_checkbox('service_5','tableformservice');" class='statusBGCRITICAL' nowrap>0d  0h  0m 38s</td>
+<td onClick="toggle_checkbox('service_5','tableformservice');" class='statusBGCRITICAL'>1/3 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_5','tableformservice');" class='statusBGCRITICAL' valign='middle'>CRITICAL &#45; Plugin timed out while executing system call</td>
+<td onClick="toggle_checkbox('service_5','tableformservice');" class='statusBGCRITICAL' nowrap align='center'><input onClick="toggle_checkbox('service_5','tableformservice');" type='checkbox' id='service_5' name='hostservice' value='linksys-srw224p^Port 1 Link Status'></td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGCRITICAL'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusBGCRITICAL'><a href='extinfo.cgi?type=2&amp;host=linksys-srw224p&amp;service=Uptime'>Uptime</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusBGCRITICAL'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_6','tableformservice');" class='statusCRITICAL'>CRITICAL</td>
+<td onClick="toggle_checkbox('service_6','tableformservice');" class='statusBGCRITICAL' nowrap>02-11-2017 19:18:37</td>
+<td onClick="toggle_checkbox('service_6','tableformservice');" class='statusBGCRITICAL' nowrap>0d  0h  3m 29s</td>
+<td onClick="toggle_checkbox('service_6','tableformservice');" class='statusBGCRITICAL'>3/3 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_6','tableformservice');" class='statusBGCRITICAL' valign='middle'>CRITICAL &#45; Plugin timed out while executing system call</td>
+<td onClick="toggle_checkbox('service_6','tableformservice');" class='statusBGCRITICAL' nowrap align='center'><input onClick="toggle_checkbox('service_6','tableformservice');" type='checkbox' id='service_6' name='hostservice' value='linksys-srw224p^Uptime'></td>
+</tr>
+<tr><td colspan='8'></td></tr>
+<tr>
+<td class='statusEven'><table border='0' width='100%' cellpadding='0' cellspacing='0'>
+<tr>
+<td align='left'>
+<table border='0' cellpadding='0' cellspacing='0'>
+<tr>
+<td align='left' valign='middle' class='statusEven'><a href='extinfo.cgi?type=1&amp;host=localhost' title='127.0.0.1 (localhost)'>localhost</a></td>
+</tr>
+</table>
+</td>
+<td align='right' valign='middle'>
+<table border='0' cellpadding='0' cellspacing='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusEven'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusEven'><a href='extinfo.cgi?type=2&amp;host=localhost&amp;service=Current+Load'>Current Load</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusEven'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_7','tableformservice');" class='statusOK'>OK</td>
+<td onClick="toggle_checkbox('service_7','tableformservice');" class='statusEven' nowrap>02-11-2017 19:21:07</td>
+<td onClick="toggle_checkbox('service_7','tableformservice');" class='statusEven' nowrap>4d 21h 48m 54s</td>
+<td onClick="toggle_checkbox('service_7','tableformservice');" class='statusEven'>1/4 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_7','tableformservice');" class='statusEven' valign='middle'>OK &#45; load average&#58; 0&#46;02&#44; 0&#46;38&#44; 0&#46;45</td>
+<td onClick="toggle_checkbox('service_7','tableformservice');" class='statusEven' nowrap align='center'><input onClick="toggle_checkbox('service_7','tableformservice');" type='checkbox' id='service_7' name='hostservice' value='localhost^Current Load'></td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGUNKNOWN'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusBGUNKNOWN'><a href='extinfo.cgi?type=2&amp;host=localhost&amp;service=Current+Users'>Current Users</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusBGUNKNOWN'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_8','tableformservice');" class='statusUNKNOWN'>UNKNOWN</td>
+<td onClick="toggle_checkbox('service_8','tableformservice');" class='statusBGUNKNOWN' nowrap>02-11-2017 19:21:07</td>
+<td onClick="toggle_checkbox('service_8','tableformservice');" class='statusBGUNKNOWN' nowrap>0d  0h  2m 59s</td>
+<td onClick="toggle_checkbox('service_8','tableformservice');" class='statusBGUNKNOWN'>3/4 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_8','tableformservice');" class='statusBGUNKNOWN' valign='middle'>check&#95;users&#58; Warning threshold must be a positive integer</td>
+<td onClick="toggle_checkbox('service_8','tableformservice');" class='statusBGUNKNOWN' nowrap align='center'><input onClick="toggle_checkbox('service_8','tableformservice');" type='checkbox' id='service_8' name='hostservice' value='localhost^Current Users'></td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusEven'><a href='extinfo.cgi?type=2&amp;host=localhost&amp;service=HTTP'>HTTP</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusEven'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='center' valign='middle'><a href='extinfo.cgi?type=2&amp;host=localhost&amp;service=HTTP'><img src='/icinga/images/ndisabled.gif' border='0' width=20 height=20 alt='Notifications for this service have been disabled' title='Notifications for this service have been disabled'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_9','tableformservice');" class='statusOK'>OK</td>
+<td onClick="toggle_checkbox('service_9','tableformservice');" class='statusEven' nowrap>02-11-2017 19:17:14</td>
+<td onClick="toggle_checkbox('service_9','tableformservice');" class='statusEven' nowrap>4d 21h 52m 47s</td>
+<td onClick="toggle_checkbox('service_9','tableformservice');" class='statusEven'>1/4 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_9','tableformservice');" class='statusEven' valign='middle'>HTTP OK&#58; HTTP&#47;1&#46;1 301 Moved Permanently &#45; 599 bytes in 0&#46;002 second response time</td>
+<td onClick="toggle_checkbox('service_9','tableformservice');" class='statusEven' nowrap align='center'><input onClick="toggle_checkbox('service_9','tableformservice');" type='checkbox' id='service_9' name='hostservice' value='localhost^HTTP'></td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusOdd'><a href='extinfo.cgi?type=2&amp;host=localhost&amp;service=Icinga+Startup+Delay'>Icinga Startup Delay</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusOdd'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='center' valign='middle'><a href='extinfo.cgi?type=2&amp;host=localhost&amp;service=Icinga+Startup+Delay'><img src='/icinga/images/ndisabled.gif' border='0' width=20 height=20 alt='Notifications for this service have been disabled' title='Notifications for this service have been disabled'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_10','tableformservice');" class='statusOK'>OK</td>
+<td onClick="toggle_checkbox('service_10','tableformservice');" class='statusOdd' nowrap>02-11-2017 19:17:47</td>
+<td onClick="toggle_checkbox('service_10','tableformservice');" class='statusOdd' nowrap>4d 21h 51m 40s</td>
+<td onClick="toggle_checkbox('service_10','tableformservice');" class='statusOdd'>1/4 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_10','tableformservice');" class='statusOdd' valign='middle'>OK&#58; Icinga started with 0 seconds delay</td>
+<td onClick="toggle_checkbox('service_10','tableformservice');" class='statusOdd' nowrap align='center'><input onClick="toggle_checkbox('service_10','tableformservice');" type='checkbox' id='service_10' name='hostservice' value='localhost^Icinga Startup Delay'></td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusEven'><a href='extinfo.cgi?type=2&amp;host=localhost&amp;service=PING'>PING</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusEven'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_11','tableformservice');" class='statusOK'>OK</td>
+<td onClick="toggle_checkbox('service_11','tableformservice');" class='statusEven' nowrap>02-11-2017 19:18:20</td>
+<td onClick="toggle_checkbox('service_11','tableformservice');" class='statusEven' nowrap>4d 21h 51m 41s</td>
+<td onClick="toggle_checkbox('service_11','tableformservice');" class='statusEven'>1/4 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_11','tableformservice');" class='statusEven' valign='middle'>PING OK &#45; Packet loss &#61; 0&#37;&#44; RTA &#61; 0&#46;07 ms</td>
+<td onClick="toggle_checkbox('service_11','tableformservice');" class='statusEven' nowrap align='center'><input onClick="toggle_checkbox('service_11','tableformservice');" type='checkbox' id='service_11' name='hostservice' value='localhost^PING'></td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGCRITICAL'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusBGCRITICAL'><a href='extinfo.cgi?type=2&amp;host=localhost&amp;service=Root+Partition'>Root Partition</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusBGCRITICAL'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_12','tableformservice');" class='statusCRITICAL'>CRITICAL</td>
+<td onClick="toggle_checkbox('service_12','tableformservice');" class='statusBGCRITICAL' nowrap>02-11-2017 19:21:13</td>
+<td onClick="toggle_checkbox('service_12','tableformservice');" class='statusBGCRITICAL' nowrap>0d  0h  1m 53s</td>
+<td onClick="toggle_checkbox('service_12','tableformservice');" class='statusBGCRITICAL'>2/4 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_12','tableformservice');" class='statusBGCRITICAL' valign='middle'>DISK CRITICAL &#45; free space&#58; &#47; 186273 MB &#40;98&#37; inode&#61;99&#37;&#41;&#58;</td>
+<td onClick="toggle_checkbox('service_12','tableformservice');" class='statusBGCRITICAL' nowrap align='center'><input onClick="toggle_checkbox('service_12','tableformservice');" type='checkbox' id='service_12' name='hostservice' value='localhost^Root Partition'></td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusEven'><a href='extinfo.cgi?type=2&amp;host=localhost&amp;service=SSH'>SSH</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusEven'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='center' valign='middle'><a href='extinfo.cgi?type=2&amp;host=localhost&amp;service=SSH'><img src='/icinga/images/ndisabled.gif' border='0' width=20 height=20 alt='Notifications for this service have been disabled' title='Notifications for this service have been disabled'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_13','tableformservice');" class='statusOK'>OK</td>
+<td onClick="toggle_checkbox('service_13','tableformservice');" class='statusEven' nowrap>02-11-2017 19:19:27</td>
+<td onClick="toggle_checkbox('service_13','tableformservice');" class='statusEven' nowrap>4d 21h 50m 34s</td>
+<td onClick="toggle_checkbox('service_13','tableformservice');" class='statusEven'>1/4 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_13','tableformservice');" class='statusEven' valign='middle'>SSH OK &#45; OpenSSH&#95;5&#46;3 &#40;protocol 2&#46;0&#41;</td>
+<td onClick="toggle_checkbox('service_13','tableformservice');" class='statusEven' nowrap align='center'><input onClick="toggle_checkbox('service_13','tableformservice');" type='checkbox' id='service_13' name='hostservice' value='localhost^SSH'></td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusOdd'><a href='extinfo.cgi?type=2&amp;host=localhost&amp;service=Swap+Usage'>Swap Usage</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusOdd'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_14','tableformservice');" class='statusOK'>OK</td>
+<td onClick="toggle_checkbox('service_14','tableformservice');" class='statusOdd' nowrap>02-11-2017 19:20:00</td>
+<td onClick="toggle_checkbox('service_14','tableformservice');" class='statusOdd' nowrap>4d 21h 50m  1s</td>
+<td onClick="toggle_checkbox('service_14','tableformservice');" class='statusOdd'>1/4 <!-- #0 --></td>
+<td onClick="toggle_checkbox('service_14','tableformservice');" class='statusOdd' valign='middle'>SWAP OK &#45; 100&#37; free &#40;2559 MB out of 2559 MB&#41;</td>
+<td onClick="toggle_checkbox('service_14','tableformservice');" class='statusOdd' nowrap align='center'><input onClick="toggle_checkbox('service_14','tableformservice');" type='checkbox' id='service_14' name='hostservice' value='localhost^Swap Usage'></td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGWARNING'><table border='0' width='100%' cellspacing='0' cellpadding='0'><tr><td align='left'><table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td align='left' valign='middle' class='statusBGWARNING'><a href='extinfo.cgi?type=2&amp;host=localhost&amp;service=Total+Processes'>Total Processes</a></td></tr>
+</table>
+</td>
+<td align='right' class='statusBGWARNING'>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td onClick="toggle_checkbox('service_15','tableformservice');" class='statusWARNING'>WARNING</td>
+<td onClick="toggle_checkbox('service_15','tableformservice');" class='statusBGWARNING' nowrap>02-11-2017 19:18:16</td>
+<td onClick="toggle_checkbox('service_15','tableformservice');" class='statusBGWARNING' nowrap>0d  0h  6m 50s</td>
+<td onClick="toggle_checkbox('service_15','tableformservice');" class='statusBGWARNING'>4/4 <!-- #1 --></td>
+<td onClick="toggle_checkbox('service_15','tableformservice');" class='statusBGWARNING' valign='middle'>PROCS WARNING&#58; 97 processes with STATE &#61; RSZDT</td>
+<td onClick="toggle_checkbox('service_15','tableformservice');" class='statusBGWARNING' nowrap align='center'><input onClick="toggle_checkbox('service_15','tableformservice');" type='checkbox' id='service_15' name='hostservice' value='localhost^Total Processes'></td>
+</tr>
+</table>
+</form>
+<div class='page_selector'>
+<div id='page_navigation' class='page_select_dd'><img src='/icinga/images/icon_first_inactive.gif' style='vertical-align: middle;' height='16' width='16' />
+<img src='/icinga/images/icon_previous_inactive.gif' style='vertical-align: middle;' height='16' width='16' />
+<span style='vertical-align:middle; font-size:8pt;'> Page </span><input type='text' value='1' style='width:30px; vertical-align:middle; border:1px #D0D0D0 solid;text-align:center; font-size:8pt' onkeydown='if (event.keyCode == 13) window.location.href = "status.cgi" + "?limit=50&amp;start=" + (((this.value -1) * 50) + 1);'><span style='vertical-align:middle; font-size:8pt;'> of 1 </span><img src='/icinga/images/icon_next_inactive.gif' style='vertical-align: middle;' height='16' width='16' /><img src='/icinga/images/icon_last_inactive.gif' style='vertical-align: middle;' height='16' width='16' />
+</div>
+<div class='page_select_dd'>
+<select style='display:none; vertical-align:middle; width:140px;' name='limit' id='limit_dd_1' class='result_limit_dd' onChange='if (this.value) window.location.href = "status.cgi" + "?limit=" + this.value + "&amp;start=1";'>
+<option>Results: 50</option>
+<option value='50'>50</option>
+<option value='100'>100</option>
+<option value='250'>250</option>
+<option value='1000'>1000</option>
+<option value='0'>All</option>
+</select>
+<script language='javascript' type='text/javascript'>
+$(document).ready(function() { 
+try { 
+$("#limit_dd_1").msDropDown({visibleRows:6}).data("dd").visible(true);
+} catch(e) {
+if (console) { console.log(e); }
+}
+});
+</script>
+</div>
+</div>
+<div style='text-align:center;padding-top:6px;'>Displaying Result 1 - 15 of 15 Matching Services</div>
+<script language='javascript' type="text/javascript">
+$(document).ready(function() { 
+$('#page_navigation').clone(true).appendTo('#page_navigation_copy');
+});
+</script>
+
+<!-- Produced by Icinga (http://www.icinga.org).
+Copyright (c) 1999-2009 Ethan Galstad (egalstad@nagios.org)
+Copyright (c) 2009-2015 Icinga Development Team -->
+</body>
+</html>

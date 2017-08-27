@@ -1,0 +1,51 @@
+PODS:
+  - Alamofire (4.4.0)
+  - hpple (0.3.0)
+  - PromiseKit (4.0.5):
+    - PromiseKit/Foundation (= 4.0.5)
+    - PromiseKit/QuartzCore (= 4.0.5)
+    - PromiseKit/UIKit (= 4.0.5)
+  - PromiseKit/CorePromise (4.0.5)
+  - PromiseKit/Foundation (4.0.5):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.0.5):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.0.5):
+    - PromiseKit/CorePromise
+  - Realm (2.7.0):
+    - Realm/Headers (= 2.7.0)
+  - Realm/Headers (2.7.0)
+  - RealmSwift (2.7.0):
+    - Realm (= 2.7.0)
+  - SAMKeychain (1.5.2)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4.0)
+  - hpple (from `https://github.com/topfunky/hpple.git`)
+  - PromiseKit (~> 4.0.0)
+  - RealmSwift (~> 2.7.0)
+  - SAMKeychain (~> 1.5.0)
+  - SwiftyJSON (~> 3.1.0)
+
+EXTERNAL SOURCES:
+  hpple:
+    :git: https://github.com/topfunky/hpple.git
+
+CHECKOUT OPTIONS:
+  hpple:
+    :commit: bb1dcfa99d7d0ed200f6a86d59a08a4c680075c7
+    :git: https://github.com/topfunky/hpple.git
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  hpple: 37ac0a804d0f8a7f488712b5ff5f06129e1c9e31
+  PromiseKit: 593b5e24ded6cbb1ebc708bc2c3428a8a5632d91
+  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
+  RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
+  SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 0cd338944b049b33d29f7ab1141b6c1ff3c3ff1e
+
+COCOAPODS: 1.1.1

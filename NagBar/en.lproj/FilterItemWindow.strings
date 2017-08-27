@@ -1,0 +1,45 @@
+
+/* Class = "NSButtonCell"; title = "Down"; ObjectID = "6OH-Te-ItY"; */
+"6OH-Te-ItY.title" = "Down";
+
+/* Class = "NSTextFieldCell"; title = "Regular expressions are supported."; ObjectID = "9Oh-hu-gaF"; */
+"9Oh-hu-gaF.title" = "Regular expressions are supported.";
+
+/* Class = "NSButtonCell"; title = "Pending"; ObjectID = "F19-nb-LJP"; */
+"F19-nb-LJP.title" = "Pending";
+
+/* Class = "NSTextFieldCell"; title = "Host"; ObjectID = "N28-0a-nKX"; */
+"N28-0a-nKX.title" = "Host";
+
+/* Class = "NSWindow"; title = "Edit Filter"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "Edit Filter";
+
+/* Class = "NSBox"; title = "Service states:"; ObjectID = "e4f-G3-ENv"; */
+"e4f-G3-ENv.title" = "Service states:";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "e9B-eu-NuP"; */
+"e9B-eu-NuP.title" = "Cancel";
+
+/* Class = "NSTextFieldCell"; title = "Service"; ObjectID = "eoL-Hg-lRc"; */
+"eoL-Hg-lRc.title" = "Service";
+
+/* Class = "NSButtonCell"; title = "Pending"; ObjectID = "gdu-zR-Jkc"; */
+"gdu-zR-Jkc.title" = "Pending";
+
+/* Class = "NSButtonCell"; title = "Critical"; ObjectID = "kTV-Dl-2dn"; */
+"kTV-Dl-2dn.title" = "Critical";
+
+/* Class = "NSBox"; title = "Host states:"; ObjectID = "onj-xn-L3Y"; */
+"onj-xn-L3Y.title" = "Host states:";
+
+/* Class = "NSButtonCell"; title = "Unreachable"; ObjectID = "wL6-gC-eNi"; */
+"wL6-gC-eNi.title" = "Unreachable";
+
+/* Class = "NSButtonCell"; title = "Warning"; ObjectID = "xBp-hx-wNI"; */
+"xBp-hx-wNI.title" = "Warning";
+
+/* Class = "NSButtonCell"; title = "Unknown"; ObjectID = "xRe-4F-1rl"; */
+"xRe-4F-1rl.title" = "Unknown";
+
+/* Class = "NSButtonCell"; title = "Save"; ObjectID = "zbN-BH-W8b"; */
+"zbN-BH-W8b.title" = "Save";

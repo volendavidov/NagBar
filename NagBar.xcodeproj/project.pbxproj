@@ -7,10 +7,162 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E377AB01F49DC2F00297FC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E377AAF1F49DC2F00297FC3 /* AppDelegate.swift */; };
-		5E377AB21F49DC2F00297FC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E377AB11F49DC2F00297FC3 /* Assets.xcassets */; };
-		5E377AB51F49DC2F00297FC3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E377AB31F49DC2F00297FC3 /* MainMenu.xib */; };
+		5E246A151F49DF970015CA71 /* MonitoringProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A131F49DF970015CA71 /* MonitoringProcessor.swift */; };
+		5E246A161F49DF970015CA71 /* MonitoringProcessorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A141F49DF970015CA71 /* MonitoringProcessorBase.swift */; };
+		5E246A1C1F49DFBC0015CA71 /* CheckMKHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A171F49DFBC0015CA71 /* CheckMKHTTPClient.swift */; };
+		5E246A1D1F49DFBC0015CA71 /* CheckMKParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A181F49DFBC0015CA71 /* CheckMKParser.swift */; };
+		5E246A1E1F49DFBC0015CA71 /* CheckMKProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A191F49DFBC0015CA71 /* CheckMKProcessor.swift */; };
+		5E246A1F1F49DFBC0015CA71 /* CheckMKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A1A1F49DFBC0015CA71 /* CheckMKSettings.swift */; };
+		5E246A201F49DFBC0015CA71 /* CheckMKURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A1B1F49DFBC0015CA71 /* CheckMKURLProvider.swift */; };
+		5E246A241F49DFD00015CA71 /* ThrukParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A211F49DFD00015CA71 /* ThrukParser.swift */; };
+		5E246A251F49DFD00015CA71 /* ThrukProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A221F49DFD00015CA71 /* ThrukProcessor.swift */; };
+		5E246A261F49DFD00015CA71 /* ThrukURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A231F49DFD00015CA71 /* ThrukURLProvider.swift */; };
+		5E246A2B1F49DFE40015CA71 /* Icinga2Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A271F49DFE40015CA71 /* Icinga2Commands.swift */; };
+		5E246A2C1F49DFE40015CA71 /* Icinga2HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A281F49DFE40015CA71 /* Icinga2HTTPClient.swift */; };
+		5E246A2D1F49DFE40015CA71 /* Icinga2Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A291F49DFE40015CA71 /* Icinga2Processor.swift */; };
+		5E246A2E1F49DFE40015CA71 /* Icinga2Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A2A1F49DFE40015CA71 /* Icinga2Settings.swift */; };
+		5E246A321F49E0140015CA71 /* IcingaParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A2F1F49E0140015CA71 /* IcingaParser.swift */; };
+		5E246A331F49E0140015CA71 /* IcingaProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A301F49E0140015CA71 /* IcingaProcessor.swift */; };
+		5E246A341F49E0140015CA71 /* IcingaXPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A311F49E0140015CA71 /* IcingaXPath.swift */; };
+		5E246A3C1F49E0350015CA71 /* NagiosCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A351F49E0350015CA71 /* NagiosCommands.swift */; };
+		5E246A3D1F49E0350015CA71 /* NagiosHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A361F49E0350015CA71 /* NagiosHTTPClient.swift */; };
+		5E246A3E1F49E0350015CA71 /* NagiosParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A371F49E0350015CA71 /* NagiosParser.swift */; };
+		5E246A3F1F49E0350015CA71 /* NagiosProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A381F49E0350015CA71 /* NagiosProcessor.swift */; };
+		5E246A401F49E0350015CA71 /* NagiosSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A391F49E0350015CA71 /* NagiosSettings.swift */; };
+		5E246A411F49E0350015CA71 /* NagiosURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A3A1F49E0350015CA71 /* NagiosURLProvider.swift */; };
+		5E246A421F49E0350015CA71 /* NagiosXPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A3B1F49E0350015CA71 /* NagiosXPath.swift */; };
+		5E246A441F49E0640015CA71 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A431F49E0640015CA71 /* HTTPClient.swift */; };
+		5E246A461F49E0B60015CA71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A451F49E0B60015CA71 /* AppDelegate.swift */; };
+		5E246A481F49E20D0015CA71 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A471F49E20D0015CA71 /* URLProvider.swift */; };
+		5E246A4A1F49E23C0015CA71 /* CommandInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A491F49E23C0015CA71 /* CommandInterface.swift */; };
+		5E246A4C1F49E2580015CA71 /* XPathInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A4B1F49E2580015CA71 /* XPathInterface.swift */; };
+		5E246A4E1F49E2770015CA71 /* ParserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A4D1F49E2770015CA71 /* ParserInterface.swift */; };
+		5E246A501F49E29D0015CA71 /* Icinga2Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A4F1F49E29D0015CA71 /* Icinga2Parser.swift */; };
+		5E246A531F49E2D90015CA71 /* MonitoringInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A511F49E2D90015CA71 /* MonitoringInstance.swift */; };
+		5E246A541F49E2D90015CA71 /* MonitoringInstances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A521F49E2D90015CA71 /* MonitoringInstances.swift */; };
+		5E246A561F49E2F00015CA71 /* MonitoringInstanceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A551F49E2F00015CA71 /* MonitoringInstanceSettings.swift */; };
+		5E246A581F49E30D0015CA71 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A571F49E30D0015CA71 /* Settings.swift */; };
+		5E246A5A1F49E3450015CA71 /* HostMonitoringItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A591F49E3450015CA71 /* HostMonitoringItem.swift */; };
+		5E246A5C1F49E34D0015CA71 /* ServiceMonitoringItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A5B1F49E34D0015CA71 /* ServiceMonitoringItem.swift */; };
 		5E377AC01F49DC2F00297FC3 /* NagBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E377ABF1F49DC2F00297FC3 /* NagBarTests.swift */; };
+		5E7719631F51B47A0058029E /* Check_MKHostStatus in Resources */ = {isa = PBXBuildFile; fileRef = 5E77194B1F51B47A0058029E /* Check_MKHostStatus */; };
+		5E7719641F51B47A0058029E /* Check_MKServiceStatus in Resources */ = {isa = PBXBuildFile; fileRef = 5E77194C1F51B47A0058029E /* Check_MKServiceStatus */; };
+		5E7719651F51B47A0058029E /* CheckMKParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E77194D1F51B47A0058029E /* CheckMKParserTests.swift */; };
+		5E7719661F51B47A0058029E /* DataProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E77194E1F51B47A0058029E /* DataProcessorTests.swift */; };
+		5E7719671F51B47A0058029E /* DataRefreshActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E77194F1F51B47A0058029E /* DataRefreshActionTests.swift */; };
+		5E7719681F51B47A0058029E /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 5E7719501F51B47A0058029E /* en.lproj */; };
+		5E7719691F51B47A0058029E /* Icinga2HostStatus.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E7719511F51B47A0058029E /* Icinga2HostStatus.json */; };
+		5E77196A1F51B47A0058029E /* Icinga2ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7719521F51B47A0058029E /* Icinga2ParserTests.swift */; };
+		5E77196B1F51B47A0058029E /* Icinga2ServiceStatus.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E7719531F51B47A0058029E /* Icinga2ServiceStatus.json */; };
+		5E77196C1F51B47A0058029E /* IcingaHostStatus.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5E7719541F51B47A0058029E /* IcingaHostStatus.htm */; };
+		5E77196D1F51B47A0058029E /* IcingaParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7719551F51B47A0058029E /* IcingaParserTests.swift */; };
+		5E77196E1F51B47A0058029E /* IcingaServiceStatus.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5E7719561F51B47A0058029E /* IcingaServiceStatus.htm */; };
+		5E77196F1F51B47A0058029E /* MonitoringInstancesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7719571F51B47A0058029E /* MonitoringInstancesTest.swift */; };
+		5E7719701F51B47A0058029E /* NagBarTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E7719591F51B47A0058029E /* NagBarTests-Info.plist */; };
+		5E7719721F51B47A0058029E /* NagiosHostStatus.html in Resources */ = {isa = PBXBuildFile; fileRef = 5E77195C1F51B47A0058029E /* NagiosHostStatus.html */; };
+		5E7719731F51B47A0058029E /* NagiosParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E77195D1F51B47A0058029E /* NagiosParserTests.swift */; };
+		5E7719741F51B47A0058029E /* NagiosServiceStatus.html in Resources */ = {isa = PBXBuildFile; fileRef = 5E77195E1F51B47A0058029E /* NagiosServiceStatus.html */; };
+		5E7719751F51B47A0058029E /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E77195F1F51B47A0058029E /* SettingsTests.swift */; };
+		5E7719761F51B47A0058029E /* ThrukHostStatus in Resources */ = {isa = PBXBuildFile; fileRef = 5E7719601F51B47A0058029E /* ThrukHostStatus */; };
+		5E7719771F51B47A0058029E /* ThrukParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7719611F51B47A0058029E /* ThrukParserTests.swift */; };
+		5E7719781F51B47A0058029E /* ThrukServiceStatus in Resources */ = {isa = PBXBuildFile; fileRef = 5E7719621F51B47A0058029E /* ThrukServiceStatus */; };
+		5E7719791F51B5BA0058029E /* HostMonitoringItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A591F49E3450015CA71 /* HostMonitoringItem.swift */; };
+		5E77197A1F51B5C00058029E /* ServiceMonitoringItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A5B1F49E34D0015CA71 /* ServiceMonitoringItem.swift */; };
+		5E77197B1F51B5CF0058029E /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A431F49E0640015CA71 /* HTTPClient.swift */; };
+		5E77197C1F51B5CF0058029E /* MonitoringProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A131F49DF970015CA71 /* MonitoringProcessor.swift */; };
+		5E77197D1F51B5CF0058029E /* MonitoringProcessorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A141F49DF970015CA71 /* MonitoringProcessorBase.swift */; };
+		5E77197E1F51B5CF0058029E /* CommandInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A491F49E23C0015CA71 /* CommandInterface.swift */; };
+		5E77197F1F51B5CF0058029E /* ParserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A4D1F49E2770015CA71 /* ParserInterface.swift */; };
+		5E7719801F51B5CF0058029E /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A471F49E20D0015CA71 /* URLProvider.swift */; };
+		5E7719811F51B5CF0058029E /* XPathInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A4B1F49E2580015CA71 /* XPathInterface.swift */; };
+		5E7719821F51B5CF0058029E /* MonitoringInstanceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A551F49E2F00015CA71 /* MonitoringInstanceSettings.swift */; };
+		5E7719831F51B5D60058029E /* ThrukParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A211F49DFD00015CA71 /* ThrukParser.swift */; };
+		5E7719841F51B5D60058029E /* ThrukProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A221F49DFD00015CA71 /* ThrukProcessor.swift */; };
+		5E7719851F51B5D60058029E /* ThrukURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A231F49DFD00015CA71 /* ThrukURLProvider.swift */; };
+		5E7719861F51B5DC0058029E /* CheckMKHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A171F49DFBC0015CA71 /* CheckMKHTTPClient.swift */; };
+		5E7719871F51B5DC0058029E /* CheckMKParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A181F49DFBC0015CA71 /* CheckMKParser.swift */; };
+		5E7719881F51B5DC0058029E /* CheckMKProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A191F49DFBC0015CA71 /* CheckMKProcessor.swift */; };
+		5E7719891F51B5DC0058029E /* CheckMKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A1A1F49DFBC0015CA71 /* CheckMKSettings.swift */; };
+		5E77198A1F51B5DC0058029E /* CheckMKURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A1B1F49DFBC0015CA71 /* CheckMKURLProvider.swift */; };
+		5E77198B1F51B5E20058029E /* Icinga2Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A271F49DFE40015CA71 /* Icinga2Commands.swift */; };
+		5E77198C1F51B5E20058029E /* Icinga2HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A281F49DFE40015CA71 /* Icinga2HTTPClient.swift */; };
+		5E77198D1F51B5E20058029E /* Icinga2Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A4F1F49E29D0015CA71 /* Icinga2Parser.swift */; };
+		5E77198E1F51B5E20058029E /* Icinga2Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A291F49DFE40015CA71 /* Icinga2Processor.swift */; };
+		5E77198F1F51B5E20058029E /* Icinga2Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A2A1F49DFE40015CA71 /* Icinga2Settings.swift */; };
+		5E7719901F51B5E20058029E /* Icinga2URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05201F49EE2000F90135 /* Icinga2URLProvider.swift */; };
+		5E7719911F51B5ED0058029E /* IcingaParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A2F1F49E0140015CA71 /* IcingaParser.swift */; };
+		5E7719921F51B5ED0058029E /* IcingaProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A301F49E0140015CA71 /* IcingaProcessor.swift */; };
+		5E7719931F51B5ED0058029E /* IcingaXPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A311F49E0140015CA71 /* IcingaXPath.swift */; };
+		5E7719941F51B5F30058029E /* NagiosCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A351F49E0350015CA71 /* NagiosCommands.swift */; };
+		5E7719951F51B5F30058029E /* NagiosHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A361F49E0350015CA71 /* NagiosHTTPClient.swift */; };
+		5E7719961F51B5F30058029E /* NagiosParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A371F49E0350015CA71 /* NagiosParser.swift */; };
+		5E7719971F51B5F30058029E /* NagiosProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A381F49E0350015CA71 /* NagiosProcessor.swift */; };
+		5E7719981F51B5F30058029E /* NagiosSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A391F49E0350015CA71 /* NagiosSettings.swift */; };
+		5E7719991F51B5F30058029E /* NagiosURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A3A1F49E0350015CA71 /* NagiosURLProvider.swift */; };
+		5E77199A1F51B5F30058029E /* NagiosXPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A3B1F49E0350015CA71 /* NagiosXPath.swift */; };
+		5E9494C11F51BB0C0027FE0E /* MonitoringInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A511F49E2D90015CA71 /* MonitoringInstance.swift */; };
+		5E9494C21F51BB290027FE0E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A571F49E30D0015CA71 /* Settings.swift */; };
+		5E9494C31F51F9290027FE0E /* MonitoringItemSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B051C1F49ED1D00F90135 /* MonitoringItemSorter.swift */; };
+		5E9494C41F51F9620027FE0E /* DataRefreshAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05031F49EAED00F90135 /* DataRefreshAction.swift */; };
+		5E9494C71F51F9D00027FE0E /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9494C61F51F9D00027FE0E /* ConnectionManager.swift */; };
+		5E9494C81F51F9EC0027FE0E /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9494C61F51F9D00027FE0E /* ConnectionManager.swift */; };
+		5E9494C91F51FA770027FE0E /* DataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05371F49F0EF00F90135 /* DataProcessor.swift */; };
+		5E9494CA1F51FAA00027FE0E /* MonitoringInstances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A521F49E2D90015CA71 /* MonitoringInstances.swift */; };
+		5E9494CB1F51FAE00027FE0E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B051E1F49EE0600F90135 /* UserDefaults.swift */; };
+		5E9494CC1F51FAFD0027FE0E /* SSKeychainMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05351F49F0A500F90135 /* SSKeychainMock.swift */; };
+		5E9494CD1F51FB280027FE0E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBBEC8E1F49FFC800A00BCC /* Utilities.swift */; };
+		5E9494CE1F51FB470027FE0E /* FilterItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B052A1F49EF3A00F90135 /* FilterItems.swift */; };
+		5E9494CF1F51FB580027FE0E /* FilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05291F49EF3A00F90135 /* FilterItem.swift */; };
+		5E9B04EF1F49E98800F90135 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B04EE1F49E98800F90135 /* StatusBar.swift */; };
+		5E9B04F31F49E99600F90135 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B04F01F49E99600F90135 /* StatusItemView.swift */; };
+		5E9B04F41F49E99600F90135 /* StatusPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B04F11F49E99600F90135 /* StatusPanel.swift */; };
+		5E9B04F51F49E99600F90135 /* StatusPanelTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B04F21F49E99600F90135 /* StatusPanelTable.swift */; };
+		5E9B04F71F49E9A300F90135 /* StatusPanelTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B04F61F49E9A200F90135 /* StatusPanelTableDelegate.swift */; };
+		5E9B04F91F49E9F800F90135 /* StatusPanelTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B04F81F49E9F800F90135 /* StatusPanelTableViewDatasource.swift */; };
+		5E9B04FC1F49EA4E00F90135 /* MenuAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B04FB1F49EA4E00F90135 /* MenuAction.swift */; };
+		5E9B04FE1F49EA5A00F90135 /* InitConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B04FD1F49EA5A00F90135 /* InitConfig.swift */; };
+		5E9B05001F49EA6800F90135 /* ServerLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B04FF1F49EA6800F90135 /* ServerLogin.swift */; };
+		5E9B05021F49EAD000F90135 /* LoadMonitoringData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05011F49EAD000F90135 /* LoadMonitoringData.swift */; };
+		5E9B05041F49EAED00F90135 /* DataRefreshAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05031F49EAED00F90135 /* DataRefreshAction.swift */; };
+		5E9B05081F49EB2400F90135 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05061F49EB2400F90135 /* PreferencesWindowController.swift */; };
+		5E9B05091F49EB2400F90135 /* PreferencesWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05071F49EB2400F90135 /* PreferencesWindowDelegate.swift */; };
+		5E9B050C1F49EB6D00F90135 /* PasswordPromptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B050B1F49EB6D00F90135 /* PasswordPromptController.swift */; };
+		5E9B050E1F49EBC200F90135 /* OpenInBrowserAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B050D1F49EBC200F90135 /* OpenInBrowserAction.swift */; };
+		5E9B05111F49EC3800F90135 /* AcknowledgeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05101F49EC3800F90135 /* AcknowledgeWindow.swift */; };
+		5E9B05131F49EC3D00F90135 /* AcknowledgeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B05121F49EC3D00F90135 /* AcknowledgeWindow.xib */; };
+		5E9B05171F49EC6100F90135 /* ScheduleDowntimeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05151F49EC6100F90135 /* ScheduleDowntimeWindow.swift */; };
+		5E9B05181F49EC6100F90135 /* ScheduleDowntimeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B05161F49EC6100F90135 /* ScheduleDowntimeWindow.xib */; };
+		5E9B051B1F49ECD300F90135 /* MonitoringInstancesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B051A1F49ECD300F90135 /* MonitoringInstancesWindowController.swift */; };
+		5E9B051D1F49ED1D00F90135 /* MonitoringItemSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B051C1F49ED1D00F90135 /* MonitoringItemSorter.swift */; };
+		5E9B051F1F49EE0600F90135 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B051E1F49EE0600F90135 /* UserDefaults.swift */; };
+		5E9B05211F49EE2000F90135 /* Icinga2URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05201F49EE2000F90135 /* Icinga2URLProvider.swift */; };
+		5E9B05231F49EE4500F90135 /* CheckNewVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05221F49EE4500F90135 /* CheckNewVersion.swift */; };
+		5E9B05251F49EEC800F90135 /* NagBarAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05241F49EEC800F90135 /* NagBarAlert.swift */; };
+		5E9B05271F49EEF200F90135 /* AnimateStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05261F49EEF200F90135 /* AnimateStatusBar.swift */; };
+		5E9B052F1F49EF3A00F90135 /* FilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05291F49EF3A00F90135 /* FilterItem.swift */; };
+		5E9B05301F49EF3A00F90135 /* FilterItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B052A1F49EF3A00F90135 /* FilterItems.swift */; };
+		5E9B05311F49EF3A00F90135 /* FilterItemWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B052B1F49EF3A00F90135 /* FilterItemWindowController.swift */; };
+		5E9B05321F49EF3A00F90135 /* FilterOptionsTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B052C1F49EF3A00F90135 /* FilterOptionsTabController.swift */; };
+		5E9B05331F49EF3A00F90135 /* FilterTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B052D1F49EF3A00F90135 /* FilterTableViewDatasource.swift */; };
+		5E9B05341F49EF3A00F90135 /* FilterTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B052E1F49EF3A00F90135 /* FilterTableViewDelegate.swift */; };
+		5E9B05361F49F0A500F90135 /* SSKeychainMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05351F49F0A500F90135 /* SSKeychainMock.swift */; };
+		5E9B05381F49F0EF00F90135 /* DataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05371F49F0EF00F90135 /* DataProcessor.swift */; };
+		5E9B053A1F49F30200F90135 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B05391F49F30200F90135 /* Images.xcassets */; };
+		5E9B053C1F49F38400F90135 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B053B1F49F38400F90135 /* PreferencesWindow.xib */; };
+		5E9B053E1F49F38E00F90135 /* PasswordPrompt.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B053D1F49F38E00F90135 /* PasswordPrompt.xib */; };
+		5E9B05401F49F39C00F90135 /* MonitoringInstancesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B053F1F49F39C00F90135 /* MonitoringInstancesWindow.xib */; };
+		5E9B05421F49F3A500F90135 /* FilterItemWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B05411F49F3A500F90135 /* FilterItemWindow.xib */; };
+		5E9B05441F49F3AE00F90135 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B05431F49F3AE00F90135 /* MainMenu.xib */; };
+		5E9B05461F49F4A200F90135 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B05451F49F4A200F90135 /* en.lproj */; };
+		5E9B05481F49F50500F90135 /* InterfaceAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05471F49F50500F90135 /* InterfaceAction.swift */; };
+		5E9B054A1F49F57500F90135 /* MonitoringInstancesTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B05491F49F57500F90135 /* MonitoringInstancesTabController.swift */; };
+		5E9B054C1F49F5B300F90135 /* AudibleAlarmsTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B054B1F49F5B300F90135 /* AudibleAlarmsTabController.swift */; };
+		5E9B054E1F49F5C000F90135 /* CommandsTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B054D1F49F5C000F90135 /* CommandsTabController.swift */; };
+		5EBBEC891F49FE6100A00BCC /* MonitoringInstancesTableDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBBEC871F49FE6100A00BCC /* MonitoringInstancesTableDatasource.swift */; };
+		5EBBEC8A1F49FE6100A00BCC /* MonitoringInstancesTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBBEC881F49FE6100A00BCC /* MonitoringInstancesTableDelegate.swift */; };
+		5EBBEC8F1F49FFC800A00BCC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBBEC8E1F49FFC800A00BCC /* Utilities.swift */; };
+		A58252157F5E656E2FC0C20E /* Pods_NagBarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8F0B7B38E47939EC971102 /* Pods_NagBarTests.framework */; };
+		CE479A9260F8E1AA7889BCF4 /* Pods_NagBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4015641E90EADF4655643AEA /* Pods_NagBar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,14 +176,124 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A8F0B7B38E47939EC971102 /* Pods_NagBarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NagBarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4015641E90EADF4655643AEA /* Pods_NagBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NagBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E246A131F49DF970015CA71 /* MonitoringProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringProcessor.swift; sourceTree = "<group>"; };
+		5E246A141F49DF970015CA71 /* MonitoringProcessorBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringProcessorBase.swift; sourceTree = "<group>"; };
+		5E246A171F49DFBC0015CA71 /* CheckMKHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMKHTTPClient.swift; sourceTree = "<group>"; };
+		5E246A181F49DFBC0015CA71 /* CheckMKParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMKParser.swift; sourceTree = "<group>"; };
+		5E246A191F49DFBC0015CA71 /* CheckMKProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMKProcessor.swift; sourceTree = "<group>"; };
+		5E246A1A1F49DFBC0015CA71 /* CheckMKSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMKSettings.swift; sourceTree = "<group>"; };
+		5E246A1B1F49DFBC0015CA71 /* CheckMKURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMKURLProvider.swift; sourceTree = "<group>"; };
+		5E246A211F49DFD00015CA71 /* ThrukParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrukParser.swift; sourceTree = "<group>"; };
+		5E246A221F49DFD00015CA71 /* ThrukProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrukProcessor.swift; sourceTree = "<group>"; };
+		5E246A231F49DFD00015CA71 /* ThrukURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrukURLProvider.swift; sourceTree = "<group>"; };
+		5E246A271F49DFE40015CA71 /* Icinga2Commands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icinga2Commands.swift; sourceTree = "<group>"; };
+		5E246A281F49DFE40015CA71 /* Icinga2HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icinga2HTTPClient.swift; sourceTree = "<group>"; };
+		5E246A291F49DFE40015CA71 /* Icinga2Processor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icinga2Processor.swift; sourceTree = "<group>"; };
+		5E246A2A1F49DFE40015CA71 /* Icinga2Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icinga2Settings.swift; sourceTree = "<group>"; };
+		5E246A2F1F49E0140015CA71 /* IcingaParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcingaParser.swift; sourceTree = "<group>"; };
+		5E246A301F49E0140015CA71 /* IcingaProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcingaProcessor.swift; sourceTree = "<group>"; };
+		5E246A311F49E0140015CA71 /* IcingaXPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcingaXPath.swift; sourceTree = "<group>"; };
+		5E246A351F49E0350015CA71 /* NagiosCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NagiosCommands.swift; sourceTree = "<group>"; };
+		5E246A361F49E0350015CA71 /* NagiosHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NagiosHTTPClient.swift; sourceTree = "<group>"; };
+		5E246A371F49E0350015CA71 /* NagiosParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NagiosParser.swift; sourceTree = "<group>"; };
+		5E246A381F49E0350015CA71 /* NagiosProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NagiosProcessor.swift; sourceTree = "<group>"; };
+		5E246A391F49E0350015CA71 /* NagiosSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NagiosSettings.swift; sourceTree = "<group>"; };
+		5E246A3A1F49E0350015CA71 /* NagiosURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NagiosURLProvider.swift; sourceTree = "<group>"; };
+		5E246A3B1F49E0350015CA71 /* NagiosXPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NagiosXPath.swift; sourceTree = "<group>"; };
+		5E246A431F49E0640015CA71 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		5E246A451F49E0B60015CA71 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5E246A471F49E20D0015CA71 /* URLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
+		5E246A491F49E23C0015CA71 /* CommandInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandInterface.swift; sourceTree = "<group>"; };
+		5E246A4B1F49E2580015CA71 /* XPathInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPathInterface.swift; sourceTree = "<group>"; };
+		5E246A4D1F49E2770015CA71 /* ParserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserInterface.swift; sourceTree = "<group>"; };
+		5E246A4F1F49E29D0015CA71 /* Icinga2Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icinga2Parser.swift; sourceTree = "<group>"; };
+		5E246A511F49E2D90015CA71 /* MonitoringInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringInstance.swift; sourceTree = "<group>"; };
+		5E246A521F49E2D90015CA71 /* MonitoringInstances.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringInstances.swift; sourceTree = "<group>"; };
+		5E246A551F49E2F00015CA71 /* MonitoringInstanceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringInstanceSettings.swift; sourceTree = "<group>"; };
+		5E246A571F49E30D0015CA71 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		5E246A591F49E3450015CA71 /* HostMonitoringItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostMonitoringItem.swift; sourceTree = "<group>"; };
+		5E246A5B1F49E34D0015CA71 /* ServiceMonitoringItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceMonitoringItem.swift; sourceTree = "<group>"; };
 		5E377AAC1F49DC2F00297FC3 /* NagBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NagBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E377AAF1F49DC2F00297FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5E377AB11F49DC2F00297FC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5E377AB41F49DC2F00297FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5E377AB61F49DC2F00297FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E377ABB1F49DC2F00297FC3 /* NagBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NagBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E377ABF1F49DC2F00297FC3 /* NagBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NagBarTests.swift; sourceTree = "<group>"; };
 		5E377AC11F49DC2F00297FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E77194B1F51B47A0058029E /* Check_MKHostStatus */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Check_MKHostStatus; sourceTree = "<group>"; };
+		5E77194C1F51B47A0058029E /* Check_MKServiceStatus */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Check_MKServiceStatus; sourceTree = "<group>"; };
+		5E77194D1F51B47A0058029E /* CheckMKParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMKParserTests.swift; sourceTree = "<group>"; };
+		5E77194E1F51B47A0058029E /* DataProcessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProcessorTests.swift; sourceTree = "<group>"; };
+		5E77194F1F51B47A0058029E /* DataRefreshActionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRefreshActionTests.swift; sourceTree = "<group>"; };
+		5E7719501F51B47A0058029E /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
+		5E7719511F51B47A0058029E /* Icinga2HostStatus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Icinga2HostStatus.json; sourceTree = "<group>"; };
+		5E7719521F51B47A0058029E /* Icinga2ParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icinga2ParserTests.swift; sourceTree = "<group>"; };
+		5E7719531F51B47A0058029E /* Icinga2ServiceStatus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Icinga2ServiceStatus.json; sourceTree = "<group>"; };
+		5E7719541F51B47A0058029E /* IcingaHostStatus.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = IcingaHostStatus.htm; sourceTree = "<group>"; };
+		5E7719551F51B47A0058029E /* IcingaParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcingaParserTests.swift; sourceTree = "<group>"; };
+		5E7719561F51B47A0058029E /* IcingaServiceStatus.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = IcingaServiceStatus.htm; sourceTree = "<group>"; };
+		5E7719571F51B47A0058029E /* MonitoringInstancesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringInstancesTest.swift; sourceTree = "<group>"; };
+		5E7719591F51B47A0058029E /* NagBarTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NagBarTests-Info.plist"; sourceTree = "<group>"; };
+		5E77195C1F51B47A0058029E /* NagiosHostStatus.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = NagiosHostStatus.html; sourceTree = "<group>"; };
+		5E77195D1F51B47A0058029E /* NagiosParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NagiosParserTests.swift; sourceTree = "<group>"; };
+		5E77195E1F51B47A0058029E /* NagiosServiceStatus.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = NagiosServiceStatus.html; sourceTree = "<group>"; };
+		5E77195F1F51B47A0058029E /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		5E7719601F51B47A0058029E /* ThrukHostStatus */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ThrukHostStatus; sourceTree = "<group>"; };
+		5E7719611F51B47A0058029E /* ThrukParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrukParserTests.swift; sourceTree = "<group>"; };
+		5E7719621F51B47A0058029E /* ThrukServiceStatus */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ThrukServiceStatus; sourceTree = "<group>"; };
+		5E9494C61F51F9D00027FE0E /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		5E9B04EE1F49E98800F90135 /* StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
+		5E9B04F01F49E99600F90135 /* StatusItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
+		5E9B04F11F49E99600F90135 /* StatusPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPanel.swift; sourceTree = "<group>"; };
+		5E9B04F21F49E99600F90135 /* StatusPanelTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPanelTable.swift; sourceTree = "<group>"; };
+		5E9B04F61F49E9A200F90135 /* StatusPanelTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPanelTableDelegate.swift; sourceTree = "<group>"; };
+		5E9B04F81F49E9F800F90135 /* StatusPanelTableViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPanelTableViewDatasource.swift; sourceTree = "<group>"; };
+		5E9B04FB1F49EA4E00F90135 /* MenuAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuAction.swift; sourceTree = "<group>"; };
+		5E9B04FD1F49EA5A00F90135 /* InitConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitConfig.swift; sourceTree = "<group>"; };
+		5E9B04FF1F49EA6800F90135 /* ServerLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerLogin.swift; sourceTree = "<group>"; };
+		5E9B05011F49EAD000F90135 /* LoadMonitoringData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMonitoringData.swift; sourceTree = "<group>"; };
+		5E9B05031F49EAED00F90135 /* DataRefreshAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRefreshAction.swift; sourceTree = "<group>"; };
+		5E9B05061F49EB2400F90135 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		5E9B05071F49EB2400F90135 /* PreferencesWindowDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowDelegate.swift; sourceTree = "<group>"; };
+		5E9B050B1F49EB6D00F90135 /* PasswordPromptController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordPromptController.swift; sourceTree = "<group>"; };
+		5E9B050D1F49EBC200F90135 /* OpenInBrowserAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenInBrowserAction.swift; sourceTree = "<group>"; };
+		5E9B05101F49EC3800F90135 /* AcknowledgeWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgeWindow.swift; sourceTree = "<group>"; };
+		5E9B05121F49EC3D00F90135 /* AcknowledgeWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AcknowledgeWindow.xib; sourceTree = "<group>"; };
+		5E9B05151F49EC6100F90135 /* ScheduleDowntimeWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDowntimeWindow.swift; sourceTree = "<group>"; };
+		5E9B05161F49EC6100F90135 /* ScheduleDowntimeWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleDowntimeWindow.xib; sourceTree = "<group>"; };
+		5E9B051A1F49ECD300F90135 /* MonitoringInstancesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringInstancesWindowController.swift; sourceTree = "<group>"; };
+		5E9B051C1F49ED1D00F90135 /* MonitoringItemSorter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringItemSorter.swift; sourceTree = "<group>"; };
+		5E9B051E1F49EE0600F90135 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		5E9B05201F49EE2000F90135 /* Icinga2URLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icinga2URLProvider.swift; sourceTree = "<group>"; };
+		5E9B05221F49EE4500F90135 /* CheckNewVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckNewVersion.swift; sourceTree = "<group>"; };
+		5E9B05241F49EEC800F90135 /* NagBarAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NagBarAlert.swift; sourceTree = "<group>"; };
+		5E9B05261F49EEF200F90135 /* AnimateStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimateStatusBar.swift; sourceTree = "<group>"; };
+		5E9B05291F49EF3A00F90135 /* FilterItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterItem.swift; sourceTree = "<group>"; };
+		5E9B052A1F49EF3A00F90135 /* FilterItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterItems.swift; sourceTree = "<group>"; };
+		5E9B052B1F49EF3A00F90135 /* FilterItemWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterItemWindowController.swift; sourceTree = "<group>"; };
+		5E9B052C1F49EF3A00F90135 /* FilterOptionsTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterOptionsTabController.swift; sourceTree = "<group>"; };
+		5E9B052D1F49EF3A00F90135 /* FilterTableViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewDatasource.swift; sourceTree = "<group>"; };
+		5E9B052E1F49EF3A00F90135 /* FilterTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewDelegate.swift; sourceTree = "<group>"; };
+		5E9B05351F49F0A500F90135 /* SSKeychainMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSKeychainMock.swift; sourceTree = "<group>"; };
+		5E9B05371F49F0EF00F90135 /* DataProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProcessor.swift; sourceTree = "<group>"; };
+		5E9B05391F49F30200F90135 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5E9B053B1F49F38400F90135 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
+		5E9B053D1F49F38E00F90135 /* PasswordPrompt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordPrompt.xib; sourceTree = "<group>"; };
+		5E9B053F1F49F39C00F90135 /* MonitoringInstancesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonitoringInstancesWindow.xib; sourceTree = "<group>"; };
+		5E9B05411F49F3A500F90135 /* FilterItemWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterItemWindow.xib; sourceTree = "<group>"; };
+		5E9B05431F49F3AE00F90135 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		5E9B05451F49F4A200F90135 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
+		5E9B05471F49F50500F90135 /* InterfaceAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceAction.swift; sourceTree = "<group>"; };
+		5E9B05491F49F57500F90135 /* MonitoringInstancesTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringInstancesTabController.swift; sourceTree = "<group>"; };
+		5E9B054B1F49F5B300F90135 /* AudibleAlarmsTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudibleAlarmsTabController.swift; sourceTree = "<group>"; };
+		5E9B054D1F49F5C000F90135 /* CommandsTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandsTabController.swift; sourceTree = "<group>"; };
+		5EBBEC871F49FE6100A00BCC /* MonitoringInstancesTableDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringInstancesTableDatasource.swift; sourceTree = "<group>"; };
+		5EBBEC881F49FE6100A00BCC /* MonitoringInstancesTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringInstancesTableDelegate.swift; sourceTree = "<group>"; };
+		5EBBEC8E1F49FFC800A00BCC /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		ACB674A552D0E8D668BFEA86 /* Pods-NagBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NagBar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NagBar/Pods-NagBar.debug.xcconfig"; sourceTree = "<group>"; };
+		C90C550D5E31875A34693EB3 /* Pods-NagBarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NagBarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NagBarTests/Pods-NagBarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E061762CA8A03EB1C99BF1A7 /* Pods-NagBarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NagBarTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NagBarTests/Pods-NagBarTests.release.xcconfig"; sourceTree = "<group>"; };
+		EA9C85A435334B0076543F46 /* Pods-NagBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NagBar.release.xcconfig"; path = "Pods/Target Support Files/Pods-NagBar/Pods-NagBar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +301,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE479A9260F8E1AA7889BCF4 /* Pods_NagBar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,18 +309,119 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58252157F5E656E2FC0C20E /* Pods_NagBarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E033B591F52BC950095FB31 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E77194B1F51B47A0058029E /* Check_MKHostStatus */,
+				5E77194C1F51B47A0058029E /* Check_MKServiceStatus */,
+				5E7719511F51B47A0058029E /* Icinga2HostStatus.json */,
+				5E7719531F51B47A0058029E /* Icinga2ServiceStatus.json */,
+				5E7719541F51B47A0058029E /* IcingaHostStatus.htm */,
+				5E7719561F51B47A0058029E /* IcingaServiceStatus.htm */,
+				5E7719591F51B47A0058029E /* NagBarTests-Info.plist */,
+				5E77195C1F51B47A0058029E /* NagiosHostStatus.html */,
+				5E77195E1F51B47A0058029E /* NagiosServiceStatus.html */,
+				5E7719601F51B47A0058029E /* ThrukHostStatus */,
+				5E7719621F51B47A0058029E /* ThrukServiceStatus */,
+				5E377AC11F49DC2F00297FC3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5E246A0D1F49DF440015CA71 /* MonitoringProcessors */ = {
+			isa = PBXGroup;
+			children = (
+				5E246A431F49E0640015CA71 /* HTTPClient.swift */,
+				5E246A131F49DF970015CA71 /* MonitoringProcessor.swift */,
+				5E246A141F49DF970015CA71 /* MonitoringProcessorBase.swift */,
+				5E246A491F49E23C0015CA71 /* CommandInterface.swift */,
+				5E246A4D1F49E2770015CA71 /* ParserInterface.swift */,
+				5E246A471F49E20D0015CA71 /* URLProvider.swift */,
+				5E246A4B1F49E2580015CA71 /* XPathInterface.swift */,
+				5E246A551F49E2F00015CA71 /* MonitoringInstanceSettings.swift */,
+				5E246A121F49DF700015CA71 /* Thruk */,
+				5E246A111F49DF6B0015CA71 /* CheckMK */,
+				5E246A101F49DF660015CA71 /* Icinga2 */,
+				5E246A0F1F49DF600015CA71 /* Icinga */,
+				5E246A0E1F49DF570015CA71 /* Nagios */,
+			);
+			name = MonitoringProcessors;
+			sourceTree = "<group>";
+		};
+		5E246A0E1F49DF570015CA71 /* Nagios */ = {
+			isa = PBXGroup;
+			children = (
+				5E246A351F49E0350015CA71 /* NagiosCommands.swift */,
+				5E246A361F49E0350015CA71 /* NagiosHTTPClient.swift */,
+				5E246A371F49E0350015CA71 /* NagiosParser.swift */,
+				5E246A381F49E0350015CA71 /* NagiosProcessor.swift */,
+				5E246A391F49E0350015CA71 /* NagiosSettings.swift */,
+				5E246A3A1F49E0350015CA71 /* NagiosURLProvider.swift */,
+				5E246A3B1F49E0350015CA71 /* NagiosXPath.swift */,
+			);
+			name = Nagios;
+			sourceTree = "<group>";
+		};
+		5E246A0F1F49DF600015CA71 /* Icinga */ = {
+			isa = PBXGroup;
+			children = (
+				5E246A2F1F49E0140015CA71 /* IcingaParser.swift */,
+				5E246A301F49E0140015CA71 /* IcingaProcessor.swift */,
+				5E246A311F49E0140015CA71 /* IcingaXPath.swift */,
+			);
+			name = Icinga;
+			sourceTree = "<group>";
+		};
+		5E246A101F49DF660015CA71 /* Icinga2 */ = {
+			isa = PBXGroup;
+			children = (
+				5E246A271F49DFE40015CA71 /* Icinga2Commands.swift */,
+				5E246A281F49DFE40015CA71 /* Icinga2HTTPClient.swift */,
+				5E246A4F1F49E29D0015CA71 /* Icinga2Parser.swift */,
+				5E246A291F49DFE40015CA71 /* Icinga2Processor.swift */,
+				5E246A2A1F49DFE40015CA71 /* Icinga2Settings.swift */,
+				5E9B05201F49EE2000F90135 /* Icinga2URLProvider.swift */,
+			);
+			name = Icinga2;
+			sourceTree = "<group>";
+		};
+		5E246A111F49DF6B0015CA71 /* CheckMK */ = {
+			isa = PBXGroup;
+			children = (
+				5E246A171F49DFBC0015CA71 /* CheckMKHTTPClient.swift */,
+				5E246A181F49DFBC0015CA71 /* CheckMKParser.swift */,
+				5E246A191F49DFBC0015CA71 /* CheckMKProcessor.swift */,
+				5E246A1A1F49DFBC0015CA71 /* CheckMKSettings.swift */,
+				5E246A1B1F49DFBC0015CA71 /* CheckMKURLProvider.swift */,
+			);
+			name = CheckMK;
+			sourceTree = "<group>";
+		};
+		5E246A121F49DF700015CA71 /* Thruk */ = {
+			isa = PBXGroup;
+			children = (
+				5E246A211F49DFD00015CA71 /* ThrukParser.swift */,
+				5E246A221F49DFD00015CA71 /* ThrukProcessor.swift */,
+				5E246A231F49DFD00015CA71 /* ThrukURLProvider.swift */,
+			);
+			name = Thruk;
+			sourceTree = "<group>";
+		};
 		5E377AA31F49DC2E00297FC3 = {
 			isa = PBXGroup;
 			children = (
 				5E377AAE1F49DC2F00297FC3 /* NagBar */,
 				5E377ABE1F49DC2F00297FC3 /* NagBarTests */,
 				5E377AAD1F49DC2F00297FC3 /* Products */,
+				C2BC29F054636E7AA6F307BD /* Pods */,
+				E167E23ECE5CA52828F84E4A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,10 +437,33 @@
 		5E377AAE1F49DC2F00297FC3 /* NagBar */ = {
 			isa = PBXGroup;
 			children = (
-				5E377AAF1F49DC2F00297FC3 /* AppDelegate.swift */,
-				5E377AB11F49DC2F00297FC3 /* Assets.xcassets */,
-				5E377AB31F49DC2F00297FC3 /* MainMenu.xib */,
+				5E9B050A1F49EB5800F90135 /* PasswordPrompt */,
+				5E9B05051F49EAFD00F90135 /* Preferences */,
+				5E246A0D1F49DF440015CA71 /* MonitoringProcessors */,
+				5E246A451F49E0B60015CA71 /* AppDelegate.swift */,
+				5E9B05391F49F30200F90135 /* Images.xcassets */,
+				5E9B05451F49F4A200F90135 /* en.lproj */,
+				5E9B04FD1F49EA5A00F90135 /* InitConfig.swift */,
+				5E9B05011F49EAD000F90135 /* LoadMonitoringData.swift */,
+				5E246A511F49E2D90015CA71 /* MonitoringInstance.swift */,
+				5E246A521F49E2D90015CA71 /* MonitoringInstances.swift */,
+				5E246A571F49E30D0015CA71 /* Settings.swift */,
+				5E246A591F49E3450015CA71 /* HostMonitoringItem.swift */,
+				5E246A5B1F49E34D0015CA71 /* ServiceMonitoringItem.swift */,
+				5E9B05371F49F0EF00F90135 /* DataProcessor.swift */,
+				5EBBEC8E1F49FFC800A00BCC /* Utilities.swift */,
+				5E77194A1F51B1450058029E /* StatusBar */,
+				5E7719491F51AF7B0058029E /* StatusPanel */,
+				5E9B053D1F49F38E00F90135 /* PasswordPrompt.xib */,
+				5E9B051C1F49ED1D00F90135 /* MonitoringItemSorter.swift */,
+				5E9B05031F49EAED00F90135 /* DataRefreshAction.swift */,
+				5E9B051E1F49EE0600F90135 /* UserDefaults.swift */,
+				5E9B05221F49EE4500F90135 /* CheckNewVersion.swift */,
+				5E9B05351F49F0A500F90135 /* SSKeychainMock.swift */,
+				5E9B05241F49EEC800F90135 /* NagBarAlert.swift */,
+				5E9B05431F49F3AE00F90135 /* MainMenu.xib */,
 				5E377AB61F49DC2F00297FC3 /* Info.plist */,
+				5E9494C61F51F9D00027FE0E /* ConnectionManager.swift */,
 			);
 			path = NagBar;
 			sourceTree = "<group>";
@@ -84,10 +471,149 @@
 		5E377ABE1F49DC2F00297FC3 /* NagBarTests */ = {
 			isa = PBXGroup;
 			children = (
+				5E033B591F52BC950095FB31 /* Supporting Files */,
+				5E77194D1F51B47A0058029E /* CheckMKParserTests.swift */,
+				5E77194E1F51B47A0058029E /* DataProcessorTests.swift */,
+				5E77194F1F51B47A0058029E /* DataRefreshActionTests.swift */,
+				5E7719501F51B47A0058029E /* en.lproj */,
+				5E7719521F51B47A0058029E /* Icinga2ParserTests.swift */,
+				5E7719551F51B47A0058029E /* IcingaParserTests.swift */,
+				5E7719571F51B47A0058029E /* MonitoringInstancesTest.swift */,
+				5E77195D1F51B47A0058029E /* NagiosParserTests.swift */,
+				5E77195F1F51B47A0058029E /* SettingsTests.swift */,
+				5E7719611F51B47A0058029E /* ThrukParserTests.swift */,
 				5E377ABF1F49DC2F00297FC3 /* NagBarTests.swift */,
-				5E377AC11F49DC2F00297FC3 /* Info.plist */,
 			);
 			path = NagBarTests;
+			sourceTree = "<group>";
+		};
+		5E7719491F51AF7B0058029E /* StatusPanel */ = {
+			isa = PBXGroup;
+			children = (
+				5E9B04FA1F49EA4100F90135 /* MenuActions */,
+				5E9B04F11F49E99600F90135 /* StatusPanel.swift */,
+				5E9B04F21F49E99600F90135 /* StatusPanelTable.swift */,
+				5E9B04F61F49E9A200F90135 /* StatusPanelTableDelegate.swift */,
+				5E9B04F81F49E9F800F90135 /* StatusPanelTableViewDatasource.swift */,
+			);
+			name = StatusPanel;
+			sourceTree = "<group>";
+		};
+		5E77194A1F51B1450058029E /* StatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				5E9B04EE1F49E98800F90135 /* StatusBar.swift */,
+				5E9B04F01F49E99600F90135 /* StatusItemView.swift */,
+				5E9B05261F49EEF200F90135 /* AnimateStatusBar.swift */,
+			);
+			name = StatusBar;
+			sourceTree = "<group>";
+		};
+		5E9B04FA1F49EA4100F90135 /* MenuActions */ = {
+			isa = PBXGroup;
+			children = (
+				5E9B05141F49EC5200F90135 /* ScheduleDowntimeWindow */,
+				5E9B050F1F49EC2500F90135 /* AcknowledgeWindow */,
+				5E9B04FF1F49EA6800F90135 /* ServerLogin.swift */,
+				5E9B050D1F49EBC200F90135 /* OpenInBrowserAction.swift */,
+				5E9B04FB1F49EA4E00F90135 /* MenuAction.swift */,
+			);
+			name = MenuActions;
+			sourceTree = "<group>";
+		};
+		5E9B05051F49EAFD00F90135 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				5EBBEC8B1F49FEBC00A00BCC /* PreferencesWindow */,
+				5E9B05281F49EF2A00F90135 /* FilterWindow */,
+				5E9B05191F49ECC400F90135 /* MonitoringInstancesWindow */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		5E9B050A1F49EB5800F90135 /* PasswordPrompt */ = {
+			isa = PBXGroup;
+			children = (
+				5E9B050B1F49EB6D00F90135 /* PasswordPromptController.swift */,
+			);
+			name = PasswordPrompt;
+			sourceTree = "<group>";
+		};
+		5E9B050F1F49EC2500F90135 /* AcknowledgeWindow */ = {
+			isa = PBXGroup;
+			children = (
+				5E9B05121F49EC3D00F90135 /* AcknowledgeWindow.xib */,
+				5E9B05101F49EC3800F90135 /* AcknowledgeWindow.swift */,
+			);
+			name = AcknowledgeWindow;
+			sourceTree = "<group>";
+		};
+		5E9B05141F49EC5200F90135 /* ScheduleDowntimeWindow */ = {
+			isa = PBXGroup;
+			children = (
+				5E9B05151F49EC6100F90135 /* ScheduleDowntimeWindow.swift */,
+				5E9B05161F49EC6100F90135 /* ScheduleDowntimeWindow.xib */,
+			);
+			name = ScheduleDowntimeWindow;
+			sourceTree = "<group>";
+		};
+		5E9B05191F49ECC400F90135 /* MonitoringInstancesWindow */ = {
+			isa = PBXGroup;
+			children = (
+				5E9B051A1F49ECD300F90135 /* MonitoringInstancesWindowController.swift */,
+				5EBBEC871F49FE6100A00BCC /* MonitoringInstancesTableDatasource.swift */,
+				5EBBEC881F49FE6100A00BCC /* MonitoringInstancesTableDelegate.swift */,
+				5E9B053F1F49F39C00F90135 /* MonitoringInstancesWindow.xib */,
+			);
+			name = MonitoringInstancesWindow;
+			sourceTree = "<group>";
+		};
+		5E9B05281F49EF2A00F90135 /* FilterWindow */ = {
+			isa = PBXGroup;
+			children = (
+				5E9B05291F49EF3A00F90135 /* FilterItem.swift */,
+				5E9B052A1F49EF3A00F90135 /* FilterItems.swift */,
+				5E9B052B1F49EF3A00F90135 /* FilterItemWindowController.swift */,
+				5E9B052D1F49EF3A00F90135 /* FilterTableViewDatasource.swift */,
+				5E9B052E1F49EF3A00F90135 /* FilterTableViewDelegate.swift */,
+				5E9B05411F49F3A500F90135 /* FilterItemWindow.xib */,
+			);
+			name = FilterWindow;
+			sourceTree = "<group>";
+		};
+		5EBBEC8B1F49FEBC00A00BCC /* PreferencesWindow */ = {
+			isa = PBXGroup;
+			children = (
+				5E9B05061F49EB2400F90135 /* PreferencesWindowController.swift */,
+				5E9B05471F49F50500F90135 /* InterfaceAction.swift */,
+				5E9B054D1F49F5C000F90135 /* CommandsTabController.swift */,
+				5E9B052C1F49EF3A00F90135 /* FilterOptionsTabController.swift */,
+				5E9B054B1F49F5B300F90135 /* AudibleAlarmsTabController.swift */,
+				5E9B05491F49F57500F90135 /* MonitoringInstancesTabController.swift */,
+				5E9B05071F49EB2400F90135 /* PreferencesWindowDelegate.swift */,
+				5E9B053B1F49F38400F90135 /* PreferencesWindow.xib */,
+			);
+			name = PreferencesWindow;
+			sourceTree = "<group>";
+		};
+		C2BC29F054636E7AA6F307BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ACB674A552D0E8D668BFEA86 /* Pods-NagBar.debug.xcconfig */,
+				EA9C85A435334B0076543F46 /* Pods-NagBar.release.xcconfig */,
+				C90C550D5E31875A34693EB3 /* Pods-NagBarTests.debug.xcconfig */,
+				E061762CA8A03EB1C99BF1A7 /* Pods-NagBarTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E167E23ECE5CA52828F84E4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4015641E90EADF4655643AEA /* Pods_NagBar.framework */,
+				0A8F0B7B38E47939EC971102 /* Pods_NagBarTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,9 +623,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E377AC41F49DC2F00297FC3 /* Build configuration list for PBXNativeTarget "NagBar" */;
 			buildPhases = (
+				9A5CF71BD924680ADC434A4C /* [CP] Check Pods Manifest.lock */,
 				5E377AA81F49DC2F00297FC3 /* Sources */,
 				5E377AA91F49DC2F00297FC3 /* Frameworks */,
 				5E377AAA1F49DC2F00297FC3 /* Resources */,
+				7FF3068DB1D561879093872E /* [CP] Embed Pods Frameworks */,
+				210F960919C70725C31761C9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -114,9 +643,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E377AC71F49DC2F00297FC3 /* Build configuration list for PBXNativeTarget "NagBarTests" */;
 			buildPhases = (
+				8A914DAF9350E4E869BEF8C2 /* [CP] Check Pods Manifest.lock */,
 				5E377AB71F49DC2F00297FC3 /* Sources */,
 				5E377AB81F49DC2F00297FC3 /* Frameworks */,
 				5E377AB91F49DC2F00297FC3 /* Resources */,
+				FBB350B903E80AF0BCB0FD6E /* [CP] Embed Pods Frameworks */,
+				02A984494DB79B59765099F3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,8 +676,8 @@
 					};
 					5E377ABA1F49DC2F00297FC3 = {
 						CreatedOnToolsVersion = 8.2;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 5E377AAB1F49DC2F00297FC3;
 					};
 				};
 			};
@@ -173,8 +705,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E377AB21F49DC2F00297FC3 /* Assets.xcassets in Resources */,
-				5E377AB51F49DC2F00297FC3 /* MainMenu.xib in Resources */,
+				5E9B05401F49F39C00F90135 /* MonitoringInstancesWindow.xib in Resources */,
+				5E9B053E1F49F38E00F90135 /* PasswordPrompt.xib in Resources */,
+				5E9B05421F49F3A500F90135 /* FilterItemWindow.xib in Resources */,
+				5E9B053C1F49F38400F90135 /* PreferencesWindow.xib in Resources */,
+				5E9B05131F49EC3D00F90135 /* AcknowledgeWindow.xib in Resources */,
+				5E9B053A1F49F30200F90135 /* Images.xcassets in Resources */,
+				5E9B05181F49EC6100F90135 /* ScheduleDowntimeWindow.xib in Resources */,
+				5E9B05461F49F4A200F90135 /* en.lproj in Resources */,
+				5E9B05441F49F3AE00F90135 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,17 +721,198 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E7719721F51B47A0058029E /* NagiosHostStatus.html in Resources */,
+				5E7719631F51B47A0058029E /* Check_MKHostStatus in Resources */,
+				5E7719761F51B47A0058029E /* ThrukHostStatus in Resources */,
+				5E7719691F51B47A0058029E /* Icinga2HostStatus.json in Resources */,
+				5E7719741F51B47A0058029E /* NagiosServiceStatus.html in Resources */,
+				5E77196E1F51B47A0058029E /* IcingaServiceStatus.htm in Resources */,
+				5E77196C1F51B47A0058029E /* IcingaHostStatus.htm in Resources */,
+				5E7719681F51B47A0058029E /* en.lproj in Resources */,
+				5E77196B1F51B47A0058029E /* Icinga2ServiceStatus.json in Resources */,
+				5E7719781F51B47A0058029E /* ThrukServiceStatus in Resources */,
+				5E7719641F51B47A0058029E /* Check_MKServiceStatus in Resources */,
+				5E7719701F51B47A0058029E /* NagBarTests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02A984494DB79B59765099F3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NagBarTests/Pods-NagBarTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		210F960919C70725C31761C9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NagBar/Pods-NagBar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FF3068DB1D561879093872E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NagBar/Pods-NagBar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A914DAF9350E4E869BEF8C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9A5CF71BD924680ADC434A4C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FBB350B903E80AF0BCB0FD6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NagBarTests/Pods-NagBarTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5E377AA81F49DC2F00297FC3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E377AB01F49DC2F00297FC3 /* AppDelegate.swift in Sources */,
+				5E246A261F49DFD00015CA71 /* ThrukURLProvider.swift in Sources */,
+				5E9B05091F49EB2400F90135 /* PreferencesWindowDelegate.swift in Sources */,
+				5E9B05301F49EF3A00F90135 /* FilterItems.swift in Sources */,
+				5E246A411F49E0350015CA71 /* NagiosURLProvider.swift in Sources */,
+				5E246A441F49E0640015CA71 /* HTTPClient.swift in Sources */,
+				5E9B04F31F49E99600F90135 /* StatusItemView.swift in Sources */,
+				5E9B05331F49EF3A00F90135 /* FilterTableViewDatasource.swift in Sources */,
+				5E246A3E1F49E0350015CA71 /* NagiosParser.swift in Sources */,
+				5E246A581F49E30D0015CA71 /* Settings.swift in Sources */,
+				5E9B05251F49EEC800F90135 /* NagBarAlert.swift in Sources */,
+				5E9B04F51F49E99600F90135 /* StatusPanelTable.swift in Sources */,
+				5E246A151F49DF970015CA71 /* MonitoringProcessor.swift in Sources */,
+				5E9B051D1F49ED1D00F90135 /* MonitoringItemSorter.swift in Sources */,
+				5E246A341F49E0140015CA71 /* IcingaXPath.swift in Sources */,
+				5E9B05041F49EAED00F90135 /* DataRefreshAction.swift in Sources */,
+				5E246A2E1F49DFE40015CA71 /* Icinga2Settings.swift in Sources */,
+				5E246A1F1F49DFBC0015CA71 /* CheckMKSettings.swift in Sources */,
+				5E9B04EF1F49E98800F90135 /* StatusBar.swift in Sources */,
+				5E9B05231F49EE4500F90135 /* CheckNewVersion.swift in Sources */,
+				5E246A501F49E29D0015CA71 /* Icinga2Parser.swift in Sources */,
+				5E246A4E1F49E2770015CA71 /* ParserInterface.swift in Sources */,
+				5E246A5C1F49E34D0015CA71 /* ServiceMonitoringItem.swift in Sources */,
+				5E246A461F49E0B60015CA71 /* AppDelegate.swift in Sources */,
+				5E246A401F49E0350015CA71 /* NagiosSettings.swift in Sources */,
+				5E9B05211F49EE2000F90135 /* Icinga2URLProvider.swift in Sources */,
+				5E9B05481F49F50500F90135 /* InterfaceAction.swift in Sources */,
+				5E9B05311F49EF3A00F90135 /* FilterItemWindowController.swift in Sources */,
+				5E246A1E1F49DFBC0015CA71 /* CheckMKProcessor.swift in Sources */,
+				5E9B05001F49EA6800F90135 /* ServerLogin.swift in Sources */,
+				5E9B04F71F49E9A300F90135 /* StatusPanelTableDelegate.swift in Sources */,
+				5E9B05271F49EEF200F90135 /* AnimateStatusBar.swift in Sources */,
+				5E9494C71F51F9D00027FE0E /* ConnectionManager.swift in Sources */,
+				5E246A321F49E0140015CA71 /* IcingaParser.swift in Sources */,
+				5E246A531F49E2D90015CA71 /* MonitoringInstance.swift in Sources */,
+				5E246A251F49DFD00015CA71 /* ThrukProcessor.swift in Sources */,
+				5E246A1D1F49DFBC0015CA71 /* CheckMKParser.swift in Sources */,
+				5E246A2D1F49DFE40015CA71 /* Icinga2Processor.swift in Sources */,
+				5E9B05361F49F0A500F90135 /* SSKeychainMock.swift in Sources */,
+				5EBBEC8A1F49FE6100A00BCC /* MonitoringInstancesTableDelegate.swift in Sources */,
+				5E246A2C1F49DFE40015CA71 /* Icinga2HTTPClient.swift in Sources */,
+				5E246A541F49E2D90015CA71 /* MonitoringInstances.swift in Sources */,
+				5E9B052F1F49EF3A00F90135 /* FilterItem.swift in Sources */,
+				5E9B05341F49EF3A00F90135 /* FilterTableViewDelegate.swift in Sources */,
+				5E9B050C1F49EB6D00F90135 /* PasswordPromptController.swift in Sources */,
+				5E9B04F41F49E99600F90135 /* StatusPanel.swift in Sources */,
+				5E9B051F1F49EE0600F90135 /* UserDefaults.swift in Sources */,
+				5E9B05111F49EC3800F90135 /* AcknowledgeWindow.swift in Sources */,
+				5E9B054A1F49F57500F90135 /* MonitoringInstancesTabController.swift in Sources */,
+				5E246A561F49E2F00015CA71 /* MonitoringInstanceSettings.swift in Sources */,
+				5E246A161F49DF970015CA71 /* MonitoringProcessorBase.swift in Sources */,
+				5E9B054C1F49F5B300F90135 /* AudibleAlarmsTabController.swift in Sources */,
+				5E9B05321F49EF3A00F90135 /* FilterOptionsTabController.swift in Sources */,
+				5E9B04FE1F49EA5A00F90135 /* InitConfig.swift in Sources */,
+				5E9B05081F49EB2400F90135 /* PreferencesWindowController.swift in Sources */,
+				5E246A331F49E0140015CA71 /* IcingaProcessor.swift in Sources */,
+				5E9B05381F49F0EF00F90135 /* DataProcessor.swift in Sources */,
+				5E9B04FC1F49EA4E00F90135 /* MenuAction.swift in Sources */,
+				5E246A3D1F49E0350015CA71 /* NagiosHTTPClient.swift in Sources */,
+				5E246A3C1F49E0350015CA71 /* NagiosCommands.swift in Sources */,
+				5E246A4C1F49E2580015CA71 /* XPathInterface.swift in Sources */,
+				5E246A2B1F49DFE40015CA71 /* Icinga2Commands.swift in Sources */,
+				5E246A3F1F49E0350015CA71 /* NagiosProcessor.swift in Sources */,
+				5E9B05021F49EAD000F90135 /* LoadMonitoringData.swift in Sources */,
+				5E246A241F49DFD00015CA71 /* ThrukParser.swift in Sources */,
+				5EBBEC891F49FE6100A00BCC /* MonitoringInstancesTableDatasource.swift in Sources */,
+				5E246A481F49E20D0015CA71 /* URLProvider.swift in Sources */,
+				5E246A421F49E0350015CA71 /* NagiosXPath.swift in Sources */,
+				5E246A4A1F49E23C0015CA71 /* CommandInterface.swift in Sources */,
+				5E9B050E1F49EBC200F90135 /* OpenInBrowserAction.swift in Sources */,
+				5E9B054E1F49F5C000F90135 /* CommandsTabController.swift in Sources */,
+				5E246A1C1F49DFBC0015CA71 /* CheckMKHTTPClient.swift in Sources */,
+				5EBBEC8F1F49FFC800A00BCC /* Utilities.swift in Sources */,
+				5E9B051B1F49ECD300F90135 /* MonitoringInstancesWindowController.swift in Sources */,
+				5E246A5A1F49E3450015CA71 /* HostMonitoringItem.swift in Sources */,
+				5E9B04F91F49E9F800F90135 /* StatusPanelTableViewDatasource.swift in Sources */,
+				5E246A201F49DFBC0015CA71 /* CheckMKURLProvider.swift in Sources */,
+				5E9B05171F49EC6100F90135 /* ScheduleDowntimeWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +920,62 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E77197A1F51B5C00058029E /* ServiceMonitoringItem.swift in Sources */,
+				5E77197F1F51B5CF0058029E /* ParserInterface.swift in Sources */,
+				5E7719821F51B5CF0058029E /* MonitoringInstanceSettings.swift in Sources */,
+				5E7719921F51B5ED0058029E /* IcingaProcessor.swift in Sources */,
+				5E9494CB1F51FAE00027FE0E /* UserDefaults.swift in Sources */,
+				5E7719891F51B5DC0058029E /* CheckMKSettings.swift in Sources */,
+				5E9494C11F51BB0C0027FE0E /* MonitoringInstance.swift in Sources */,
+				5E7719841F51B5D60058029E /* ThrukProcessor.swift in Sources */,
+				5E7719811F51B5CF0058029E /* XPathInterface.swift in Sources */,
+				5E9494C21F51BB290027FE0E /* Settings.swift in Sources */,
+				5E9494C41F51F9620027FE0E /* DataRefreshAction.swift in Sources */,
+				5E7719901F51B5E20058029E /* Icinga2URLProvider.swift in Sources */,
+				5E7719991F51B5F30058029E /* NagiosURLProvider.swift in Sources */,
+				5E77197E1F51B5CF0058029E /* CommandInterface.swift in Sources */,
+				5E9494CA1F51FAA00027FE0E /* MonitoringInstances.swift in Sources */,
+				5E7719871F51B5DC0058029E /* CheckMKParser.swift in Sources */,
+				5E9494CF1F51FB580027FE0E /* FilterItem.swift in Sources */,
+				5E77198F1F51B5E20058029E /* Icinga2Settings.swift in Sources */,
+				5E7719961F51B5F30058029E /* NagiosParser.swift in Sources */,
+				5E77198D1F51B5E20058029E /* Icinga2Parser.swift in Sources */,
+				5E7719831F51B5D60058029E /* ThrukParser.swift in Sources */,
+				5E9494CC1F51FAFD0027FE0E /* SSKeychainMock.swift in Sources */,
+				5E9494C91F51FA770027FE0E /* DataProcessor.swift in Sources */,
+				5E7719861F51B5DC0058029E /* CheckMKHTTPClient.swift in Sources */,
 				5E377AC01F49DC2F00297FC3 /* NagBarTests.swift in Sources */,
+				5E9494C31F51F9290027FE0E /* MonitoringItemSorter.swift in Sources */,
+				5E77197C1F51B5CF0058029E /* MonitoringProcessor.swift in Sources */,
+				5E7719881F51B5DC0058029E /* CheckMKProcessor.swift in Sources */,
+				5E7719971F51B5F30058029E /* NagiosProcessor.swift in Sources */,
+				5E9494C81F51F9EC0027FE0E /* ConnectionManager.swift in Sources */,
+				5E77198E1F51B5E20058029E /* Icinga2Processor.swift in Sources */,
+				5E7719951F51B5F30058029E /* NagiosHTTPClient.swift in Sources */,
+				5E77197B1F51B5CF0058029E /* HTTPClient.swift in Sources */,
+				5E7719671F51B47A0058029E /* DataRefreshActionTests.swift in Sources */,
+				5E77198A1F51B5DC0058029E /* CheckMKURLProvider.swift in Sources */,
+				5E7719651F51B47A0058029E /* CheckMKParserTests.swift in Sources */,
+				5E7719661F51B47A0058029E /* DataProcessorTests.swift in Sources */,
+				5E77198C1F51B5E20058029E /* Icinga2HTTPClient.swift in Sources */,
+				5E7719731F51B47A0058029E /* NagiosParserTests.swift in Sources */,
+				5E77196F1F51B47A0058029E /* MonitoringInstancesTest.swift in Sources */,
+				5E77199A1F51B5F30058029E /* NagiosXPath.swift in Sources */,
+				5E77196A1F51B47A0058029E /* Icinga2ParserTests.swift in Sources */,
+				5E7719911F51B5ED0058029E /* IcingaParser.swift in Sources */,
+				5E9494CD1F51FB280027FE0E /* Utilities.swift in Sources */,
+				5E9494CE1F51FB470027FE0E /* FilterItems.swift in Sources */,
+				5E7719981F51B5F30058029E /* NagiosSettings.swift in Sources */,
+				5E77198B1F51B5E20058029E /* Icinga2Commands.swift in Sources */,
+				5E7719771F51B47A0058029E /* ThrukParserTests.swift in Sources */,
+				5E7719751F51B47A0058029E /* SettingsTests.swift in Sources */,
+				5E7719851F51B5D60058029E /* ThrukURLProvider.swift in Sources */,
+				5E7719941F51B5F30058029E /* NagiosCommands.swift in Sources */,
+				5E7719801F51B5CF0058029E /* URLProvider.swift in Sources */,
+				5E77196D1F51B47A0058029E /* IcingaParserTests.swift in Sources */,
+				5E7719931F51B5ED0058029E /* IcingaXPath.swift in Sources */,
+				5E77197D1F51B5CF0058029E /* MonitoringProcessorBase.swift in Sources */,
+				5E7719791F51B5BA0058029E /* HostMonitoringItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,17 +988,6 @@
 			targetProxy = 5E377ABC1F49DC2F00297FC3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		5E377AB31F49DC2F00297FC3 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E377AB41F49DC2F00297FC3 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5E377AC21F49DC2F00297FC3 /* Debug */ = {
@@ -318,6 +1082,7 @@
 		};
 		5E377AC51F49DC2F00297FC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACB674A552D0E8D668BFEA86 /* Pods-NagBar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -331,6 +1096,7 @@
 		};
 		5E377AC61F49DC2F00297FC3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA9C85A435334B0076543F46 /* Pods-NagBar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -344,31 +1110,32 @@
 		};
 		5E377AC81F49DC2F00297FC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C90C550D5E31875A34693EB3 /* Pods-NagBarTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = NagBarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.volendavidov.NagBarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NagBar.app/Contents/MacOS/NagBar";
 			};
 			name = Debug;
 		};
 		5E377AC91F49DC2F00297FC3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E061762CA8A03EB1C99BF1A7 /* Pods-NagBarTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = NagBarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.volendavidov.NagBarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NagBar.app/Contents/MacOS/NagBar";
 			};
 			name = Release;
 		};
@@ -391,6 +1158,7 @@
 				5E377AC61F49DC2F00297FC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E377AC71F49DC2F00297FC3 /* Build configuration list for PBXNativeTarget "NagBarTests" */ = {
 			isa = XCConfigurationList;
@@ -399,6 +1167,7 @@
 				5E377AC91F49DC2F00297FC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,1386 @@
+<html>
+<head>
+<link rel="shortcut icon" href="/nagios/images/favicon.ico" type="image/ico">
+<title>
+Current Network Status
+</title>
+<link rel='stylesheet' type='text/css' href='/nagios/stylesheets/common.css' />
+<link rel='stylesheet' type='text/css' href='/nagios/stylesheets/status.css' />
+<script type='text/javascript' src='/nagios/js/jquery-1.7.1.min.js'></script>
+<script type='text/javascript'>
+$(document).ready(function() { $('#top_page_numbers').append($('#bottom_page_numbers').html() ); });function set_limit(url) { 
+this.location = url+'&limit='+$('#limit').val();
+  }</script>
+</head>
+<body class='status'>
+
+<!-- Produced by Nagios (https://www.nagios.org).  Copyright (c) 1999-2007 Ethan Galstad. -->
+<table class='headertable'>
+<tr>
+<td align=left valign=top width=33%>
+<TABLE CLASS='infoBox' BORDER=1 CELLSPACING=0 CELLPADDING=0>
+<TR><TD CLASS='infoBox'>
+<DIV CLASS='infoBoxTitle'>Current Network Status</DIV>
+Last Updated: Sun Jan 3 19:21:22 UTC 2016<BR>
+Updated every 90 seconds<br>
+Nagios&reg; Core&trade; 4.1.1 - <A HREF='https://www.nagios.org' TARGET='_new' CLASS='homepageURL'>www.nagios.org</A><BR>
+Logged in as <i>nagiosadmin</i><BR>
+</TD></TR>
+</TABLE>
+<table class='linkBox'>
+<tr><td class='linkBox'>
+<a href='status.cgi?hostgroup=all&style=detail'>View Service Status Detail For All Host Groups</a><br>
+<a href='status.cgi?hostgroup=all&style=overview'>View Status Overview For All Host Groups</a><br>
+<a href='status.cgi?hostgroup=all&style=summary'>View Status Summary For All Host Groups</a><br>
+<a href='status.cgi?hostgroup=all&style=grid'>View Status Grid For All Host Groups</a><br>
+</td></tr>
+</table>
+</td>
+<td align=center valign=top width=33%>
+<div class='hostTotals'>Host Status Totals</div>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr><td>
+<table class='hostTotals'>
+<tr>
+<th class='hostTotals'><a class='hostTotals' href='status.cgi?hostgroup=all&style=hostdetail&hoststatustypes=2'>Up</a></th>
+<th class='hostTotals'><a class='hostTotals' href='status.cgi?hostgroup=all&style=hostdetail&hoststatustypes=4'>Down</a></th>
+<th class='hostTotals'><a class='hostTotals' href='status.cgi?hostgroup=all&style=hostdetail&hoststatustypes=8'>Unreachable</a></th>
+<th class='hostTotals'><a class='hostTotals' href='status.cgi?hostgroup=all&style=hostdetail&hoststatustypes=1'>Pending</a></th>
+</tr>
+<tr>
+<td class='hostTotalsUP'>48</td>
+<td class='hostTotals'>0</td>
+<td class='hostTotals'>0</td>
+<td class='hostTotals'>0</td>
+</tr>
+</table>
+</td></tr><tr><td align='center'>
+<table class='hostTotals'>
+<tr>
+<th class='hostTotals'><a class='hostTotals' href='status.cgi?hostgroup=all&style=hostdetail&hoststatustypes=12'><em>All Problems</em></a></th>
+<th class='hostTotals'><a class='hostTotals' href='status.cgi?hostgroup=all&style=hostdetail'><em>All Types</em></a></th>
+</tr><tr>
+<td class='hostTotals'>0</td>
+<td class='hostTotals'>48</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</td>
+<td align=center valign=top width=33%>
+<div class='serviceTotals'>Service Status Totals</div>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr><td>
+<table class='serviceTotals'>
+<tr>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?hostgroup=all&style=detail&servicestatustypes=2&hoststatustypes=15'>Ok</a></th>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?hostgroup=all&style=detail&servicestatustypes=4&hoststatustypes=15'>Warning</a></th>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?hostgroup=all&style=detail&servicestatustypes=8&hoststatustypes=15'>Unknown</a></th>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?hostgroup=all&style=detail&servicestatustypes=16&hoststatustypes=15'>Critical</a></th>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?hostgroup=all&style=detail&servicestatustypes=1&hoststatustypes=15'>Pending</a></th>
+</tr>
+<tr>
+<td class='serviceTotalsOK'>739</td>
+<td class='serviceTotalsWARNING'>64</td>
+<td class='serviceTotalsUNKNOWN'>1</td>
+<td class='serviceTotalsCRITICAL'>127</td>
+<td class='serviceTotalsPENDING'>17</td>
+</tr>
+</table>
+</td></tr><tr><td align='center'>
+<table class='serviceTotals'>
+<tr>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?hostgroup=all&style=detail&servicestatustypes=28&hoststatustypes=15'><em>All Problems</em></a></th>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?hostgroup=all&style=detail&hoststatustypes=15'><em>All Types</em></a></th>
+</tr><tr>
+<td class='serviceTotalsPROBLEMS'>192</td>
+<td class='serviceTotals'>948</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</td>
+<td align=right valign=bottom>
+</td>
+</tr>
+</table>
+<table class='pageTitle' border='0' width='100%'>
+<tr>
+<td valign=top align=left width=33%>
+</td><td valign=top align=center width=33%>
+<div align='center' class='statusTitle'>Host Status Details For All Host Groups</div>
+<br></td>
+<td valign=top align=right width=33%></td>
+</tr>
+</table>
+<div id='pagelimit'>
+<div id='result_limit'>
+<label for='limit'>Limit Results: </label>
+<select onchange='set_limit("status.cgi?hostgroup=all&style=hostdetail")' name='limit' id='limit'>
+<option  value='50'>50</option>
+<option selected='selected' value='100'>100</option>
+<option  value='250'>250</option>
+<option  value='1000'>1000</option>
+<option  value='0'>All</option>
+</select></div>
+<div id='top_page_numbers'></div>
+</div>
+<div align='center'>
+<table border=0 class='status' width='100%'>
+<tr>
+<th class='status'>Host&nbsp;<a href='status.cgi?hostgroup=all&style=hostdetail&sorttype=1&sortoption=1'><IMG SRC='/nagios/images/up.gif' border=0 ALT='Sort by host name (ascending)' TITLE='Sort by host name (ascending)'></a><a href='status.cgi?hostgroup=all&style=hostdetail&sorttype=2&sortoption=1'><IMG SRC='/nagios/images/down.gif' border=0 ALT='Sort by host name (descending)' TITLE='Sort by host name (descending)'></a></th><th class='status'>Status&nbsp;<a href='status.cgi?hostgroup=all&style=hostdetail&sorttype=1&sortoption=8'><IMG SRC='/nagios/images/up.gif' border=0 ALT='Sort by host status (ascending)' TITLE='Sort by host status (ascending)'></a><a href='status.cgi?hostgroup=all&style=hostdetail&sorttype=2&sortoption=8'><IMG SRC='/nagios/images/down.gif' border=0 ALT='Sort by host status (descending)' TITLE='Sort by host status (descending)'></a></th><th class='status'>Last Check&nbsp;<a href='status.cgi?hostgroup=all&style=hostdetail&sorttype=1&sortoption=4'><IMG SRC='/nagios/images/up.gif' border=0 ALT='Sort by last check time (ascending)' TITLE='Sort by last check time (ascending)'></a><a href='status.cgi?hostgroup=all&style=hostdetail&sorttype=2&sortoption=4'><IMG SRC='/nagios/images/down.gif' border=0 ALT='Sort by last check time (descending)' TITLE='Sort by last check time (descending)'></a></th><th class='status'>Duration&nbsp;<a href='status.cgi?hostgroup=all&style=hostdetail&sorttype=1&sortoption=6'><IMG SRC='/nagios/images/up.gif' border=0 ALT='Sort by state duration (ascending)' TITLE='Sort by state duration (ascending)'></a><a href='status.cgi?hostgroup=all&style=hostdetail&sorttype=2&sortoption=6'><IMG SRC='/nagios/images/down.gif' border=0 ALT='Sort by state duration time (descending)' TITLE='Sort by state duration time (descending)'></a></th><th class='status'>Status Information</th>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=Firewall' title='127.0.0.1'>Firewall</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td><a href='status.cgi?host=Firewall'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:16:38</td>
+<td class='statusEven' nowrap> 0d  0h 19m 36s+</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.025ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=Log-Server.nagios.local' title='Log-Server.nagios.local'>Log-Server.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=Log-Server.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=Log-Server.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=Log-Server.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:18:55</td>
+<td class='statusOdd' nowrap>173d 17h 14m 59s</td>
+<td class='statusOdd' valign='center'>OK - localhost: rta 0.027ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=Log-Server2.nagios.local' title='Log-Server2.nagios.local'>Log-Server2.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=Log-Server2.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=Log-Server2.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=Log-Server2.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:19:43</td>
+<td class='statusEven' nowrap>173d 17h 11m 57s</td>
+<td class='statusEven' valign='center'>OK - localhost: rta 0.027ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=NOAA' title='weather.gov'>NOAA</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=NOAA'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td><a href='status.cgi?host=NOAA'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-02-2012 15:43:01</td>
+<td class='statusOdd' nowrap>1661d 22h 10m 33s</td>
+<td class='statusOdd' valign='center'>HTTP OK HTTP/1.1 200 OK - 99753 bytes in 0.478 seconds&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=Network-Analyzer.nagios.local' title='Network-Analyzer.nagios.local'>Network-Analyzer.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=Network-Analyzer.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=Network-Analyzer.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=Network-Analyzer.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:20:54</td>
+<td class='statusEven' nowrap>173d 17h 11m 57s</td>
+<td class='statusEven' valign='center'>OK - localhost: rta 0.026ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=Network-Analyzer2.nagios.local' title='Network-Analyzer2.nagios.local'>Network-Analyzer2.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=Network-Analyzer2.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=Network-Analyzer2.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=Network-Analyzer2.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:17:55</td>
+<td class='statusOdd' nowrap>173d 17h 11m 47s</td>
+<td class='statusOdd' valign='center'>OK - localhost: rta 0.028ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=Router' title='127.0.0.1'>Router</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td><a href='status.cgi?host=Router'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:17:18</td>
+<td class='statusEven' nowrap> 0d  0h 19m 36s+</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.021ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=centos-switch.nagios.local' title='centos-switch.nagios.local'>centos-switch.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=centos-switch.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=centos-switch.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=centos-switch.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:18:45</td>
+<td class='statusOdd' nowrap>173d 17h 11m 57s</td>
+<td class='statusOdd' valign='center'>OK - 192.168.5.41: rta 2.411ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=centos1.nagios.local' title='centos1.nagios.local'>centos1.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=centos1.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=centos1.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=centos1.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:19:23</td>
+<td class='statusEven' nowrap>173d 17h  7m 55s</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.033ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=centos2.nagios.local' title='centos2.nagios.local'>centos2.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=centos2.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=centos2.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=centos2.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:21:11</td>
+<td class='statusOdd' nowrap>173d 17h 11m 57s</td>
+<td class='statusOdd' valign='center'>OK - 127.0.0.1: rta 0.027ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=centos3.nagios.local' title='centos3.nagios.local'>centos3.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=centos3.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=centos3.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=centos3.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:18:55</td>
+<td class='statusEven' nowrap>173d 17h 11m 47s</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.032ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=centos4.nagios.local' title='centos4.nagios.local'>centos4.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=centos4.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=centos4.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=centos4.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:20:54</td>
+<td class='statusOdd' nowrap>173d 17h 11m 47s</td>
+<td class='statusOdd' valign='center'>OK - 127.0.0.1: rta 0.028ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=centos5.nagios.local' title='centos5.nagios.local'>centos5.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=centos5.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=centos5.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=centos5.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:18:45</td>
+<td class='statusEven' nowrap>173d 17h 11m 57s</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.018ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=europa.nagios.local' title='europa.nagios.local'>europa.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=europa.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=europa.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=europa.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:19:23</td>
+<td class='statusOdd' nowrap>173d 17h 11m 57s</td>
+<td class='statusOdd' valign='center'>OK - 192.168.4.54: rta 2.732ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=exchange.nagios.org' title='exchange.nagios.org'>exchange.nagios.org</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=exchange.nagios.org'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=exchange.nagios.org'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=exchange.nagios.org'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:17:44</td>
+<td class='statusEven' nowrap> 0d  0h 10m 57s</td>
+<td class='statusEven' valign='center'>HTTP OK: HTTP/1.1 301 Moved Permanently - 572 bytes in 0.085 second response time&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=fedora-switch.nagios.local' title='fedora-switch.nagios.local'>fedora-switch.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=fedora-switch.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=fedora-switch.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=fedora-switch.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:20:54</td>
+<td class='statusOdd' nowrap>173d 17h 11m 57s</td>
+<td class='statusOdd' valign='center'>OK - 192.168.5.41: rta 2.956ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=fedora1.nagios.local' title='fedora1.nagios.local'>fedora1.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=fedora1.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=fedora1.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=fedora1.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:20:42</td>
+<td class='statusEven' nowrap>173d 17h 11m 47s</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.018ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=gateway.nagios.local' title='gateway.nagios.local'>gateway.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=gateway.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=gateway.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=gateway.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:20:22</td>
+<td class='statusOdd' nowrap>173d 17h 11m 57s</td>
+<td class='statusOdd' valign='center'>OK - 192.168.5.1: rta 1.570ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=linux-snmp1.nagios.local' title='linux-snmp1.nagios.local'>linux-snmp1.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=linux-snmp1.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=linux-snmp1.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=linux-snmp1.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:21:11</td>
+<td class='statusEven' nowrap>173d 17h 10m 55s</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.026ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=linux-snmp2.nagios.local' title='linux-snmp2.nagios.local'>linux-snmp2.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=linux-snmp2.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=linux-snmp2.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=linux-snmp2.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:20:54</td>
+<td class='statusOdd' nowrap>173d 17h 11m 47s</td>
+<td class='statusOdd' valign='center'>OK - 127.0.0.1: rta 0.061ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=linux-snmp3.nagios.local' title='linux-snmp3.nagios.local'>linux-snmp3.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=linux-snmp3.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=linux-snmp3.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=linux-snmp3.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:19:43</td>
+<td class='statusEven' nowrap>173d 17h 10m 55s</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.026ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=linuxsnmp-switch.nagios.local' title='linuxsnmp-switch.nagios.local'>linuxsnmp-switch.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=linuxsnmp-switch.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=linuxsnmp-switch.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=linuxsnmp-switch.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:16:54</td>
+<td class='statusOdd' nowrap>173d 17h 11m 47s</td>
+<td class='statusOdd' valign='center'>OK - 192.168.5.41: rta 2.451ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=localhost' title='127.0.0.1'>localhost</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td><a href='status.cgi?host=localhost'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:17:37</td>
+<td class='statusEven' nowrap>2153d 16h  8m 14s</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.021ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=mssql1.nagios.local' title='mssql1.nagios.local'>mssql1.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=mssql1.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=mssql1.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=mssql1.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:18:12</td>
+<td class='statusOdd' nowrap>173d 16h 53m 57s</td>
+<td class='statusOdd' valign='center'>OK - 192.168.4.54: rta 0.366ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=mssql2.nagios.local' title='mssql2.nagios.local'>mssql2.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=mssql2.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=mssql2.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=mssql2.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:20:42</td>
+<td class='statusEven' nowrap>173d 16h 53m 57s</td>
+<td class='statusEven' valign='center'>OK - 192.168.4.54: rta 0.449ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=mssql3.nagios.local' title='mssql3.nagios.local'>mssql3.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=mssql3.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=mssql3.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=mssql3.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:18:55</td>
+<td class='statusOdd' nowrap>173d 16h 53m 37s</td>
+<td class='statusOdd' valign='center'>OK - 192.168.4.54: rta 0.558ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=mysql1.nagios.local' title='mysql1.nagios.local'>mysql1.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=mysql1.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=mysql1.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=mysql1.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:20:54</td>
+<td class='statusEven' nowrap>173d 17h 14m 59s</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.028ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=mysql2.nagios.local' title='mysql2.nagios.local'>mysql2.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=mysql2.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=mysql2.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=mysql2.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:20:11</td>
+<td class='statusOdd' nowrap>173d 17h 10m 55s</td>
+<td class='statusOdd' valign='center'>OK - 127.0.0.1: rta 0.031ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=mysql3.nagios.local' title='mysql3.nagios.local'>mysql3.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=mysql3.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=mysql3.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=mysql3.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:19:43</td>
+<td class='statusEven' nowrap>173d 17h 10m 55s</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.017ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=rhel-switch.nagios.local' title='rhel-switch.nagios.local'>rhel-switch.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=rhel-switch.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=rhel-switch.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=rhel-switch.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:18:12</td>
+<td class='statusOdd' nowrap>173d 17h 11m 57s</td>
+<td class='statusOdd' valign='center'>OK - 192.168.5.41: rta 2.366ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=rhel1.nagios.local' title='rhel1.nagios.local'>rhel1.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=rhel1.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=rhel1.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=rhel1.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:21:11</td>
+<td class='statusEven' nowrap>173d 17h 11m 47s</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.034ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=rhel2.nagios.local' title='rhel2.nagios.local'>rhel2.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=rhel2.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=rhel2.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=rhel2.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:19:54</td>
+<td class='statusOdd' nowrap>173d 17h 11m 47s</td>
+<td class='statusOdd' valign='center'>OK - 127.0.0.1: rta 0.015ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=rhel3.nagios.local' title='rhel3.nagios.local'>rhel3.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=rhel3.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=rhel3.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=rhel3.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:18:45</td>
+<td class='statusEven' nowrap>173d 17h 10m 55s</td>
+<td class='statusEven' valign='center'>OK - 127.0.0.1: rta 0.015ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=rhel4.nagios.local' title='rhel4.nagios.local'>rhel4.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=rhel4.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=rhel4.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=rhel4.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:20:54</td>
+<td class='statusOdd' nowrap>173d 17h 11m 57s</td>
+<td class='statusOdd' valign='center'>OK - 127.0.0.1: rta 0.027ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=secure.nagios.com' title='secure.nagios.com'>secure.nagios.com</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=center valign=center><a href='extinfo.cgi?type=1&host=secure.nagios.com'><IMG SRC='/nagios/images/logos/www_server.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=secure.nagios.com'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:18:12</td>
+<td class='statusEven' nowrap>1988d 13h 44m  7s</td>
+<td class='statusEven' valign='center'>HTTP OK: HTTP/1.1 302 Found - 530 bytes in 0.034 second response time&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=switch27.nagios.local' title='switch27.nagios.local'>switch27.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=switch27.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=switch27.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=switch27.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:20:22</td>
+<td class='statusOdd' nowrap>173d 17h 11m 57s</td>
+<td class='statusOdd' valign='center'>OK - 192.168.5.41: rta 312.099ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=vs1.nagios.org' title='vs1.nagios.org'>vs1.nagios.org</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=center valign=center><a href='extinfo.cgi?type=1&host=vs1.nagios.org'><IMG SRC='/nagios/images/logos/server2.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=vs1.nagios.org'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:18:52</td>
+<td class='statusEven' nowrap>2010d  7h 53m 17s</td>
+<td class='statusEven' valign='center'>OK - vs1.nagios.org: rta 0.402ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=windows-switch.nagios.local' title='windows-switch.nagios.local'>windows-switch.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=windows-switch.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=windows-switch.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=windows-switch.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:17:55</td>
+<td class='statusOdd' nowrap>173d 17h 10m 55s</td>
+<td class='statusOdd' valign='center'>OK - 192.168.5.41: rta 3.108ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=windowserver1.nagios.local' title='windowserver1.nagios.local'>windowserver1.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=windowserver1.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=windowserver1.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=windowserver1.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:19:23</td>
+<td class='statusEven' nowrap>173d 16h 53m 17s</td>
+<td class='statusEven' valign='center'>OK - 192.168.4.54: rta 0.438ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=windowserver2.nagios.local' title='windowserver2.nagios.local'>windowserver2.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=windowserver2.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=windowserver2.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=windowserver2.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:20:22</td>
+<td class='statusOdd' nowrap>173d 16h 53m 57s</td>
+<td class='statusOdd' valign='center'>OK - 192.168.4.54: rta 0.596ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=windowserver3.nagios.local' title='windowserver3.nagios.local'>windowserver3.nagios.local</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=windowserver3.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=windowserver3.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=windowserver3.nagios.local'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:20:54</td>
+<td class='statusEven' nowrap>173d 16h 53m 37s</td>
+<td class='statusEven' valign='center'>OK - 192.168.4.54: rta 0.421ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=www.acme.com' title='216.27.178.28'>www.acme.com</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=center valign=center><a href='extinfo.cgi?type=1&host=www.acme.com'><IMG SRC='/nagios/images/logos/server.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=www.acme.com'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:19:12</td>
+<td class='statusOdd' nowrap>1976d  0h 42m 52s</td>
+<td class='statusOdd' valign='center'>OK - 216.27.178.28: rta 92.943ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=www.chaoticmoon.com' title='www.chaoticmoon.com'>www.chaoticmoon.com</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=center valign=center><a href='extinfo.cgi?type=1&host=www.chaoticmoon.com'><IMG SRC='/nagios/images/logos/www_server.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=www.chaoticmoon.com'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:19:48</td>
+<td class='statusEven' nowrap>1976d 12h 20m 10s</td>
+<td class='statusEven' valign='center'>HTTP OK: HTTP/1.1 200 OK - 41532 bytes in 1.159 second response time&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=www.cnn.com' title='www.cnn.com'>www.cnn.com</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=center valign=center><a href='extinfo.cgi?type=1&host=www.cnn.com'><IMG SRC='/nagios/images/logos/www_server.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=www.cnn.com'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:20:12</td>
+<td class='statusOdd' nowrap>2015d 23h 52m 17s</td>
+<td class='statusOdd' valign='center'>HTTP OK: HTTP/1.1 200 OK - 90592 bytes in 0.087 second response time&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=www.nagios-plugins.org' title='www.nagios-plugins.org'>www.nagios-plugins.org</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=www.nagios-plugins.org'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=www.nagios-plugins.org'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=www.nagios-plugins.org'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:20:22</td>
+<td class='statusEven' nowrap>173d 17h 10m 55s</td>
+<td class='statusEven' valign='center'>HTTP OK: HTTP/1.1 301 Moved Permanently - 571 bytes in 0.090 second response time&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=www.nagios.com' title='www.nagios.com'>www.nagios.com</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=center valign=center><a href='extinfo.cgi?type=1&host=www.nagios.com'><IMG SRC='/nagios/images/logos/www_server.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=www.nagios.com'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:18:45</td>
+<td class='statusOdd' nowrap>1986d 16h 28m 27s</td>
+<td class='statusOdd' valign='center'>HTTP OK: HTTP/1.1 301 Moved Permanently - 534 bytes in 0.098 second response time&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=www.nagios.org' title='www.nagios.org'>www.nagios.org</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=www.nagios.org'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled' TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=www.nagios.org'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=www.nagios.org'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusEven' nowrap>01-03-2016 19:20:11</td>
+<td class='statusEven' nowrap>173d 17h 11m 47s</td>
+<td class='statusEven' valign='center'>HTTP OK: HTTP/1.1 301 Moved Permanently - 534 bytes in 0.083 second response time&nbsp;</td>
+</tr>
+<tr>
+<td class='statusHOSTUP'><table border=0 WIDTH='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusHOSTUP'><a href='extinfo.cgi?type=1&host=www.twitter.com' title='www.twitter.com'>www.twitter.com</a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=center valign=center><a href='extinfo.cgi?type=1&host=www.twitter.com'><IMG SRC='/nagios/images/logos/www_server.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+<td><a href='status.cgi?host=www.twitter.com'><img src='/nagios/images/status2.gif' border=0 alt='View Service Details For This Host' title='View Service Details For This Host'></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusHOSTUP'>UP</td>
+<td class='statusOdd' nowrap>01-03-2016 19:19:17</td>
+<td class='statusOdd' nowrap>1976d  0h 42m  6s</td>
+<td class='statusOdd' valign='center'>HTTP OK: HTTP/1.1 301 Moved Permanently - 347 bytes in 0.091 second response time&nbsp;</td>
+</tr>
+</table>
+</div>
+<br /><div class='itemTotalsTitle'>Results 1 - 48 of 48 Matching Hosts</div>
+
+
+<!-- Produced by Nagios (https://www.nagios.org).  Copyright (c) 1999-2007 Ethan Galstad. -->
+</body>
+</html>

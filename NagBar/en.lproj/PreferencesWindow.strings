@@ -1,0 +1,348 @@
+
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "1"; */
+"1.title" = "Preferences";
+
+/* Class = "NSMenuItem"; title = "Status"; ObjectID = "06M-f6-c4k"; */
+"06M-f6-c4k.title" = "Status";
+
+/* Class = "NSBox"; title = "Status Bar"; ObjectID = "0Ag-GF-ewJ"; */
+"0Ag-GF-ewJ.title" = "Status Bar";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "0W4-NO-LDx"; */
+"0W4-NO-LDx.title" = "None";
+
+/* Class = "NSButtonCell"; title = "Scheduled downtime"; ObjectID = "1OU-gU-Slw"; */
+"1OU-gU-Slw.title" = "Scheduled downtime";
+
+/* Class = "NSButtonCell"; title = "Accept invalid certificates"; ObjectID = "2PM-3z-M6N"; */
+"2PM-3z-M6N.title" = "Accept invalid certificates";
+
+/* Class = "NSMenuItem"; title = "200"; ObjectID = "2Yy-T2-lel"; */
+"2Yy-T2-lel.title" = "200";
+
+/* Class = "NSButtonCell"; title = "Status"; ObjectID = "2g2-a5-9FW"; */
+"2g2-a5-9FW.title" = "Status";
+
+/* Class = "NSTabViewItem"; label = "Audible Alarms"; ObjectID = "4IU-uR-bn0"; */
+"4IU-uR-bn0.label" = "Audible Alarms";
+
+/* Class = "NSButtonCell"; title = "Flapping"; ObjectID = "4RA-W0-dZv"; */
+"4RA-W0-dZv.title" = "Flapping";
+
+/* Class = "NSButtonCell"; title = "Skip services of hosts with scheduled downtime"; ObjectID = "4WU-jw-FyN"; */
+"4WU-jw-FyN.title" = "Skip services of hosts with scheduled downtime";
+
+/* Class = "NSButtonCell"; title = "Down"; ObjectID = "4l6-wZ-5Za"; */
+"4l6-wZ-5Za.title" = "Down";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "6so-wX-p1b"; */
+"6so-wX-p1b.title" = "OtherViews";
+
+/* Class = "NSButtonCell"; title = "Monitoring Instances"; ObjectID = "6vn-Ug-1oE"; */
+"6vn-Ug-1oE.title" = "Monitoring Instances";
+
+/* Class = "NSButtonCell"; title = "OK (O)"; ObjectID = "78n-xZ-Tzf"; */
+"78n-xZ-Tzf.title" = "OK (O)";
+
+/* Class = "NSButtonCell"; title = "Acknowledged"; ObjectID = "8Mk-vk-evO"; */
+"8Mk-vk-evO.title" = "Acknowledged";
+
+/* Class = "NSTextFieldCell"; title = "Schedule downtime default comment"; ObjectID = "8PE-fT-Xfp"; */
+"8PE-fT-Xfp.title" = "Schedule downtime default comment";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "A13-K1-wgE"; */
+"A13-K1-wgE.title" = "Table View Cell";
+
+/* Class = "NSMenuItem"; title = "Attempt"; ObjectID = "APl-rU-qtV"; */
+"APl-rU-qtV.title" = "Attempt";
+
+/* Class = "NSTabViewItem"; label = "Panel"; ObjectID = "ARc-5L-DD8"; */
+"ARc-5L-DD8.label" = "Panel";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "BGx-Ds-gcM"; */
+"BGx-Ds-gcM.title" = "Text Cell";
+
+/* Class = "NSMenuItem"; title = "500"; ObjectID = "ClD-FE-ASa"; */
+"ClD-FE-ASa.title" = "500";
+
+/* Class = "NSMenuItem"; title = "400"; ObjectID = "D60-Hc-WZK"; */
+"D60-Hc-WZK.title" = "400";
+
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "EKp-e8-ukz"; */
+"EKp-e8-ukz.title" = "Default";
+
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "EM1-bs-Z6J"; */
+"EM1-bs-Z6J.title" = "Default";
+
+/* Class = "NSMenuItem"; title = "Host"; ObjectID = "FNO-bL-nTU"; */
+"FNO-bL-nTU.title" = "Host";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "FVq-vf-bdE"; */
+"FVq-vf-bdE.title" = "OtherViews";
+
+/* Class = "NSButtonCell"; title = "Unreachable"; ObjectID = "Fkq-N0-vjC"; */
+"Fkq-N0-vjC.title" = "Unreachable";
+
+/* Class = "NSButtonCell"; title = "Warning"; ObjectID = "GV0-UE-kuD"; */
+"GV0-UE-kuD.title" = "Warning";
+
+/* Class = "NSButtonCell"; title = "Up (UP)"; ObjectID = "GVJ-DN-hLk"; */
+"GVJ-DN-hLk.title" = "Up (UP)";
+
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "GXk-r6-iKS"; */
+"GXk-r6-iKS.title" = "Default";
+
+/* Class = "NSButtonCell"; title = "Pending (P)"; ObjectID = "GgD-fd-vmb"; */
+"GgD-fd-vmb.title" = "Pending (P)";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "Ggm-tj-ACm"; */
+"Ggm-tj-ACm.title" = "Table View Cell";
+
+/* Class = "NSButtonCell"; title = "Scheduled downtime"; ObjectID = "GlF-KD-9eB"; */
+"GlF-KD-9eB.title" = "Scheduled downtime";
+
+/* Class = "NSMenuItem"; title = "100"; ObjectID = "H1l-kk-fc8"; */
+"H1l-kk-fc8.title" = "100";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "Haa-Lz-dZb"; */
+"Haa-Lz-dZb.title" = "OtherViews";
+
+/* Class = "NSButtonCell"; title = "Pending (PE)"; ObjectID = "Hfj-Mp-D0O"; */
+"Hfj-Mp-D0O.title" = "Pending (PE)";
+
+/* Class = "NSTabViewItem"; label = "Commands"; ObjectID = "Hhb-Zz-UuG"; */
+"Hhb-Zz-UuG.label" = "Commands";
+
+/* Class = "NSMenuItem"; title = "Bright Flash"; ObjectID = "ITZ-9g-lxY"; */
+"ITZ-9g-lxY.title" = "Bright Flash";
+
+/* Class = "NSButtonCell"; title = "Show extended status information"; ObjectID = "Ils-r5-fYt"; */
+"Ils-r5-fYt.title" = "Show extended status information";
+
+/* Class = "NSButtonCell"; title = "Save password (stored in Keychain)"; ObjectID = "JD7-He-tQf"; */
+"JD7-He-tQf.title" = "Save password (stored in Keychain)";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "JQD-zr-HbJ"; */
+"JQD-zr-HbJ.title" = "OtherViews";
+
+/* Class = "NSButtonCell"; title = "Critical (C)"; ObjectID = "KUd-ia-ljs"; */
+"KUd-ia-ljs.title" = "Critical (C)";
+
+/* Class = "NSButtonCell"; title = "Show Dock icon"; ObjectID = "KZa-Jj-ESb"; */
+"KZa-Jj-ESb.title" = "Show Dock icon";
+
+/* Class = "NSButtonCell"; title = "Critical"; ObjectID = "MEi-Cv-f1Q"; */
+"MEi-Cv-f1Q.title" = "Critical";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "MJ9-ip-Eaz"; */
+"MJ9-ip-Eaz.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Custom"; ObjectID = "NzG-Eq-aNO"; */
+"NzG-Eq-aNO.title" = "Custom";
+
+/* Class = "NSTableColumn"; headerCell.title = "Service"; ObjectID = "OCX-Es-9Rv"; */
+"OCX-Es-9Rv.headerCell.title" = "Service";
+
+/* Class = "NSTextFieldCell"; title = "the status bar"; ObjectID = "OKK-GF-0cd"; */
+"OKK-GF-0cd.title" = "the status bar";
+
+/* Class = "NSBox"; title = "Sorting"; ObjectID = "OZ7-hn-VD6"; */
+"OZ7-hn-VD6.title" = "Sorting";
+
+/* Class = "NSButtonCell"; title = "Automatically check for new version on startup"; ObjectID = "Oa5-TJ-Pth"; */
+"Oa5-TJ-Pth.title" = "Automatically check for new version on startup";
+
+/* Class = "NSButtonCell"; title = "Flapping"; ObjectID = "PGu-27-uLx"; */
+"PGu-27-uLx.title" = "Flapping";
+
+/* Class = "NSMenuItem"; title = "Flash"; ObjectID = "QDF-lR-2Ly"; */
+"QDF-lR-2Ly.title" = "Flash";
+
+/* Class = "NSBox"; title = "Alarms for statuses"; ObjectID = "Quf-Wr-8Q6"; */
+"Quf-Wr-8Q6.title" = "Alarms for statuses";
+
+/* Class = "NSBox"; title = "Columns"; ObjectID = "RCm-VC-8xi"; */
+"RCm-VC-8xi.title" = "Columns";
+
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "TBw-qW-fRV"; */
+"TBw-qW-fRV.title" = "Default";
+
+/* Class = "NSTextFieldCell"; title = "Order"; ObjectID = "TIf-kJ-qsr"; */
+"TIf-kJ-qsr.title" = "Order";
+
+/* Class = "NSMenuItem"; title = "Ascending"; ObjectID = "TKP-gE-8Eo"; */
+"TKP-gE-8Eo.title" = "Ascending";
+
+/* Class = "NSButtonCell"; title = "Disabled notifications"; ObjectID = "TgQ-KI-vYM"; */
+"TgQ-KI-vYM.title" = "Disabled notifications";
+
+/* Class = "NSTextFieldCell"; title = "Host and service filter"; ObjectID = "U1X-nJ-PEh"; */
+"U1X-nJ-PEh.title" = "Host and service filter";
+
+/* Class = "NSButtonCell"; title = "Monitoring Instance"; ObjectID = "U9N-4O-fXF"; */
+"U9N-4O-fXF.title" = "Monitoring Instance";
+
+/* Class = "NSButtonCell"; title = "Attempt"; ObjectID = "VDS-rL-55O"; */
+"VDS-rL-55O.title" = "Attempt";
+
+/* Class = "NSButtonCell"; title = "Last Check"; ObjectID = "Vq2-GP-gJF"; */
+"Vq2-GP-gJF.title" = "Last Check";
+
+/* Class = "NSSegmentedCell"; WhW-DD-jYf.ibShadowedLabels[0] = "+"; ObjectID = "WhW-DD-jYf"; */
+"WhW-DD-jYf.ibShadowedLabels[0]" = "+";
+
+/* Class = "NSSegmentedCell"; WhW-DD-jYf.ibShadowedLabels[1] = "-"; ObjectID = "WhW-DD-jYf"; */
+"WhW-DD-jYf.ibShadowedLabels[1]" = "-";
+
+/* Class = "NSSegmentedCell"; WhW-DD-jYf.ibShadowedLabels[2] = "Edit"; ObjectID = "WhW-DD-jYf"; */
+"WhW-DD-jYf.ibShadowedLabels[2]" = "Edit";
+
+/* Class = "NSButtonCell"; title = "Use notifications"; ObjectID = "Wr2-hc-lLO"; */
+"Wr2-hc-lLO.title" = "Use notifications";
+
+/* Class = "NSTabViewItem"; label = "General"; ObjectID = "X3n-YZ-Xzg"; */
+"X3n-YZ-Xzg.label" = "General";
+
+/* Class = "NSTableColumn"; headerCell.title = "Host"; ObjectID = "X9H-qx-gAS"; */
+"X9H-qx-gAS.headerCell.title" = "Host";
+
+/* Class = "NSButtonCell"; title = "Acknowledged"; ObjectID = "YCW-eG-u4p"; */
+"YCW-eG-u4p.title" = "Acknowledged";
+
+/* Class = "NSMenuItem"; title = "600"; ObjectID = "YEk-FS-brZ"; */
+"YEk-FS-brZ.title" = "600";
+
+/* Class = "NSButtonCell"; title = "Alarm on recovery"; ObjectID = "YfS-5D-Yhw"; */
+"YfS-5D-Yhw.title" = "Alarm on recovery";
+
+/* Class = "NSButtonCell"; title = "Soft State"; ObjectID = "Yp1-hP-PAJ"; */
+"Yp1-hP-PAJ.title" = "Soft State";
+
+/* Class = "NSButtonCell"; title = "Soft State"; ObjectID = "Zpz-vj-9tH"; */
+"Zpz-vj-9tH.title" = "Soft State";
+
+/* Class = "NSTextFieldCell"; title = "Column"; ObjectID = "aV4-5v-jmi"; */
+"aV4-5v-jmi.title" = "Column";
+
+/* Class = "NSButtonCell"; title = "Down (D)"; ObjectID = "btu-N9-497"; */
+"btu-N9-497.title" = "Down (D)";
+
+/* Class = "NSButtonCell"; title = "Unknown (U)"; ObjectID = "buC-Vl-qjh"; */
+"buC-Vl-qjh.title" = "Unknown (U)";
+
+/* Class = "NSTextFieldCell"; title = "Refresh interval"; ObjectID = "cUL-BD-5NJ"; */
+"cUL-BD-5NJ.title" = "Refresh interval";
+
+/* Class = "NSMenuItem"; title = "Custom"; ObjectID = "ctL-KX-HaS"; */
+"ctL-KX-HaS.title" = "Custom";
+
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "d93-5R-8vq"; */
+"d93-5R-8vq.title" = "Default";
+
+/* Class = "NSButtonCell"; title = "Status Information"; ObjectID = "dzU-3T-Yfh"; */
+"dzU-3T-Yfh.title" = "Status Information";
+
+/* Class = "NSTextFieldCell"; title = "Requires restart to take effect"; ObjectID = "f04-tn-Fzt"; */
+"f04-tn-Fzt.title" = "Requires restart to take effect";
+
+/* Class = "NSTabViewItem"; label = "Monitoring Instances"; ObjectID = "fEb-Lu-8Vk"; */
+"fEb-Lu-8Vk.label" = "Monitoring Instances";
+
+/* Class = "NSBox"; title = "Skip hosts in"; ObjectID = "fUU-9p-7JK"; */
+"fUU-9p-7JK.title" = "Skip hosts in";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "fui-jT-Nta"; */
+"fui-jT-Nta.title" = "Text Cell";
+
+/* Class = "NSTabViewItem"; label = "Filter Options"; ObjectID = "gHp-3H-rmb"; */
+"gHp-3H-rmb.label" = "Filter Options";
+
+/* Class = "NSMenuItem"; title = "Custom"; ObjectID = "grz-aS-dGE"; */
+"grz-aS-dGE.title" = "Custom";
+
+/* Class = "NSBox"; title = "Service Status Types"; ObjectID = "hSh-ti-VL7"; */
+"hSh-ti-VL7.title" = "Service Status Types";
+
+/* Class = "NSTextFieldCell"; title = "Requires restart to take effect. When disabled the preferences will be available from right click on the status bar."; ObjectID = "hoW-CB-4Qx"; */
+"hoW-CB-4Qx.title" = "Requires restart to take effect. When disabled the preferences will be available from right click on the status bar.";
+
+/* Class = "NSMenuItem"; title = "300"; ObjectID = "htg-Mv-qTQ"; */
+"htg-Mv-qTQ.title" = "300";
+
+/* Class = "NSTextFieldCell"; title = "If a service or a host in state UNREACHABLE, DOWN, CRITICAL and WARNING dissapears from the monitoring system, it will be considered as recovered and an alarm will be played"; ObjectID = "i2W-mG-l98"; */
+"i2W-mG-l98.title" = "If a service or a host in state UNREACHABLE, DOWN, CRITICAL and WARNING dissapears from the monitoring system, it will be considered as recovered and an alarm will be played";
+
+/* Class = "NSButtonCell"; title = "Warning (W)"; ObjectID = "iGh-mX-umW"; */
+"iGh-mX-umW.title" = "Warning (W)";
+
+/* Class = "NSMenuItem"; title = "Last Check"; ObjectID = "ieD-jm-8TK"; */
+"ieD-jm-8TK.title" = "Last Check";
+
+/* Class = "NSTextFieldCell"; title = "When enabled you can schedule downtime for a host and the services owned by the host will not be displayed."; ObjectID = "iy3-AT-cOM"; */
+"iy3-AT-cOM.title" = "When enabled you can schedule downtime for a host and the services owned by the host will not be displayed.";
+
+/* Class = "NSButtonCell"; title = "Disabled notifications"; ObjectID = "kbL-Hf-Yus"; */
+"kbL-Hf-Yus.title" = "Disabled notifications";
+
+/* Class = "NSBox"; title = "Host Status Types"; ObjectID = "lXU-VM-2a5"; */
+"lXU-VM-2a5.title" = "Host Status Types";
+
+/* Class = "NSButtonCell"; title = "Enable audible alarms"; ObjectID = "mZh-6Y-ma0"; */
+"mZh-6Y-ma0.title" = "Enable audible alarms";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "nQE-Lx-ye7"; */
+"nQE-Lx-ye7.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Custom"; ObjectID = "nab-Ki-Gqa"; */
+"nab-Ki-Gqa.title" = "Custom";
+
+/* Class = "NSButtonCell"; title = "On status change"; ObjectID = "oBq-F3-hfQ"; */
+"oBq-F3-hfQ.title" = "On status change";
+
+/* Class = "NSMenuItem"; title = "Shake"; ObjectID = "oYO-ei-cQW"; */
+"oYO-ei-cQW.title" = "Shake";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "p1i-ub-13E"; */
+"p1i-ub-13E.title" = "OtherViews";
+
+/* Class = "NSTableColumn"; headerCell.title = "Status"; ObjectID = "pgU-j3-Zja"; */
+"pgU-j3-Zja.headerCell.title" = "Status";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "qcO-Up-C7e"; */
+"qcO-Up-C7e.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "r05-4j-wot"; */
+"r05-4j-wot.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "pixels"; ObjectID = "rTF-cd-uUR"; */
+"rTF-cd-uUR.title" = "pixels";
+
+/* Class = "NSBox"; title = "Skip services in"; ObjectID = "scf-fC-9h9"; */
+"scf-fC-9h9.title" = "Skip services in";
+
+/* Class = "NSMenuItem"; title = "Duration"; ObjectID = "t7F-IL-H4U"; */
+"t7F-IL-H4U.title" = "Duration";
+
+/* Class = "NSButtonCell"; title = "Unreachable (UR)"; ObjectID = "tG2-c2-JIP"; */
+"tG2-c2-JIP.title" = "Unreachable (UR)";
+
+/* Class = "NSButtonCell"; title = "Duration"; ObjectID = "uhk-vX-r7q"; */
+"uhk-vX-r7q.title" = "Duration";
+
+/* Class = "NSMenuItem"; title = "Custom"; ObjectID = "ut2-YO-6gn"; */
+"ut2-YO-6gn.title" = "Custom";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "vJ7-x6-sbQ"; */
+"vJ7-x6-sbQ.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Descending"; ObjectID = "vN1-6a-Na9"; */
+"vN1-6a-Na9.title" = "Descending";
+
+/* Class = "NSTextFieldCell"; title = "Acknowledgement default comment"; ObjectID = "vdh-2N-Q7s"; */
+"vdh-2N-Q7s.title" = "Acknowledgement default comment";
+
+/* Class = "NSMenuItem"; title = "Service"; ObjectID = "yMF-a0-4z8"; */
+"yMF-a0-4z8.title" = "Service";
+
+/* Class = "NSMenuItem"; title = "700"; ObjectID = "ycL-2t-bsU"; */
+"ycL-2t-bsU.title" = "700";

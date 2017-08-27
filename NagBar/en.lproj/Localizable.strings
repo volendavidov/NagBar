@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  NagBar
+
+  Created by Volen Davidov on 07.02.16.
+  Copyright © 2016 Volen Davidov. All rights reserved.
+*/
+
+"monitoringInstanceExistsMessage" = "Monitoring instance already exists";
+"monitoringInstanceExistsInformative" = "Monitoring instance with name \"%@\" already exists. Please rename the existing monitoring instance \"%@\".";
+"monitoringInstanceEmptyMessage" = "Monitoring instance name empty";
+"monitoringInstanceEmptyInformative" = "Please enter monitoring instance name";
+"unknown" = "Unknown";
+"checking" = "Checking";
+"ok" = "OK";
+"error" = "Error";
+"noAlarms" = "No Alarms";
+"totalCount" = "Total Count:";
+"monitoringInstanceFailedUnknown" = "Connection to monitoring instance \"%@\" failed";
+"monitoringInstanceFailedWrongCredentials" = "Connection to monitoring instance \"%@\" failed - incorrect credentials";
+"monitoringInstanceFailedSSL" = "Connection to monitoring instance \"%@\" failed because of invalid certificate";
+"filterAlreadyExists" = "Filter already exists";
+"filterAlreadyExistsHost" = "Filter for host \"%@\" already exists.";
+"filterAlreadyExistsService" = "Filter for host \"%@\", service \"%@\" already exists.";
+"newVersionMessageText" = "New version available";
+"newVersionInformativeText" = "Version %@ of NagBar is available with the following features:\n%@\n\nDownload at https://sites.google.com/site/nagbarapp/";
+"pleaseEnterPassword" = "Please enter the password for monitoring instance\n%@";
+"no" = "No";
+"yes" = "Yes";
+"connectionFailed" = "Connection failed";
+"skipMonitoringInstance" = "Reason: \n%@\n\nSkip this monitoring instance?";
+"incorrectPassword" = "Incorrect password";
+"connectionTimedOut" = "Connection timed out";
+"couldNotConnect" = "Could not connect to the server";
+"unknownError" = "Unknown error";
+"openInBrowser" = "Open in browser";
+"recheck" = "Recheck";
+"scheduleDowntime" = "Schedule Downtime";
+"acknowledge" = "Acknowledge";
+"addToFilter" = "Add to filter";
+"addToFilterConfirm" = "Are you sure that you want to filter the selected items?";
+"login" = "Login";
+"enterUsername" = "Please enter a username";
+"cancel" = "Cancel";
+"username" = "Username";
+"removeLoginSettings" = "Remove login settings";

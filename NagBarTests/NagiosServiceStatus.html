@@ -1,0 +1,2275 @@
+<html>
+<head>
+<link rel="shortcut icon" href="/nagios/images/favicon.ico" type="image/ico">
+<title>
+Current Network Status
+</title>
+<link rel='stylesheet' type='text/css' href='/nagios/stylesheets/common.css' />
+<link rel='stylesheet' type='text/css' href='/nagios/stylesheets/status.css' />
+<script type='text/javascript' src='/nagios/js/jquery-1.7.1.min.js'></script>
+<script type='text/javascript'>
+$(document).ready(function() { $('#top_page_numbers').append($('#bottom_page_numbers').html() ); });function set_limit(url) { 
+this.location = url+'&limit='+$('#limit').val();
+  }</script>
+</head>
+<body class='status'>
+
+<!-- Produced by Nagios (https://www.nagios.org).  Copyright (c) 1999-2007 Ethan Galstad. -->
+<table class='headertable'>
+<tr>
+<td align=left valign=top width=33%>
+<TABLE CLASS='infoBox' BORDER=1 CELLSPACING=0 CELLPADDING=0>
+<TR><TD CLASS='infoBox'>
+<DIV CLASS='infoBoxTitle'>Current Network Status</DIV>
+Last Updated: Sun Jan 3 18:26:26 UTC 2016<BR>
+Updated every 90 seconds<br>
+Nagios&reg; Core&trade; 4.1.1 - <A HREF='https://www.nagios.org' TARGET='_new' CLASS='homepageURL'>www.nagios.org</A><BR>
+Logged in as <i>nagiosadmin</i><BR>
+</TD></TR>
+</TABLE>
+<table class='linkBox'>
+<tr><td class='linkBox'>
+<a href='history.cgi?host=all'>View History For all hosts</a><br>
+<a href='notifications.cgi?host=all'>View Notifications For All Hosts</a>
+<br /><a href='status.cgi?hostgroup=all&style=hostdetail'>View Host Status Detail For All Hosts</a>
+</td></tr>
+</table>
+</td>
+<td align=center valign=top width=33%>
+<div class='hostTotals'>Host Status Totals</div>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr><td>
+<table class='hostTotals'>
+<tr>
+<th class='hostTotals'><a class='hostTotals' href='status.cgi?host=all&hoststatustypes=2'>Up</a></th>
+<th class='hostTotals'><a class='hostTotals' href='status.cgi?host=all&hoststatustypes=4'>Down</a></th>
+<th class='hostTotals'><a class='hostTotals' href='status.cgi?host=all&hoststatustypes=8'>Unreachable</a></th>
+<th class='hostTotals'><a class='hostTotals' href='status.cgi?host=all&hoststatustypes=1'>Pending</a></th>
+</tr>
+<tr>
+<td class='hostTotalsUP'>48</td>
+<td class='hostTotals'>0</td>
+<td class='hostTotals'>0</td>
+<td class='hostTotals'>0</td>
+</tr>
+</table>
+</td></tr><tr><td align='center'>
+<table class='hostTotals'>
+<tr>
+<th class='hostTotals'><a class='hostTotals' href='status.cgi?host=all&hoststatustypes=12'><em>All Problems</em></a></th>
+<th class='hostTotals'><a class='hostTotals' href='status.cgi?host=all'><em>All Types</em></a></th>
+</tr><tr>
+<td class='hostTotals'>0</td>
+<td class='hostTotals'>48</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</td>
+<td align=center valign=top width=33%>
+<div class='serviceTotals'>Service Status Totals</div>
+<table border='0' cellspacing='0' cellpadding='0'>
+<tr><td>
+<table class='serviceTotals'>
+<tr>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?host=all&servicestatustypes=2&hoststatustypes=15'>Ok</a></th>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?host=all&servicestatustypes=4&hoststatustypes=15'>Warning</a></th>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?host=all&servicestatustypes=8&hoststatustypes=15'>Unknown</a></th>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?host=all&servicestatustypes=16&hoststatustypes=15'>Critical</a></th>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?host=all&servicestatustypes=1&hoststatustypes=15'>Pending</a></th>
+</tr>
+<tr>
+<td class='serviceTotalsOK'>736</td>
+<td class='serviceTotalsWARNING'>67</td>
+<td class='serviceTotalsUNKNOWN'>1</td>
+<td class='serviceTotalsCRITICAL'>128</td>
+<td class='serviceTotalsPENDING'>16</td>
+</tr>
+</table>
+</td></tr><tr><td align='center'>
+<table class='serviceTotals'>
+<tr>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?host=all&servicestatustypes=28&hoststatustypes=15'><em>All Problems</em></a></th>
+<th class='serviceTotals'><a class='serviceTotals' href='status.cgi?host=all&hoststatustypes=15'><em>All Types</em></a></th>
+</tr><tr>
+<td class='serviceTotalsPROBLEMS'>196</td>
+<td class='serviceTotals'>948</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</td>
+<td align=right valign=bottom>
+</td>
+</tr>
+</table>
+<table class='pageTitle' border='0' width='100%'>
+<tr>
+<td valign=top align=left width=33%>
+</td><td valign=top align=center width=33%>
+<div align='center' class='statusTitle'>Service Status Details For All Hosts</div>
+<br></td>
+<td valign=top align=right width=33%></td>
+</tr>
+</table>
+<div id='pagelimit'>
+<div id='result_limit'>
+<label for='limit'>Limit Results: </label>
+<select onchange='set_limit("status.cgi?host=all")' name='limit' id='limit'>
+<option  value='50'>50</option>
+<option selected='selected' value='100'>100</option>
+<option  value='250'>250</option>
+<option  value='1000'>1000</option>
+<option  value='0'>All</option>
+</select></div>
+<div id='top_page_numbers'></div>
+</div>
+<table border=0 width=100% class='status'>
+<tr>
+<th class='status'>Host&nbsp;<a href='status.cgi?host=all&sorttype=1&sortoption=1'><IMG SRC='/nagios/images/up.gif' border=0 ALT='Sort by host name (ascending)' TITLE='Sort by host name (ascending)'></a><a href='status.cgi?host=all&sorttype=2&sortoption=1'><IMG SRC='/nagios/images/down.gif' border=0 ALT='Sort by host name (descending)' TITLE='Sort by host name (descending)'></a></th><th class='status'>Service&nbsp;<a href='status.cgi?host=all&sorttype=1&sortoption=2'><IMG SRC='/nagios/images/up.gif' border=0 ALT='Sort by service name (ascending)' TITLE='Sort by service name (ascending)'></a><a href='status.cgi?host=all&sorttype=2&sortoption=2'><IMG SRC='/nagios/images/down.gif' border=0 ALT='Sort by service name (descending)' TITLE='Sort by service name (descending)'></a></th><th class='status'>Status&nbsp;<a href='status.cgi?host=all&sorttype=1&sortoption=3'><IMG SRC='/nagios/images/up.gif' border=0 ALT='Sort by service status (ascending)' TITLE='Sort by service status (ascending)'></a><a href='status.cgi?host=all&sorttype=2&sortoption=3'><IMG SRC='/nagios/images/down.gif' border=0 ALT='Sort by service status (descending)' TITLE='Sort by service status (descending)'></a></th><th class='status'>Last Check&nbsp;<a href='status.cgi?host=all&sorttype=1&sortoption=4'><IMG SRC='/nagios/images/up.gif' border=0 ALT='Sort by last check time (ascending)' TITLE='Sort by last check time (ascending)'></a><a href='status.cgi?host=all&sorttype=2&sortoption=4'><IMG SRC='/nagios/images/down.gif' border=0 ALT='Sort by last check time (descending)' TITLE='Sort by last check time (descending)'></a></th><th class='status'>Duration&nbsp;<a href='status.cgi?host=all&sorttype=1&sortoption=6'><IMG SRC='/nagios/images/up.gif' border=0 ALT='Sort by state duration (ascending)' TITLE='Sort by state duration (ascending)'></a><a href='status.cgi?host=all&sorttype=2&sortoption=6'><IMG SRC='/nagios/images/down.gif' border=0 ALT='Sort by state duration time (descending)' TITLE='Sort by state duration time (descending)'></a></th><th class='status'>Attempt&nbsp;<a href='status.cgi?host=all&sorttype=1&sortoption=5'><IMG SRC='/nagios/images/up.gif' border=0 ALT='Sort by current attempt (ascending)' TITLE='Sort by current attempt (ascending)'></a><a href='status.cgi?host=all&sorttype=2&sortoption=5'><IMG SRC='/nagios/images/down.gif' border=0 ALT='Sort by current attempt (descending)' TITLE='Sort by current attempt (descending)'></a></th><th class='status'>Status Information</th>
+</tr>
+<tr>
+<td class='statusEven'><table border=0 width='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusEven'><a href='extinfo.cgi?type=1&host=Log-Server.nagios.local' title='Log-Server.nagios.local'>Log-Server.nagios.local</a></td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=Log-Server.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled'd TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=Log-Server.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=%2F+Disk+Usage'>/ Disk Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=%2F+Disk+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>12-04-2015 16:09:40</td>
+<td class='statusEven' nowrap>173d 15h 13m 53s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>DISK OK - free space: / 4353 MB (26% inode=91%):&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Apache+404+Errors'>Apache 404 Errors</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Apache+404+Errors'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:18:22</td>
+<td class='statusOdd' nowrap> 0d  0h  8m  4s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 61 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Apache+Web+Server'>Apache Web Server</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Apache+Web+Server'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:04:45</td>
+<td class='statusEven' nowrap>173d 14h 16m 42s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>httpd (pid  28233) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Bandwidth+Spike'>Bandwidth Spike</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Bandwidth+Spike'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:22:31</td>
+<td class='statusOdd' nowrap>89d  4h 51m 59s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 35 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=CPU+Stats'>CPU Stats</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=CPU+Stats'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>07-14-2015 04:23:11</td>
+<td class='statusEven' nowrap>173d 15h 34m 41s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>CPU STATISTICS OK: user=9.47% system=2.25% iowait=0.70% idle=87.58%&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Cron+Scheduling+Daemon'>Cron Scheduling Daemon</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Cron+Scheduling+Daemon'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:24:15</td>
+<td class='statusOdd' nowrap>173d 15h 55m 59s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>crond (pid  7829) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Failed+SSH+Logins'>Failed SSH Logins</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Failed+SSH+Logins'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:03:12</td>
+<td class='statusEven' nowrap>173d 15h  4m 52s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 5 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Linux+Failed+Logins'>Linux Failed Logins</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Linux+Failed+Logins'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:24:15</td>
+<td class='statusOdd' nowrap>173d 14h 16m 42s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 1 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Load'>Load</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Load'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>10-06-2015 13:38:37</td>
+<td class='statusEven' nowrap>173d 15h 34m 41s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK - load average: 0.89, 0.84, 0.98&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Memory+Usage'>Memory Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Memory+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>12-04-2015 16:09:07</td>
+<td class='statusOdd' nowrap>173d 15h 21m 31s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK - 2918 / 3832 MB (76%) Free Memory, Used: 3126 MB, Shared: 16 MB, Buffers: 161 MB, Cached: 2212 MB&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=MySQL+Crashed+Tables'>MySQL Crashed Tables</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=MySQL+Crashed+Tables'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>12-04-2015 16:09:40</td>
+<td class='statusEven' nowrap>173d 14h 28m 43s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 0 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=MySQL+Server'>MySQL Server</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=MySQL+Server'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:21:12</td>
+<td class='statusOdd' nowrap>173d 16h 12m 59s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>mysqld (pid  13952) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Open+Files'>Open Files</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Open+Files'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:04:45</td>
+<td class='statusEven' nowrap>173d 15h 37m 13s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 2112 open files (0% of max 387183)&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Ping'>Ping</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Ping'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:21:12</td>
+<td class='statusOdd' nowrap>30d  2h 16m 17s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK - localhost: rta 0.027ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Port+22+Bandwidth'>Port 22 Bandwidth</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Port+22+Bandwidth'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:25:23</td>
+<td class='statusEven' nowrap>173d 16h  0m 48s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 5 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGCRITICAL'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGCRITICAL'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Port+80+Bandwidth'>Port 80 Bandwidth</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGCRITICAL'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Port+80+Bandwidth'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusCRITICAL'>CRITICAL</td>
+<td class='statusBGCRITICAL' nowrap>01-03-2016 18:05:23</td>
+<td class='statusBGCRITICAL' nowrap> 0d  0h 21m  3s</td>
+<td class='statusBGCRITICAL'>1/1</td>
+<td class='statusBGCRITICAL' valign='center'>CRITICAL: 62 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=SSH+Server'>SSH Server</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=SSH+Server'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>12-04-2015 16:06:48</td>
+<td class='statusEven' nowrap>173d 15h 22m 13s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>openssh-daemon (pid  20284) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Swap+Usage'>Swap Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Swap+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:24:15</td>
+<td class='statusOdd' nowrap>173d 16h  0m 48s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>SWAP OK - 100% free (2000 MB out of 2015 MB)&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=System+Logging+Daemon'>System Logging Daemon</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=System+Logging+Daemon'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>12-04-2015 16:07:22</td>
+<td class='statusEven' nowrap>173d 15h 45m 49s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>rsyslogd (pid  1190) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGWARNING'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGWARNING'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Total+Processes'>Total Processes</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGWARNING'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Total+Processes'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusWARNING'>WARNING</td>
+<td class='statusBGWARNING' nowrap>11-12-2015 20:29:23</td>
+<td class='statusBGWARNING' nowrap>51d 22h  2m  8s</td>
+<td class='statusBGWARNING'>1/1</td>
+<td class='statusBGWARNING' valign='center'>PROCS WARNING: 172 processes&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Users'>Users</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Users'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:25:23</td>
+<td class='statusEven' nowrap>173d 16h  0m 11s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>USERS OK - 0 users currently logged in&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Youtube+Usage'>Youtube Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Youtube+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:25:23</td>
+<td class='statusOdd' nowrap> 0d  0h  1m  3s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 5 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGWARNING'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGWARNING'><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Yum+Updates'>Yum Updates</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGWARNING'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server.nagios.local&service=Yum+Updates'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusWARNING'>WARNING</td>
+<td class='statusBGWARNING' nowrap>07-14-2015 02:32:15</td>
+<td class='statusBGWARNING' nowrap>173d 15h 57m 11s</td>
+<td class='statusBGWARNING'>1/1</td>
+<td class='statusBGWARNING' valign='center'>YUM WARNING:  O/S requires an update.&nbsp;</td>
+</tr>
+<tr><td colspan='6'></td></tr>
+<tr><td colspan='6'></td></tr>
+<tr>
+<td class='statusOdd'><table border=0 width='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusOdd'><a href='extinfo.cgi?type=1&host=Log-Server2.nagios.local' title='Log-Server2.nagios.local'>Log-Server2.nagios.local</a></td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=Log-Server2.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled'd TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=Log-Server2.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=%2F+Disk+Usage'>/ Disk Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=%2F+Disk+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>10-06-2015 13:36:14</td>
+<td class='statusOdd' nowrap>89d  4h 55m 11s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>DISK OK - free space: / 7025 MB (42% inode=92%):&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGWARNING'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGWARNING'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Apache+404+Errors'>Apache 404 Errors</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGWARNING'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Apache+404+Errors'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusWARNING'>WARNING</td>
+<td class='statusBGWARNING' nowrap>01-03-2016 18:19:45</td>
+<td class='statusBGWARNING' nowrap> 0d  0h  6m 41s</td>
+<td class='statusBGWARNING'>1/1</td>
+<td class='statusBGWARNING' valign='center'>WARNING: 85 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Apache+Web+Server'>Apache Web Server</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Apache+Web+Server'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>12-04-2015 16:09:40</td>
+<td class='statusOdd' nowrap>173d 15h 51m 11s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>httpd (pid  5191) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Bandwidth+Spike'>Bandwidth Spike</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Bandwidth+Spike'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:23:24</td>
+<td class='statusEven' nowrap>173d 15h 13m 14s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 18 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=CPU+Stats'>CPU Stats</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=CPU+Stats'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:25:23</td>
+<td class='statusOdd' nowrap>173d 15h 36m 30s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>CPU STATISTICS OK: user=24.67% system=9.95% iowait=0.00% idle=65.38%&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Cron+Scheduling+Daemon'>Cron Scheduling Daemon</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Cron+Scheduling+Daemon'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:25:12</td>
+<td class='statusEven' nowrap>51d 21h 56m 32s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>crond (pid  7829) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Failed+SSH+Logins'>Failed SSH Logins</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Failed+SSH+Logins'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:23:24</td>
+<td class='statusOdd' nowrap>173d 15h 34m 41s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 8 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Linux+Failed+Logins'>Linux Failed Logins</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Linux+Failed+Logins'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:19:45</td>
+<td class='statusEven' nowrap>173d 15h  1m  2s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 4 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Load'>Load</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Load'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>10-06-2015 13:39:03</td>
+<td class='statusOdd' nowrap>173d 15h 51m 11s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK - load average: 0.76, 0.81, 0.97&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Memory+Usage'>Memory Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Memory+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:19:45</td>
+<td class='statusEven' nowrap>173d 14h 44m 41s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK - 2928 / 3832 MB (76%) Free Memory, Used: 3097 MB, Shared: 15 MB, Buffers: 154 MB, Cached: 2193 MB&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=MySQL+Crashed+Tables'>MySQL Crashed Tables</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=MySQL+Crashed+Tables'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:16:55</td>
+<td class='statusOdd' nowrap> 0d  0h  9m 31s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 2 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=MySQL+Server'>MySQL Server</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=MySQL+Server'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:14:12</td>
+<td class='statusEven' nowrap>173d 15h 13m 53s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>mysqld (pid  13952) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Open+Files'>Open Files</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Open+Files'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>12-04-2015 16:07:22</td>
+<td class='statusOdd' nowrap>173d 14h 55m 30s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 1856 open files (0% of max 387183)&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Port+22+Bandwidth'>Port 22 Bandwidth</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Port+22+Bandwidth'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:21:12</td>
+<td class='statusEven' nowrap>173d 14h 16m 42s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 4 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Port+80+Bandwidth'>Port 80 Bandwidth</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Port+80+Bandwidth'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:22:53</td>
+<td class='statusOdd' nowrap>89d  4h 50m 12s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 2 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=SSH+Server'>SSH Server</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=SSH+Server'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>12-04-2015 16:07:22</td>
+<td class='statusEven' nowrap>173d 15h 48m 12s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>openssh-daemon (pid  20284) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Swap+Usage'>Swap Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Swap+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:11:56</td>
+<td class='statusOdd' nowrap>173d 15h 45m 11s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>SWAP OK - 100% free (2000 MB out of 2015 MB)&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=System+Logging+Daemon'>System Logging Daemon</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=System+Logging+Daemon'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:03:12</td>
+<td class='statusEven' nowrap>173d 15h 13m 53s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>rsyslogd (pid  1190) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGWARNING'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGWARNING'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Total+Processes'>Total Processes</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGWARNING'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Total+Processes'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusWARNING'>WARNING</td>
+<td class='statusBGWARNING' nowrap>10-06-2015 13:34:27</td>
+<td class='statusBGWARNING' nowrap>173d 14h 53m 43s</td>
+<td class='statusBGWARNING'>1/1</td>
+<td class='statusBGWARNING' valign='center'>PROCS WARNING: 185 processes&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Users'>Users</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Users'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:21:56</td>
+<td class='statusEven' nowrap>173d 16h 17m  1s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>USERS OK - 0 users currently logged in&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Youtube+Usage'>Youtube Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Youtube+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:21:12</td>
+<td class='statusOdd' nowrap> 0d  0h 10m 19s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 2 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGWARNING'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGWARNING'><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Yum+Updates'>Yum Updates</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGWARNING'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Log-Server2.nagios.local&service=Yum+Updates'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusWARNING'>WARNING</td>
+<td class='statusBGWARNING' nowrap>07-14-2015 04:04:12</td>
+<td class='statusBGWARNING' nowrap>173d 15h 55m 59s</td>
+<td class='statusBGWARNING'>1/1</td>
+<td class='statusBGWARNING' valign='center'>YUM WARNING:  O/S requires an update.&nbsp;</td>
+</tr>
+<tr><td colspan='6'></td></tr>
+<tr><td colspan='6'></td></tr>
+<tr>
+<td class='statusOdd'><table border=0 width='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusOdd'><a href='extinfo.cgi?type=1&host=NOAA' title='weather.gov'>NOAA</a></td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=NOAA'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled'd TITLE='Checks of this host have been disabled'></a></td></tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=NOAA&service=Auroral+Activity'>Auroral Activity</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:17:36</td>
+<td class='statusOdd' nowrap>978d  4h  4m 22s</td>
+<td class='statusOdd'>1/3</td>
+<td class='statusOdd' valign='center'>Aurora OK: Activity level is&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=NOAA&service=Weather+Carteret+North+Carolina'>Weather Carteret North Carolina</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=NOAA&service=Weather+Carteret+North+Carolina'><IMG SRC='/nagios/images/flapping.gif' border=0 WIDTH=20 HEIGHT=20 ALT='This service is flapping between states' TITLE='This service is flapping between states'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:17:51</td>
+<td class='statusEven' nowrap>51d 21h 59m 48s</td>
+<td class='statusEven'>1/3</td>
+<td class='statusEven' valign='center'>Weather OK: No watches or warnings currently apply to your area.&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=NOAA&service=Weather+King+Washington'>Weather King Washington</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:18:04</td>
+<td class='statusOdd' nowrap> 0d  0h 18m 22s</td>
+<td class='statusOdd'>1/3</td>
+<td class='statusOdd' valign='center'>Weather OK: No watches or warnings currently apply to your area.&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=NOAA&service=Weather+Ramsey+Minnesota'>Weather Ramsey Minnesota</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:18:13</td>
+<td class='statusEven' nowrap>502d 20h 23m 28s</td>
+<td class='statusEven'>1/3</td>
+<td class='statusEven' valign='center'>Weather OK: No watches or warnings currently apply to your area.&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGWARNING'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGWARNING'><a href='extinfo.cgi?type=2&host=NOAA&service=Weather+San+Bernardino+California'>Weather San Bernardino California</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGWARNING'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusWARNING'>WARNING</td>
+<td class='statusBGWARNING' nowrap>01-03-2016 18:21:55</td>
+<td class='statusBGWARNING' nowrap> 0d  0h 18m  5s</td>
+<td class='statusBGWARNING'>3/3</td>
+<td class='statusBGWARNING' valign='center'>Weather Warning: Winter Storm Watch&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=NOAA&service=Weather+Strafford+New+Hampshire'>Weather Strafford New Hampshire</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=NOAA&service=Weather+Strafford+New+Hampshire'><IMG SRC='/nagios/images/flapping.gif' border=0 WIDTH=20 HEIGHT=20 ALT='This service is flapping between states' TITLE='This service is flapping between states'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:18:26</td>
+<td class='statusEven' nowrap>173d 16h 22m 15s</td>
+<td class='statusEven'>1/3</td>
+<td class='statusEven' valign='center'>Weather OK: No watches or warnings currently apply to your area.&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=NOAA&service=Weather+Tulsa+Oklahoma'>Weather Tulsa Oklahoma</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+</tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:18:41</td>
+<td class='statusOdd' nowrap>89d  4h 48m 50s</td>
+<td class='statusOdd'>1/3</td>
+<td class='statusOdd' valign='center'>Weather OK: No watches or warnings currently apply to your area.&nbsp;</td>
+</tr>
+<tr><td colspan='6'></td></tr>
+<tr><td colspan='6'></td></tr>
+<tr>
+<td class='statusEven'><table border=0 width='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusEven'><a href='extinfo.cgi?type=1&host=Network-Analyzer.nagios.local' title='Network-Analyzer.nagios.local'>Network-Analyzer.nagios.local</a></td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=Network-Analyzer.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled'd TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=Network-Analyzer.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=%2F+Disk+Usage'>/ Disk Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=%2F+Disk+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:21:12</td>
+<td class='statusEven' nowrap>173d 15h 35m 13s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>DISK OK - free space: / 4001 MB (24% inode=91%):&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Apache+404+Errors'>Apache 404 Errors</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Apache+404+Errors'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:22:53</td>
+<td class='statusOdd' nowrap>173d 15h 55m 59s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 17 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Apache+Web+Server'>Apache Web Server</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Apache+Web+Server'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>12-04-2015 16:08:56</td>
+<td class='statusEven' nowrap>173d 16h  9m 48s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>httpd (pid  5191) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Bandwidth+Spike'>Bandwidth Spike</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Bandwidth+Spike'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:21:56</td>
+<td class='statusOdd' nowrap>51d 22h  4m 16s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 67 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=CPU+Stats'>CPU Stats</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=CPU+Stats'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>11-12-2015 20:25:55</td>
+<td class='statusEven' nowrap>173d 15h 22m 43s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>CPU STATISTICS OK: user=13.32% system=5.70% iowait=0.00% idle=80.99%&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Cron+Scheduling+Daemon'>Cron Scheduling Daemon</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Cron+Scheduling+Daemon'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>12-04-2015 16:07:56</td>
+<td class='statusOdd' nowrap>173d 15h 13m 53s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>crond (pid  7829) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Failed+SSH+Logins'>Failed SSH Logins</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Failed+SSH+Logins'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:22:53</td>
+<td class='statusEven' nowrap>173d 15h 51m 49s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 0 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Linux+Failed+Logins'>Linux Failed Logins</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Linux+Failed+Logins'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>11-12-2015 20:27:08</td>
+<td class='statusOdd' nowrap>173d 15h 35m 13s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 4 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Load'>Load</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Load'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:25:55</td>
+<td class='statusEven' nowrap>173d 14h 16m 42s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK - load average: 1.23, 1.02, 1.03&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Memory+Usage'>Memory Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Memory+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:15:56</td>
+<td class='statusOdd' nowrap>173d 16h  9m 48s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK - 2930 / 3832 MB (76%) Free Memory, Used: 3094 MB, Shared: 15 MB, Buffers: 154 MB, Cached: 2192 MB&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=MySQL+Crashed+Tables'>MySQL Crashed Tables</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=MySQL+Crashed+Tables'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>07-14-2015 04:23:11</td>
+<td class='statusEven' nowrap>173d 14h 58m 14s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 1 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=MySQL+Server'>MySQL Server</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=MySQL+Server'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:24:15</td>
+<td class='statusOdd' nowrap>89d  4h 51m 48s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>mysqld (pid  13952) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Open+Files'>Open Files</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Open+Files'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>11-12-2015 20:28:19</td>
+<td class='statusEven' nowrap>173d 16h 16m 51s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 1888 open files (0% of max 387183)&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Ping'>Ping</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Ping'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>10-06-2015 13:39:26</td>
+<td class='statusOdd' nowrap>173d 15h 52m 12s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK - localhost: rta 0.044ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Port+22+Bandwidth'>Port 22 Bandwidth</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Port+22+Bandwidth'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>12-04-2015 16:09:40</td>
+<td class='statusEven' nowrap>173d 15h 34m 41s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 1 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Port+80+Bandwidth'>Port 80 Bandwidth</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Port+80+Bandwidth'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:10:44</td>
+<td class='statusOdd' nowrap>173d 14h 45m 41s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 46 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=SSH+Server'>SSH Server</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=SSH+Server'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>07-14-2015 04:15:45</td>
+<td class='statusEven' nowrap>173d 16h 15m 59s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>openssh-daemon (pid  1255) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Swap+Usage'>Swap Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Swap+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>10-06-2015 13:36:14</td>
+<td class='statusOdd' nowrap>173d 15h 13m 53s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>SWAP OK - 100% free (2003 MB out of 2015 MB)&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=System+Logging+Daemon'>System Logging Daemon</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=System+Logging+Daemon'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:14:12</td>
+<td class='statusEven' nowrap>173d 15h 37m 13s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>rsyslogd (pid  1190) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGWARNING'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGWARNING'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Total+Processes'>Total Processes</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGWARNING'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Total+Processes'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusWARNING'>WARNING</td>
+<td class='statusBGWARNING' nowrap>01-03-2016 18:21:12</td>
+<td class='statusBGWARNING' nowrap>173d 16h  0m 48s</td>
+<td class='statusBGWARNING'>1/1</td>
+<td class='statusBGWARNING' valign='center'>PROCS WARNING: 172 processes&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Users'>Users</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Users'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>10-06-2015 13:39:38</td>
+<td class='statusEven' nowrap>173d 16h  0m 48s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>USERS OK - 0 users currently logged in&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Youtube+Usage'>Youtube Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Youtube+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:19:45</td>
+<td class='statusOdd' nowrap>173d 14h  8m 52s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 0 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGWARNING'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGWARNING'><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Yum+Updates'>Yum Updates</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGWARNING'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer.nagios.local&service=Yum+Updates'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusWARNING'>WARNING</td>
+<td class='statusBGWARNING' nowrap>07-14-2015 04:04:44</td>
+<td class='statusBGWARNING' nowrap>173d 15h 11m 31s</td>
+<td class='statusBGWARNING'>1/1</td>
+<td class='statusBGWARNING' valign='center'>YUM WARNING:  O/S requires an update.&nbsp;</td>
+</tr>
+<tr><td colspan='6'></td></tr>
+<tr><td colspan='6'></td></tr>
+<tr>
+<td class='statusOdd'><table border=0 width='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusOdd'><a href='extinfo.cgi?type=1&host=Network-Analyzer2.nagios.local' title='Network-Analyzer2.nagios.local'>Network-Analyzer2.nagios.local</a></td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=Network-Analyzer2.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled'd TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=Network-Analyzer2.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=%2F+Disk+Usage'>/ Disk Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=%2F+Disk+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>12-04-2015 16:07:22</td>
+<td class='statusOdd' nowrap>173d 14h 16m 42s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>DISK OK - free space: / 4352 MB (26% inode=91%):&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Apache+404+Errors'>Apache 404 Errors</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Apache+404+Errors'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>12-04-2015 16:09:40</td>
+<td class='statusEven' nowrap>173d 14h 39m 31s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 35 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Apache+Web+Server'>Apache Web Server</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Apache+Web+Server'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>10-06-2015 13:37:46</td>
+<td class='statusOdd' nowrap>173d 16h  0m 11s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>httpd (pid  17720) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGWARNING'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGWARNING'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Bandwidth+Spike'>Bandwidth Spike</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGWARNING'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Bandwidth+Spike'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusWARNING'>WARNING</td>
+<td class='statusBGWARNING' nowrap>01-03-2016 18:22:53</td>
+<td class='statusBGWARNING' nowrap> 0d  0h  3m 33s</td>
+<td class='statusBGWARNING'>1/1</td>
+<td class='statusBGWARNING' valign='center'>WARNING: 84 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=CPU+Stats'>CPU Stats</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=CPU+Stats'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:20:11</td>
+<td class='statusOdd' nowrap>173d 15h 15m 29s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>CPU STATISTICS OK: user=5.41% system=3.67% iowait=0.36% idle=90.56%&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Cron+Scheduling+Daemon'>Cron Scheduling Daemon</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Cron+Scheduling+Daemon'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:25:12</td>
+<td class='statusEven' nowrap>173d 14h 16m 42s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>crond (pid  7829) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Failed+SSH+Logins'>Failed SSH Logins</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Failed+SSH+Logins'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:21:56</td>
+<td class='statusOdd' nowrap>173d 15h 57m 11s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 4 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Linux+Failed+Logins'>Linux Failed Logins</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Linux+Failed+Logins'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:21:56</td>
+<td class='statusEven' nowrap>89d  4h 55m  0s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 3 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Load'>Load</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Load'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:25:55</td>
+<td class='statusOdd' nowrap>89d  4h 52m 21s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK - load average: 1.37, 1.03, 1.04&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=MySQL+Crashed+Tables'>MySQL Crashed Tables</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=MySQL+Crashed+Tables'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:10:44</td>
+<td class='statusEven' nowrap>173d 15h 20m  2s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 2 matching entries found&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=MySQL+Server'>MySQL Server</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=MySQL+Server'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>07-14-2015 04:17:34</td>
+<td class='statusOdd' nowrap>173d 15h 13m 53s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>mysqld (pid  13952) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Open+Files'>Open Files</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Open+Files'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:23:24</td>
+<td class='statusEven' nowrap>173d 14h 53m 43s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 1792 open files (0% of max 387183)&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Ping'>Ping</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Ping'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:22:31</td>
+<td class='statusOdd' nowrap>173d 14h 16m 42s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK - localhost: rta 0.042ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Port+22+Bandwidth'>Port 22 Bandwidth</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Port+22+Bandwidth'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:22:31</td>
+<td class='statusEven' nowrap>173d 15h 55m 11s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 5 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Port+80+Bandwidth'>Port 80 Bandwidth</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Port+80+Bandwidth'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:21:12</td>
+<td class='statusOdd' nowrap>173d 14h 33m  3s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK: 21 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=SSH+Server'>SSH Server</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=SSH+Server'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>07-14-2015 04:18:02</td>
+<td class='statusEven' nowrap>173d 15h  8m 32s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>openssh-daemon (pid  1255) is running...&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Swap+Usage'>Swap Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Swap+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:23:24</td>
+<td class='statusOdd' nowrap>89d  4h 50m  0s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>SWAP OK - 100% free (2000 MB out of 2015 MB)&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGWARNING'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGWARNING'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Total+Processes'>Total Processes</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGWARNING'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Total+Processes'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusWARNING'>WARNING</td>
+<td class='statusBGWARNING' nowrap>12-04-2015 16:08:39</td>
+<td class='statusBGWARNING' nowrap>173d 15h 35m 13s</td>
+<td class='statusBGWARNING'>1/1</td>
+<td class='statusBGWARNING' valign='center'>PROCS WARNING: 195 processes&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Users'>Users</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Users'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>01-03-2016 18:25:23</td>
+<td class='statusOdd' nowrap>173d 15h 35m 13s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>USERS OK - 0 users currently logged in&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Youtube+Usage'>Youtube Usage</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Youtube+Usage'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:22:31</td>
+<td class='statusEven' nowrap> 0d  0h  3m 55s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK: 1 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusBGWARNING'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGWARNING'><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Yum+Updates'>Yum Updates</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGWARNING'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=Network-Analyzer2.nagios.local&service=Yum+Updates'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusWARNING'>WARNING</td>
+<td class='statusBGWARNING' nowrap>07-14-2015 02:28:00</td>
+<td class='statusBGWARNING' nowrap>173d 15h 58m 26s</td>
+<td class='statusBGWARNING'>1/1</td>
+<td class='statusBGWARNING' valign='center'>YUM WARNING:  O/S requires an update.&nbsp;</td>
+</tr>
+<tr><td colspan='6'></td></tr>
+<tr><td colspan='6'></td></tr>
+<tr>
+<td class='statusEven'><table border=0 width='100%' cellpadding=0 cellspacing=0>
+<tr>
+<td align='left'>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td align=left valign=center class='statusEven'><a href='extinfo.cgi?type=1&host=centos-switch.nagios.local' title='centos-switch.nagios.local'>centos-switch.nagios.local</a></td>
+</tr>
+</table>
+</td>
+<td align=right valign=center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=1&host=centos-switch.nagios.local'><IMG SRC='/nagios/images/disabled.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Checks of this host have been disabled'd TITLE='Checks of this host have been disabled'></a></td><td align=center valign=center><a href='extinfo.cgi?type=1&host=centos-switch.nagios.local'><IMG SRC='/nagios/images/logos/passiveobject.png' border=0 WIDTH=20 HEIGHT=20 ALT='' TITLE=''></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class='statusBGWARNING'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusBGWARNING'><a href='extinfo.cgi?type=2&host=centos-switch.nagios.local&service=Bandwidth+Spike'>Bandwidth Spike</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusBGWARNING'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=centos-switch.nagios.local&service=Bandwidth+Spike'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusWARNING'>WARNING</td>
+<td class='statusBGWARNING' nowrap>11-12-2015 20:31:20</td>
+<td class='statusBGWARNING' nowrap>51d 21h 55m  6s</td>
+<td class='statusBGWARNING'>1/1</td>
+<td class='statusBGWARNING' valign='center'>WARNING: 90 MB/s reported&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=centos-switch.nagios.local&service=Ping'>Ping</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=centos-switch.nagios.local&service=Ping'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusOdd' nowrap>11-12-2015 20:29:23</td>
+<td class='statusOdd' nowrap>173d 15h 55m 59s</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>OK - 192.168.5.41: rta 8.878ms, lost 0%&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusEven'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusEven'><a href='extinfo.cgi?type=2&host=centos-switch.nagios.local&service=Port+1+Bandwidth'>Port 1 Bandwidth</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusEven'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=centos-switch.nagios.local&service=Port+1+Bandwidth'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusOK'>OK</td>
+<td class='statusEven' nowrap>01-03-2016 18:24:15</td>
+<td class='statusEven' nowrap> 0d  0h 12m 14s</td>
+<td class='statusEven'>1/1</td>
+<td class='statusEven' valign='center'>OK - Current BW in: 0Mbps Out: 0Mbps&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td class='statusOdd'><table border=0 WIDTH='100%' cellspacing=0 cellpadding=0><tr><td align='left'><table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td align='left' valign=center class='statusOdd'><a href='extinfo.cgi?type=2&host=centos-switch.nagios.local&service=Port+1+Status'>Port 1 Status</a></td></tr>
+</table>
+</td>
+<td ALIGN=RIGHT class='statusOdd'>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td ALIGN=center valign=center><a href='extinfo.cgi?type=2&host=centos-switch.nagios.local&service=Port+1+Status'><IMG SRC='/nagios/images/passiveonly.gif' border=0 WIDTH=20 HEIGHT=20 ALT='Active checks of the service have been disabled - only passive checks are being accepted' TITLE='Active checks of the service have been disabled - only passive checks are being accepted'></a></td></tr>
+</table>
+</td>
+</tr></table></td>
+<td class='statusPENDING'>PENDING</td>
+<td class='statusOdd' nowrap>N/A</td>
+<td class='statusOdd' nowrap> 0d  0h 24m 41s+</td>
+<td class='statusOdd'>1/1</td>
+<td class='statusOdd' valign='center'>Service is not scheduled to be checked...&nbsp;</td>
+</tr>
+</table>
+<div id='bottom_page_numbers'>
+<div class='inner_numbers'>
+<a href='status.cgi?host=all&start=0&limit=100' class='pagenumber' title='First Page'><img src='/nagios/images/b_first2.png' height='15' width='15' alt='<<' /></a>
+<a href='status.cgi?host=all&start=0&limit=100' class='pagenumber' title='Previous Page'><img src='/nagios/images/b_prev2.png' height='15' width='10' alt='<' /></a>
+<div class='pagenumber current_page'> 1 </div>
+<a class='pagenumber' href='status.cgi?host=all&start=100&limit=100' title='Page 2'> 2 </a>
+<a class='pagenumber' href='status.cgi?host=all&start=200&limit=100' title='Page 3'> 3 </a>
+<a class='pagenumber' href='status.cgi?host=all&start=300&limit=100' title='Page 4'> 4 </a>
+<a class='pagenumber' href='status.cgi?host=all&start=400&limit=100' title='Page 5'> 5 </a>
+<a class='pagenumber' href='status.cgi?host=all&start=500&limit=100' title='Page 6'> 6 </a>
+<a class='pagenumber' href='status.cgi?host=all&start=600&limit=100' title='Page 7'> 7 </a>
+<a class='pagenumber' href='status.cgi?host=all&start=700&limit=100' title='Page 8'> 8 </a>
+<a class='pagenumber' href='status.cgi?host=all&start=800&limit=100' title='Page 9'> 9 </a>
+<a class='pagenumber' href='status.cgi?host=all&start=900&limit=100' title='Page 10'> 10 </a>
+<a href='status.cgi?host=all&start=100&limit=100' class='pagenumber' title='Next Page'><img src='/nagios/images/b_next2.png' height='15' width='10' alt='>' /></a>
+<a href='status.cgi?host=all&start=900&limit=100' class='pagenumber' title='Last Page'><img src='/nagios/images/b_last2.png' height='15' width='15' alt='>>' /></a>
+</div> <!-- end inner_page_numbers div -->
+<br /><div class='itemTotalsTitle'>Results 0 - 100 of 948 Matching Services</div>
+</div>
+</div> <!-- end bottom_page_numbers div -->
+
+
+<!-- Produced by Nagios (https://www.nagios.org).  Copyright (c) 1999-2007 Ethan Galstad. -->
+</body>
+</html>
