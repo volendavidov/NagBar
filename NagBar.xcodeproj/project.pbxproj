@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E033B601F52E49D0095FB31 /* critical.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 5E033B5C1F52E49D0095FB31 /* critical.aiff */; };
+		5E033B611F52E49D0095FB31 /* ok.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 5E033B5D1F52E49D0095FB31 /* ok.aiff */; };
+		5E033B621F52E49D0095FB31 /* siren-horn.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 5E033B5E1F52E49D0095FB31 /* siren-horn.aiff */; };
+		5E033B631F52E49D0095FB31 /* warning.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 5E033B5F1F52E49D0095FB31 /* warning.aiff */; };
 		5E246A151F49DF970015CA71 /* MonitoringProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A131F49DF970015CA71 /* MonitoringProcessor.swift */; };
 		5E246A161F49DF970015CA71 /* MonitoringProcessorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A141F49DF970015CA71 /* MonitoringProcessorBase.swift */; };
 		5E246A1C1F49DFBC0015CA71 /* CheckMKHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A171F49DFBC0015CA71 /* CheckMKHTTPClient.swift */; };
@@ -178,6 +182,10 @@
 /* Begin PBXFileReference section */
 		0A8F0B7B38E47939EC971102 /* Pods_NagBarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NagBarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4015641E90EADF4655643AEA /* Pods_NagBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NagBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E033B5C1F52E49D0095FB31 /* critical.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = critical.aiff; sourceTree = "<group>"; };
+		5E033B5D1F52E49D0095FB31 /* ok.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = ok.aiff; sourceTree = "<group>"; };
+		5E033B5E1F52E49D0095FB31 /* siren-horn.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "siren-horn.aiff"; sourceTree = "<group>"; };
+		5E033B5F1F52E49D0095FB31 /* warning.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = warning.aiff; sourceTree = "<group>"; };
 		5E246A131F49DF970015CA71 /* MonitoringProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringProcessor.swift; sourceTree = "<group>"; };
 		5E246A141F49DF970015CA71 /* MonitoringProcessorBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringProcessorBase.swift; sourceTree = "<group>"; };
 		5E246A171F49DFBC0015CA71 /* CheckMKHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMKHTTPClient.swift; sourceTree = "<group>"; };
@@ -335,6 +343,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5E033B5B1F52E4790095FB31 /* AudioFiles */ = {
+			isa = PBXGroup;
+			children = (
+				5E033B5C1F52E49D0095FB31 /* critical.aiff */,
+				5E033B5D1F52E49D0095FB31 /* ok.aiff */,
+				5E033B5E1F52E49D0095FB31 /* siren-horn.aiff */,
+				5E033B5F1F52E49D0095FB31 /* warning.aiff */,
+			);
+			name = AudioFiles;
+			sourceTree = "<group>";
+		};
 		5E246A0D1F49DF440015CA71 /* MonitoringProcessors */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +456,7 @@
 		5E377AAE1F49DC2F00297FC3 /* NagBar */ = {
 			isa = PBXGroup;
 			children = (
+				5E033B5B1F52E4790095FB31 /* AudioFiles */,
 				5E9B050A1F49EB5800F90135 /* PasswordPrompt */,
 				5E9B05051F49EAFD00F90135 /* Preferences */,
 				5E246A0D1F49DF440015CA71 /* MonitoringProcessors */,
@@ -705,15 +725,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E033B601F52E49D0095FB31 /* critical.aiff in Resources */,
 				5E9B05401F49F39C00F90135 /* MonitoringInstancesWindow.xib in Resources */,
 				5E9B053E1F49F38E00F90135 /* PasswordPrompt.xib in Resources */,
 				5E9B05421F49F3A500F90135 /* FilterItemWindow.xib in Resources */,
+				5E033B621F52E49D0095FB31 /* siren-horn.aiff in Resources */,
 				5E9B053C1F49F38400F90135 /* PreferencesWindow.xib in Resources */,
 				5E9B05131F49EC3D00F90135 /* AcknowledgeWindow.xib in Resources */,
 				5E9B053A1F49F30200F90135 /* Images.xcassets in Resources */,
 				5E9B05181F49EC6100F90135 /* ScheduleDowntimeWindow.xib in Resources */,
 				5E9B05461F49F4A200F90135 /* en.lproj in Resources */,
+				5E033B631F52E49D0095FB31 /* warning.aiff in Resources */,
 				5E9B05441F49F3AE00F90135 /* MainMenu.xib in Resources */,
+				5E033B611F52E49D0095FB31 /* ok.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
