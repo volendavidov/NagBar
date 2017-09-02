@@ -194,9 +194,11 @@ class StatusPanelTable : NSTableView {
     }
     
     private func checkITermInstalled() -> Bool {
-        let iterm = LSCopyApplicationURLsForBundleIdentifier("com.googlecode.iterm2" as CFString, nil)?.takeUnretainedValue()
+        if let iterm = LSCopyApplicationURLsForBundleIdentifier("com.googlecode.iterm2" as CFString, nil)?.takeUnretainedValue() {
+            return CFArrayGetCount(iterm) > 0
+        }
         
-        return CFArrayGetCount(iterm) > 0
+        return false
     }
     
     private func createMultipleSelectionMenuItem(_ title: String, target: MenuAction, monitoringItems: Array<MonitoringItem>) -> NSMenuItem {
