@@ -46,6 +46,7 @@ class StatusBar : NSObject {
         statusItemView.statusItem = self.statusItem
         
         self.statusItem.view = statusItemView
+        self.statusItem.view?.superview?.superview?.alphaValue = 0
         
         if Settings().boolForKey("showExtendedStatusInformation") {
             statusItemView.setStatusItemTitle(self.resultsToCodes(results))
