@@ -92,15 +92,21 @@ class LightFlashStatusBar : AnimateStatusBarBase {
     }
     
     fileprivate func flashStatusBar(_ color: NSColor) {
-        let layer = StatusBar.get().statusItem.view!.layer!
+        let view = StatusBar.get().statusItem.view!
+        view.needsDisplay = true
+        
+        let subview = NSView(frame: view.frame)
+        view.addSubview(subview)
+        subview.wantsLayer = true
+        
         let animation = CABasicAnimation(keyPath: "backgroundColor")
-        animation.fromValue = layer.backgroundColor
+        animation.fromValue = view.layer?.backgroundColor
         animation.toValue = color.cgColor
         animation.duration = 0.5
         animation.autoreverses = true
         animation.repeatCount = 10
         
-        layer.add(animation, forKey: "backgroundColor")
+        subview.layer!.add(animation, forKey: "backgroundColor")
     }
 }
 
@@ -114,6 +120,12 @@ class DarkFlashStatusBar : LightFlashStatusBar {
     }
 }
 
+/*
+ 
+ This piece is broken due to changes in High Sierra when
+ needsLayer is set to true. A workaround is possible, but adds a lot of complexity.
+ 
+ 
 class ShakeStatusBar : AnimateStatusBarBase {
     
     override func alarmAnimation() {
@@ -136,3 +148,4 @@ class ShakeStatusBar : AnimateStatusBarBase {
         layer.add(animation, forKey: "shakeAnimation")
     }
 }
+*/

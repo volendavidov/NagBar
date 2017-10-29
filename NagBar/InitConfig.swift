@@ -48,7 +48,7 @@ class InitConfig {
             "hostChecksDisabled": "0",
             "showExtendedStatusInformation": "1",
             "flashStatusBar": "1",
-            "flashStatusBarType": "1",
+            "flashStatusBarType": "2",
             "savePassword": "1",
             "acceptInvalidCertificates": "0",
             "enableAudibleAlarms": "1",
@@ -82,6 +82,10 @@ class InitConfig {
             try! realm.write {
                 realm.add(setting)
             }
+        }
+        
+        if Settings().stringForKey("flashStatusBarType") == "1" {
+            Settings().setString("2", forKey: "flashStatusBarType")
         }
     }
 }

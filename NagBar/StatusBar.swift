@@ -42,11 +42,9 @@ class StatusBar : NSObject {
         // init the status bar view
         let statusItemView = StatusItemView()
         
-        statusItemView.wantsLayer = true
         statusItemView.statusItem = self.statusItem
         
         self.statusItem.view = statusItemView
-        self.statusItem.view?.superview?.superview?.alphaValue = 0
         
         if Settings().boolForKey("showExtendedStatusInformation") {
             statusItemView.setStatusItemTitle(self.resultsToCodes(results))
@@ -195,7 +193,7 @@ class StatusBar : NSObject {
         
         let animateType = Settings().integerForKey("flashStatusBarType")
         
-        let animateTypes = [1: ShakeStatusBar(), 2: LightFlashStatusBar(), 3: DarkFlashStatusBar()]
+        let animateTypes = [2: LightFlashStatusBar(), 3: DarkFlashStatusBar()]
         
         animateTypes[animateType]?.animate(oldResults: self.oldResults, newResults: self.results)
     }

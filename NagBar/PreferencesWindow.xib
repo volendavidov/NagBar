@@ -56,7 +56,7 @@
                                                             <font key="font" metaFont="menu"/>
                                                             <menu key="menu" title="OtherViews" id="MJ9-ip-Eaz">
                                                                 <items>
-                                                                    <menuItem title="Shake" id="oYO-ei-cQW"/>
+                                                                    <menuItem title="Shake" hidden="YES" enabled="NO" id="oYO-ei-cQW"/>
                                                                     <menuItem title="Flash" id="QDF-lR-2Ly"/>
                                                                     <menuItem title="Bright Flash" state="on" id="ITZ-9g-lxY">
                                                                         <modifierMask key="keyEquivalentModifierMask" shift="YES"/>
