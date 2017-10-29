@@ -100,3 +100,38 @@ class DefaultPopUpButton : NSPopUpButton {
         }
     }
 }
+
+class DefaultColorWell : NSColorWell {
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        guard let identifier = self.identifier else {
+            NSLog("Color well identifier not defined")
+            return
+        }
+        
+        guard let colorWheelColors = Settings().stringForKey(identifier) else {
+            NSLog("Color well " + identifier + " not found in dictionary")
+            return
+        }
+        
+        let colorArr = colorWheelColors.components(separatedBy: ",")
+        
+        let red = CGFloat(Double(colorArr[0])!)
+        let green = CGFloat(Double(colorArr[1])!)
+        let blue = CGFloat(Double(colorArr[2])!)
+        let alpha = CGFloat(Double(colorArr[3])!)
+        self.color = NSColor(calibratedRed: red, green: green, blue: blue, alpha: alpha)
+    }
+    
+    override func deactivate() {
+        super.deactivate()
+        
+        let stringToSave = String(format: "%.3f", self.color.redComponent) + ","
+            + String(format: "%.3f", self.color.greenComponent) + ","
+            + String(format: "%.3f", self.color.blueComponent) + ",1.0"
+        
+        Settings().setString(stringToSave, forKey: self.identifier!)
+    }
+}

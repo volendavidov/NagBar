@@ -98,9 +98,8 @@ class SPTableColumn : NSTableColumn, SPTableColumnProtocol  {
     }
     
     func createViewForRow(_ row: Int) -> NSView {
-        
-        let color = self.colorMap[self.results[row].status] ?? NSColor(calibratedRed: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
-        let background = TableViewCellBackground(frame: NSMakeRect(0, 0, self.width, 16), color: color)
+
+        let background = TableViewCellBackground(frame: NSMakeRect(0, 0, self.width, 16), color: self.getColor(status: self.results[row].status))
         
         let text = NSTextField(frame: NSMakeRect(0, 0, self.width, 16))
         text.isEditable = false
@@ -116,16 +115,34 @@ class SPTableColumn : NSTableColumn, SPTableColumnProtocol  {
         return background
     }
     
-    let colorMap: Dictionary<String, NSColor> = [
-        "CRITICAL": NSColor(calibratedRed: 255/255, green: 205/255, blue: 205/255, alpha: 1.0),
-        "WARNING": NSColor(calibratedRed: 255/255, green: 255/255, blue: 190/255, alpha: 1.0),
-        "UNKNOWN": NSColor(calibratedRed: 255/255, green: 235/255, blue: 157/255, alpha: 1.0),
-        "PENDING": NSColor(calibratedRed: 235/255, green: 235/255, blue: 235/255, alpha: 1.0),
-        "DOWN": NSColor(calibratedRed: 255/255, green: 148/255, blue: 148/255, alpha: 1.0),
-        "UNREACHABLE": NSColor(calibratedRed: 255/255, green: 226/255, blue: 98/255, alpha: 1.0),
-        "UP": NSColor(calibratedRed: 150/255, green: 226/255, blue: 128/255, alpha: 1.0),
-        "OK": NSColor(calibratedRed: 150/255, green: 226/255, blue: 128/255, alpha: 1.0)
-    ]
+    func getColor(status: String) -> NSColor {
+        
+        let colorStatusMap = [
+            "CRITICAL": "criticalColor",
+            "WARNING": "warningColor",
+            "UNKNOWN": "unknownColor",
+            "PENDING": "pendingColor",
+            "DOWN": "downColor",
+            "UNREACHABLE": "unreachableColor",
+            "UP": "upColor",
+            "OK": "okColor"
+        ]
+        
+        guard let colorSettingsName = colorStatusMap[status] else {
+            return NSColor(calibratedRed: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
+        
+        let color = Settings().stringForKey(colorSettingsName)
+        
+        let colorArr = color!.components(separatedBy: ",")
+        
+        let red = CGFloat(Double(colorArr[0])!)
+        let green = CGFloat(Double(colorArr[1])!)
+        let blue = CGFloat(Double(colorArr[2])!)
+        let alpha = CGFloat(Double(colorArr[3])!)
+        
+        return NSColor(calibratedRed: red, green: green, blue: blue, alpha: alpha)
+    }
     
     func setValue(_ row: Int) -> String {
         return ""

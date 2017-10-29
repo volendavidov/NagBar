@@ -66,7 +66,15 @@ class InitConfig {
             "useNotifications": "0",
             "newVersionCheck": "1",
             "acknowledgementDefaultComment": "",
-            "scheduleDowntimeDefaultComment": ""
+            "scheduleDowntimeDefaultComment": "",
+            "criticalColor": "1.0,0.804,0.804,1.0",
+            "warningColor": "1.0,1.0,0.745,1.0",
+            "unknownColor": "1.0,0.921,0.616,1.0",
+            "pendingColor": "0.921,0.921,0.921,1.0",
+            "downColor": "1.0,0.580,0.580,1.0",
+            "unreachableColor": "1.0,0.886,0.384,1.0",
+            "upColor": "0.588,0.886,0.502,1.0",
+            "okColor": "0.588,0.886,0.502,1.0"
         ]
         
         let realm = try! Realm()
