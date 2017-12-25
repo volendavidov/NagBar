@@ -234,9 +234,11 @@ class StatusPanelTable : NSTableView {
                 
                 let selectedCell = self.view(atColumn: j, row: i, makeIfNecessary: false)
                 
-                for k in selectedCell!.subviews {
-                    if type(of: k) == SelectedTableViewCellBackground.self {
-                        viewArray.append(k)
+                if let selectedCell = selectedCell {
+                    for k in selectedCell.subviews {
+                        if type(of: k) == SelectedTableViewCellBackground.self {
+                            viewArray.append(k)
+                        }
                     }
                 }
             }
