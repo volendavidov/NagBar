@@ -68,10 +68,13 @@ class NotificationDisplay : NSObject, NSUserNotificationCenterDelegate, DataRefr
         let monitoringItemUrl = userInfo["monitoringItemUrl"]
         
         if let monitoringItemUrl = monitoringItemUrl {
-            let url = URL(string: monitoringItemUrl as! String)
-            NSWorkspace.shared().open(url!)
+            if let url = URL(string: monitoringItemUrl as! String) {
+                NSWorkspace.shared().open(url)
+            } else {
+                NSLog("Malformed URL: " + (monitoringItemUrl as! String))
+            }
         } else {
-            print("URL not found")
+            NSLog("URL not found")
         }
     }
 }
