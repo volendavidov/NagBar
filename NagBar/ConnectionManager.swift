@@ -59,8 +59,10 @@ class ConnectionManager {
         let monitoringInstances = MonitoringInstances().getAll()
         
         for (_,value) in monitoringInstances {
-            let host = URL(string: value.url)!.host ?? ""
-            serverTrustPolicies[host] = .disableEvaluation
+            guard let host = URL(string: value.url) else {
+                continue
+            }
+            serverTrustPolicies[host.host!] = .disableEvaluation
         }
         
         return Alamofire.SessionManager(
