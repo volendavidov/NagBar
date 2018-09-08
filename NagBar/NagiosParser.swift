@@ -47,6 +47,8 @@ class NagiosParser: MonitoringProcessorBase, ParserInterface {
         let durationList = self.generateList(hppleData!.search(withXPathQuery: self.xPathProvider.getXPathHostQueryDuration()) as NSArray)
         let statusInformationList = self.generateList(hppleData!.search(withXPathQuery: self.xPathProvider.getXPathHostQueryStatusInformation()) as NSArray)
         let itemUrlList = self.generateList(hppleData!.search(withXPathQuery: self.xPathProvider.getXPathHostQueryItemUrl()) as NSArray)
+        let acknowledgedList = self.generateOptionalList(hppleData!.search(withXPathQuery: self.xPathProvider.getXPathHostAcknowledged()) as NSArray)
+        let downtimeList = self.generateOptionalList(hppleData!.search(withXPathQuery: self.xPathProvider.getXPathHostDowntime()) as NSArray)
         
         var hostItems = [HostMonitoringItem]()
         
@@ -59,6 +61,8 @@ class NagiosParser: MonitoringProcessorBase, ParserInterface {
             item.duration = self.getValue(durationList, index: i)
             item.statusInformation = self.getValue(statusInformationList, index: i)
             item.itemUrl = self.getItemUrl(self.getValue(itemUrlList, index: i))
+            item.acknowledged = self.getBoolValue(acknowledgedList, index: i)
+            item.downtime = self.getBoolValue(downtimeList, index: i)
             item.monitoringInstance = self.monitoringInstance
             
             hostItems.append(item)
@@ -106,6 +110,8 @@ class NagiosParser: MonitoringProcessorBase, ParserInterface {
         let attemptList = self.generateList(hppleData!.search(withXPathQuery: self.xPathProvider.getXPathServiceQueryAttempt()) as NSArray)
         let statusInformationList = self.generateList(hppleData!.search(withXPathQuery: self.xPathProvider.getXPathServiceQueryStatusInformation()) as NSArray)
         let itemUrlList = self.generateList(hppleData!.search(withXPathQuery: self.xPathProvider.getXPathServiceQueryItemUrl()) as NSArray)
+        let acknowledgedList = self.generateOptionalList(hppleData!.search(withXPathQuery: self.xPathProvider.getXPathServiceAcknowledged()) as NSArray)
+        let downtimeList = self.generateOptionalList(hppleData!.search(withXPathQuery: self.xPathProvider.getXPathServiceDowntime()) as NSArray)
         
         var serviceItems = [ServiceMonitoringItem]()
         
@@ -120,6 +126,8 @@ class NagiosParser: MonitoringProcessorBase, ParserInterface {
             item.attempt = self.getValue(attemptList, index: i)
             item.statusInformation = self.getValue(statusInformationList, index: i)
             item.itemUrl = self.getItemUrl(self.getValue(itemUrlList, index: i))
+            item.acknowledged = self.getBoolValue(acknowledgedList, index: i)
+            item.downtime = self.getBoolValue(downtimeList, index: i)
             item.monitoringInstance = self.monitoringInstance
             
             serviceItems.append(item)
@@ -141,6 +149,19 @@ class NagiosParser: MonitoringProcessorBase, ParserInterface {
         return value
     }
     
+    private func getBoolValue(_ list: Array<String?>, index: Int) -> Bool {
+        
+        var value = false
+        
+        if list.indices.contains(index) {
+            if list[index] != nil {
+                value = true
+            }
+        }
+        
+        return value
+    }
+    
     private func generateList(_ hppleData: NSArray) -> Array<String> {
         var itemList = Array<String>()
         
@@ -149,10 +170,30 @@ class NagiosParser: MonitoringProcessorBase, ParserInterface {
             let item = (element as AnyObject).firstChild!.content
             
             // for some reason there are elements containing newlines so we want to ignore them
-            let itemRange = item?.range(of: "^\n")
+            let itemRange = item?.range(of: "^\n", options: .regularExpression)
             
             if !(item?.isEmpty)! && itemRange == nil {
                 itemList.append(item!)
+            }
+        }
+        
+        return itemList
+    }
+    
+    private func generateOptionalList(_ hppleData: NSArray) -> Array<String?> {
+        var itemList = Array<String?>()
+        
+        for element in hppleData {
+            
+            let item = (element as AnyObject).firstChild!.content
+
+            // for some reason there are elements containing newlines so we want to ignore them
+            let itemRange = item?.range(of: "^\n", options: .regularExpression)
+
+            if !(item?.isEmpty)! && itemRange == nil {
+                itemList.append(item!)
+            } else {
+                itemList.append(nil)
             }
         }
         

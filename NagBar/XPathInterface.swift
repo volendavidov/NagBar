@@ -15,6 +15,8 @@ protocol XPathInterface {
     func getXPathHostQueryDuration() -> String
     func getXPathHostQueryStatusInformation() -> String
     func getXPathHostQueryItemUrl() -> String
+    func getXPathHostAcknowledged() -> String
+    func getXPathHostDowntime() -> String
     
     func getXPathServiceQuery() -> String
     func getXPathServiceQueryStatus() -> String
@@ -23,6 +25,8 @@ protocol XPathInterface {
     func getXPathServiceQueryAttempt() -> String
     func getXPathServiceQueryStatusInformation() -> String
     func getXPathServiceQueryItemUrl() -> String
+    func getXPathServiceAcknowledged() -> String
+    func getXPathServiceDowntime() -> String
     
     func getXPathHostpageQuery() -> String
 }

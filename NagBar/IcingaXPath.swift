@@ -36,6 +36,14 @@ class IcingaXPath: XPathInterface {
         return "/html/body/*[@id='tableformhost']/table[4]/tr/td[1]/table/tr/td[1]/table/tr/td/a/@href | /html/body/*[@id='tableformhost']/div/table/tr/td[1]/table/tr/td[1]/table/tr/td/a/@href"
     }
     
+    func getXPathHostAcknowledged() -> String {
+        return "(/html/body/*[@id='tableformhost']/table[4]/tr/td[1]/table/tr/td[2]/table/tr/td/a/img[@src='/icinga/images/ack.gif']/@src | /html/body/*[@id='tableformhost']/table[4]/tr/td[1]/table/tr/td[2]/table/tr[not(./td/a/img[@src='/icinga/images/ack.gif'])]) | (/html/body/*[@id='tableformhost']/div/table/tr/td[1]/table/tr/td[2]/table/tr/td/a/img[@src='/icinga/images/ack.gif']/@src | /html/body/*[@id='tableformhost']/div/table/tr/td[1]/table/tr/td[2]/table/tr[not(./td/a/img[@src='/icinga/images/ack.gif'])])"
+    }
+    
+    func getXPathHostDowntime() -> String {
+        return "(/html/body/*[@id='tableformhost']/table[4]/tr/td[1]/table/tr/td[2]/table/tr/td/a/img[@src='/icinga/images/downtime.gif']/@src | /html/body/*[@id='tableformhost']/table[4]/tr/td[1]/table/tr/td[2]/table/tr[not(./td/a/img[@src='/icinga/images/downtime.gif'])]) | (/html/body/*[@id='tableformhost']/div/table/tr/td[1]/table/tr/td[2]/table/tr/td/a/img[@src='/icinga/images/downtime.gif']/@src | /html/body/*[@id='tableformhost']/div/table/tr/td[1]/table/tr/td[2]/table/tr[not(./td/a/img[@src='/icinga/images/downtime.gif'])])"
+    }
+    
     func getXPathServiceQuery() -> String {
         return "/html/body/*[@id='tableformservice']/table[4]/tr/td[2]/table/tr/td[1]/table/tr/td/a | /html/body/*[@id='tableformservice']/div/table/tr/td[2]/table/tr/td[1]/table/tr/td/a"
     }
@@ -62,6 +70,14 @@ class IcingaXPath: XPathInterface {
     
     func getXPathServiceQueryItemUrl() -> String {
         return "/html/body/*[@id='tableformservice']/table[4]/tr/td[2]/table/tr/td[1]/table/tr/td/a/@href | /html/body/*[@id='tableformservice']/div/table/tr/td[2]/table/tr/td[1]/table/tr/td/a/@href"
+    }
+    
+    func getXPathServiceAcknowledged() -> String {
+        return "(/html/body/*[@id='tableformservice']/table[4]/tr/td[2]/table/tr/td[2]/table/tr/td/a/img[@src='/icinga/images/ack.gif']/@src | /html/body/*[@id='tableformservice']/table[4]/tr/td[2]/table/tr/td[2]/table/tr[not(./td/a/img[@src='/icinga/images/ack.gif'])]) | (/html/body/*[@id='tableformservice']/div/table/tr/td[2]/table/tr/td[2]/table/tr/td/a/img[@src='/icinga/images/ack.gif']/@src | /html/body/*[@id='tableformservice']/div/table/tr/td[2]/table/tr/td[2]/table/tr[not(./td/a/img[@src='/icinga/images/ack.gif'])])"
+    }
+    
+    func getXPathServiceDowntime() -> String {
+        return "(/html/body/*[@id='tableformservice']/table[4]/tr/td[2]/table/tr/td[2]/table/tr/td/a/img[@src='/icinga/images/downtime.gif']/@src | /html/body/*[@id='tableformservice']/table[4]/tr/td[2]/table/tr/td[2]/table/tr[not(./td/a/img[@src='/icinga/images/downtime.gif'])]) | (/html/body/*[@id='tableformservice']/div/table/tr/td[2]/table/tr/td[2]/table/tr/td/a/img[@src='/icinga/images/downtime.gif']/@src | /html/body/*[@id='tableformservice']/div/table/tr/td[2]/table/tr/td[2]/table/tr[not(./td/a/img[@src='/icinga/images/downtime.gif'])])"
     }
     
     func getXPathHostpageQuery() -> String {

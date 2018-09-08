@@ -284,6 +284,7 @@ class StatusPanelTable : NSTableView {
         
         result.append(SPHostTableColumn(results: Array<MonitoringItem>()))
         result.append(SPServiceTableColumn(results: Array<MonitoringItem>()))
+        result.append(SPAcknowledgedDowntimeTableColumn(results: Array<MonitoringItem>()))
         
         if Settings().boolForKey("status") {
             result.append(SPStatusTableColumn(results: Array<MonitoringItem>()))

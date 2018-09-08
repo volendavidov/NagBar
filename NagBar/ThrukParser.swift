@@ -88,6 +88,22 @@ class ThrukParser : Icinga2Parser {
         return self.getStatusInformationForHost(json)
     }
     
+    override func getAcknowledgementForHost(_ json: JSON) -> Bool {
+        return json["acknowledged"].boolValue
+    }
+    
+    override func getAcknowledgementForService(_ json: JSON) -> Bool {
+        return json["acknowledged"].boolValue
+    }
+    
+    override func getDowntimeForHost(_ json: JSON) -> Bool {
+        return json["scheduled_downtime_depth"].boolValue
+    }
+    
+    override func getDowntimeForService(_ json: JSON) -> Bool {
+        return json["scheduled_downtime_depth"].boolValue
+    }
+    
     override func getJSON(_ data: NSData) -> [JSON]? {
         let json = JSON(data: data as Data)
         guard let jsonResults = json.array else {

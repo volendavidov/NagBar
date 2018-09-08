@@ -20,6 +20,8 @@ class MonitoringItem {
     var lastCheck: String = ""
     var duration: String = ""
     var statusInformation: String = ""
+    var acknowledged: Bool = false
+    var downtime: Bool = false
     var monitoringInstance: MonitoringInstance?
     var itemUrl: String = ""
     var service: String = ""

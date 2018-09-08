@@ -34,6 +34,14 @@ class NagiosXPath: XPathInterface {
         return "/html/body/div/table/tr/td[1]/table/tr/td[1]/table/tr/td/a/@href"
     }
     
+    func getXPathHostAcknowledged() -> String {
+        return "/html/body/div/table/tr/td[1]/table/tr/td[2]/table/tr/td/a/img[@src='/nagios/images/ack.gif']/@src | /html/body/div/table/tr/td[1]/table/tr/td[2]/table/tr[not(./td/a/img[@src='/nagios/images/ack.gif'])]"
+    }
+    
+    func getXPathHostDowntime() -> String {
+        return "/html/body/div/table/tr/td[1]/table/tr/td[2]/table/tr/td/a/img[@src='/nagios/images/downtime.gif']/@src | /html/body/div/table/tr/td[1]/table/tr/td[2]/table/tr[not(./td/a/img[@src='/nagios/images/downtime.gif'])]"
+    }
+    
     func getXPathServiceQuery() -> String {
         return "/html/body/table/tr/td[2]/table/tr/td[1]/table/tr/td/a"
     }
@@ -60,6 +68,14 @@ class NagiosXPath: XPathInterface {
     
     func getXPathServiceQueryItemUrl() -> String {
         return "/html/body/table[@class='status']/tr/td[2]/table/tr/td[1]/table/tr/td/a/@href"
+    }
+    
+    func getXPathServiceAcknowledged() -> String {
+        return "/html/body/table[@class='status']/tr/td[2]/table/tr/td[2]/table/tr/td/a/img[@src='/nagios/images/ack.gif']/@src | /html/body/table[@class='status']/tr/td[2]/table/tr/td[2]/table/tr[not(./td/a/img[@src='/nagios/images/ack.gif'])]"
+    }
+    
+    func getXPathServiceDowntime() -> String {
+        return "/html/body/table[@class='status']/tr/td[2]/table/tr/td[2]/table/tr/td/a/img[@src='/nagios/images/downtime.gif']/@src | /html/body/table[@class='status']/tr/td[2]/table/tr/td[2]/table/tr[not(./td/a/img[@src='/nagios/images/downtime.gif'])]"
     }
     
     func getXPathHostpageQuery() -> String {

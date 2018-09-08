@@ -40,6 +40,8 @@ class Icinga2Parser : MonitoringProcessorBase, ParserInterface {
             monitoringItem.duration = self.getDurationForHost(jsonHost)
             monitoringItem.itemUrl = self.getItemURLForHost(jsonHost)
             monitoringItem.statusInformation = self.getStatusInformationForHost(jsonHost)
+            monitoringItem.acknowledged = self.getAcknowledgementForHost(jsonHost)
+            monitoringItem.downtime = self.getDowntimeForHost(jsonHost)
             
             results.append(monitoringItem)
         }
@@ -68,6 +70,8 @@ class Icinga2Parser : MonitoringProcessorBase, ParserInterface {
             monitoringItem.duration = self.getDurationForService(jsonHost)
             monitoringItem.itemUrl = self.getItemURLForService(jsonHost)
             monitoringItem.statusInformation = self.getStatusInformationForService(jsonHost)
+            monitoringItem.acknowledged = self.getAcknowledgementForService(jsonHost)
+            monitoringItem.downtime = self.getDowntimeForService(jsonHost)
             results.append(monitoringItem)
         }
         
@@ -141,6 +145,22 @@ class Icinga2Parser : MonitoringProcessorBase, ParserInterface {
     
     func getStatusInformationForService(_ json: JSON) -> String {
         return json["attrs"]["last_check_result"]["output"].string ?? ""
+    }
+    
+    func getAcknowledgementForHost(_ json: JSON) -> Bool {
+        return json["attrs"]["acknowledgement"].boolValue
+    }
+    
+    func getAcknowledgementForService(_ json: JSON) -> Bool {
+        return json["attrs"]["acknowledgement"].boolValue
+    }
+    
+    func getDowntimeForHost(_ json: JSON) -> Bool {
+        return json["attrs"]["downtime_depth"].boolValue
+    }
+    
+    func getDowntimeForService(_ json: JSON) -> Bool {
+        return json["attrs"]["downtime_depth"].boolValue
     }
     
     func getJSON(_ data: NSData) -> [JSON]? {

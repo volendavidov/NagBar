@@ -196,6 +196,33 @@ class SPServiceTableColumn : SPTableColumn {
     
 }
 
+class SPAcknowledgedDowntimeTableColumn : SPTableColumn {
+    override func setValue(_ row: Int) -> String {
+        if self.results[row].acknowledged && self.results[row].downtime {
+            return "✓🕒"
+        } else if self.results[row].acknowledged {
+            return "✓"
+        } else if self.results[row].downtime {
+            return "🕒"
+        } else {
+            return ""
+        }
+    }
+    
+    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<String,NSFont>) -> CGFloat {
+        if monitoringItem.acknowledged && monitoringItem.downtime {
+            return "✓🕒".size(withAttributes: font).width
+        } else if monitoringItem.acknowledged {
+            return "✓".size(withAttributes: font).width
+        } else if monitoringItem.downtime {
+            return "🕒".size(withAttributes: font).width
+        } else {
+            return "".size(withAttributes: font).width
+        }
+    }
+    
+}
+
 class SPStatusTableColumn : SPTableColumn {
     override func setValue(_ row: Int) -> String {
         return self.results[row].status
