@@ -81,12 +81,17 @@ class FilterItemsProcessor : SubtractProcessor {
             return nil
         }
         
-        if monitoringItemType == .service {
+        if monitoringItemType == .host {
+            // make sure we don't filter out all hosts with a filter like filterItem.host = ".*", filterItem.service = "HTTP" would match also
+            if filterItem.service != "" {
+                return nil
+            }
+        } else if monitoringItemType == .service {
             if(monitoringItem.service.range(of: filterItem.service, options: .regularExpression) == nil) {
                 return nil
             }
         }
-        
+    
         if self.shouldRemove(monitoringItem, filterItem: filterItem, statusMapping: statusMapping[monitoringItemType]!) {
             return monitoringItem
         }
