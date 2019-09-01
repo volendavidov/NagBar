@@ -49,7 +49,7 @@ class AudibleAlarmsTabController: NSWindowController {
             
             
             // Display the dialog. If the OK button was pressed, process the files.
-            if fileSelectDialog.runModal() == NSModalResponseOK {
+            if fileSelectDialog.runModal() == NSApplication.ModalResponse.OK {
                 // Get an array containing the full filenames of all
                 // files and directories selected.
                 let files = fileSelectDialog.urls
@@ -57,12 +57,12 @@ class AudibleAlarmsTabController: NSWindowController {
                 let fileStringArray = files[0].absoluteString.components(separatedBy: "/")
                 sender.title = fileStringArray.last!
                 
-                Settings().setString(files[0].path, forKey: sender.identifier!)
+                Settings().setString(files[0].path, forKey: sender.identifier!.rawValue)
             }
         } else {
             sender.removeItem(at: 1)
             sender.insertItem(withTitle: "Custom", at: 1)
-            Settings().setString("", forKey: sender.identifier!)
+            Settings().setString("", forKey: sender.identifier!.rawValue)
         }
     }
 }

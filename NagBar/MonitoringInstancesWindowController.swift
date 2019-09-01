@@ -37,7 +37,7 @@ class MonitoringInstancesWindowController: NSWindowController {
         }
     }
     
-    func refreshTable() {
+    @objc func refreshTable() {
         self.monitoringInstancesTable.reloadData()
     }
     

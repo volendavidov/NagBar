@@ -1,32 +1,37 @@
 PODS:
-  - Alamofire (4.4.0)
+  - Alamofire (4.8.2)
   - hpple (0.3.0)
-  - PromiseKit (4.0.5):
-    - PromiseKit/Foundation (= 4.0.5)
-    - PromiseKit/QuartzCore (= 4.0.5)
-    - PromiseKit/UIKit (= 4.0.5)
-  - PromiseKit/CorePromise (4.0.5)
-  - PromiseKit/Foundation (4.0.5):
+  - PromiseKit (6.8.4):
+    - PromiseKit/CorePromise (= 6.8.4)
+    - PromiseKit/Foundation (= 6.8.4)
+    - PromiseKit/UIKit (= 6.8.4)
+  - PromiseKit/CorePromise (6.8.4)
+  - PromiseKit/Foundation (6.8.4):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.0.5):
-    - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.0.5):
-    - PromiseKit/CorePromise
-  - Realm (2.7.0):
-    - Realm/Headers (= 2.7.0)
-  - Realm/Headers (2.7.0)
-  - RealmSwift (2.7.0):
-    - Realm (= 2.7.0)
-  - SAMKeychain (1.5.2)
-  - SwiftyJSON (3.1.4)
+  - Realm (3.15.0):
+    - Realm/Headers (= 3.15.0)
+  - Realm/Headers (3.15.0)
+  - RealmSwift (3.15.0):
+    - Realm (= 3.15.0)
+  - SAMKeychain (1.5.3)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.4.0)
+  - Alamofire (~> 4)
   - hpple (from `https://github.com/topfunky/hpple.git`)
-  - PromiseKit (~> 4.0.0)
-  - RealmSwift (~> 2.7.0)
+  - PromiseKit (~> 6)
+  - RealmSwift (~> 3)
   - SAMKeychain (~> 1.5.0)
-  - SwiftyJSON (~> 3.1.0)
+  - SwiftyJSON (~> 5)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - PromiseKit
+    - Realm
+    - RealmSwift
+    - SAMKeychain
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   hpple:
@@ -34,18 +39,18 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   hpple:
-    :commit: bb1dcfa99d7d0ed200f6a86d59a08a4c680075c7
+    :commit: ba66fa9d4a116d758f470cb664c31eb3e14909c9
     :git: https://github.com/topfunky/hpple.git
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   hpple: 37ac0a804d0f8a7f488712b5ff5f06129e1c9e31
-  PromiseKit: 593b5e24ded6cbb1ebc708bc2c3428a8a5632d91
-  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
-  RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
-  SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
+  Realm: 9b834e1be6062f544805252c812348872dc5d4ed
+  RealmSwift: 8a41886f8ab6efef9eb8df97de2f2bb911561a79
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 0cd338944b049b33d29f7ab1141b6c1ff3c3ff1e
+PODFILE CHECKSUM: a6326323d056a753fed1a4c1a5f77b515d5edf10
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.6.1

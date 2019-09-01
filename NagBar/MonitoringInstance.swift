@@ -24,10 +24,10 @@ typealias MIDictionary = Dictionary<String, MonitoringInstance>
 
 class MonitoringInstance : Object {
     
-    dynamic var name: String = ""
-    dynamic var url: String = ""
+    @objc dynamic var name: String = ""
+    @objc dynamic var url: String = ""
     // Realm does not support enums - https://github.com/realm/realm-cocoa/issues/921
-    private dynamic var privateType = MonitoringInstanceType.Nagios.rawValue
+    @objc private dynamic var privateType = MonitoringInstanceType.Nagios.rawValue
     var type: MonitoringInstanceType {
         get {
             return MonitoringInstanceType(rawValue: privateType)!
@@ -36,9 +36,9 @@ class MonitoringInstance : Object {
             privateType = newValue.rawValue
         }
     }
-    dynamic var username: String = ""
+    @objc dynamic var username: String = ""
     var password: String = ""
-    dynamic var enabled: Int = 0
+    @objc dynamic var enabled: Int = 0
     
     func initDefault(name: String, url: String, type: MonitoringInstanceType, username: String, password: String, enabled: Int) -> MonitoringInstance {
         self.name = name

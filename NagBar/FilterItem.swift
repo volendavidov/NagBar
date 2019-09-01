@@ -10,9 +10,9 @@ import Foundation
 import RealmSwift
 
 class FilterItem: Object {
-    dynamic var host: String = ""
-    dynamic var service: String = ""
-    dynamic var status: Int = 0
+    @objc dynamic var host: String = ""
+    @objc dynamic var service: String = ""
+    @objc dynamic var status: Int = 0
     
     func initDefault(host: String, service: String, status: Int) -> FilterItem {
         self.host = host

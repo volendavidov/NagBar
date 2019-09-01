@@ -13,7 +13,7 @@ class NagiosHTTPClient : MonitoringProcessorBase, HTTPClient {
     
     func get(_ url: String) -> Promise<Data> {
         
-        return Promise{ fulfill, reject in
+        return Promise{ seal in
             
             ConnectionManager.sharedInstance.manager!.request(url).authenticate(user: self.monitoringInstance!.username, password: self.monitoringInstance!.password).response { response in
                 
@@ -21,12 +21,12 @@ class NagiosHTTPClient : MonitoringProcessorBase, HTTPClient {
                     // if the response is 401, then we have basic auth
                     // otherwise we have cookie auth enabled
                     if response.response!.statusCode == 401 {
-                        reject(NSError(domain: "", code: -999, userInfo: nil))
+                        seal.reject(NSError(domain: "", code: -999, userInfo: nil))
                     } else {
-                        fulfill(response.data!)
+                        seal.fulfill(response.data!)
                     }
                 } else {
-                    reject(response.error!)
+                    seal.reject(response.error!)
                 }
             }
         }
@@ -34,7 +34,7 @@ class NagiosHTTPClient : MonitoringProcessorBase, HTTPClient {
     
     func checkConnection() -> Promise<Bool> {
         
-        return Promise{ fulfill, reject in
+        return Promise{ seal in
             
             ConnectionManager.sharedInstance.manager!.request(self.monitoringInstance!.url, method: .head).authenticate(user: self.monitoringInstance!.username, password: self.monitoringInstance!.password).response { response in
                 
@@ -42,12 +42,12 @@ class NagiosHTTPClient : MonitoringProcessorBase, HTTPClient {
                     // if the response is 401, then we have basic auth
                     // otherwise we have cookie auth enabled
                     if response.response!.statusCode == 401 {
-                        fulfill(false)
+                        seal.fulfill(false)
                     } else {
-                        fulfill(true)
+                        seal.fulfill(true)
                     }
                 } else {
-                    fulfill(false)
+                    seal.fulfill(false)
                 }
             }
         }
@@ -55,7 +55,7 @@ class NagiosHTTPClient : MonitoringProcessorBase, HTTPClient {
     
     func post(_ url: String, postData: Dictionary<String, String>) -> Promise<Data> {
         
-        return Promise{ fulfill, reject in
+        return Promise{ seal in
             
             ConnectionManager.sharedInstance.manager!.request(url, method: .post, parameters: postData).authenticate(user: self.monitoringInstance!.username, password: self.monitoringInstance!.password).response { response in
                 
@@ -63,12 +63,12 @@ class NagiosHTTPClient : MonitoringProcessorBase, HTTPClient {
                     // if the response is 401, then we have basic auth
                     // otherwise we have cookie auth enabled
                     if response.response!.statusCode == 401 {
-                        reject(NSError(domain: "", code: -999, userInfo: nil))
+                        seal.reject(NSError(domain: "", code: -999, userInfo: nil))
                     } else {
-                        fulfill(response.data!)
+                        seal.fulfill(response.data!)
                     }
                 } else {
-                    reject(response.error!)
+                    seal.reject(response.error!)
                 }
             }
         }

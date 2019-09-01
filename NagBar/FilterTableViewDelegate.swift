@@ -54,7 +54,7 @@ class StatusTableColumn: NSTableColumn, FilterItemTableColumn {
         
         var stringArray: Array<String> = []
         
-        if filterItem.service.characters.count != 0 {
+        if filterItem.service.count != 0 {
             stringArray = self.numberToLetters(filterItem, statusMapping: serviceStatusMapping)
         } else {
             stringArray = self.numberToLetters(filterItem, statusMapping: hostStatusMapping)

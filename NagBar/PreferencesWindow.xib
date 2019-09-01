@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,11 +12,11 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="1">
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="770" height="469"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="770" height="469"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +27,7 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="General" identifier="1" id="X3n-YZ-Xzg">
-                                <view key="view" ambiguous="YES" id="uZb-cD-Ud8">
+                                <view key="view" id="uZb-cD-Ud8">
                                     <rect key="frame" x="10" y="33" width="729" height="407"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -37,11 +35,11 @@
                                             <rect key="frame" x="14" y="321" width="401" height="86"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="7bo-rg-SIk">
-                                                <rect key="frame" x="1" y="1" width="399" height="70"/>
+                                                <rect key="frame" x="3" y="3" width="395" height="68"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button identifier="flashStatusBar" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C1e-wZ-Z5c" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="16" width="139" height="18"/>
+                                                        <rect key="frame" x="10" y="14" width="139" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="On status change" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="oBq-F3-hfQ">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -49,7 +47,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <popUpButton identifier="flashStatusBarType" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VsL-Gl-5ZW" customClass="DefaultPopUpButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="144" y="10" width="108" height="26"/>
+                                                        <rect key="frame" x="144" y="8" width="108" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <popUpButtonCell key="cell" type="push" title="Bright Flash" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ITZ-9g-lxY" id="iBi-VB-XNP">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -65,8 +63,8 @@
                                                             </menu>
                                                         </popUpButtonCell>
                                                     </popUpButton>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rrk-AE-RH8">
-                                                        <rect key="frame" x="256" y="17" width="91" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rrk-AE-RH8">
+                                                        <rect key="frame" x="256" y="15" width="91" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="the status bar" id="OKK-GF-0cd">
                                                             <font key="font" metaFont="system"/>
@@ -75,7 +73,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <button identifier="showExtendedStatusInformation" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U9S-UX-o2K" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="44" width="239" height="18"/>
+                                                        <rect key="frame" x="10" y="42" width="239" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Show extended status information" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Ils-r5-fYt">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -93,7 +91,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09s-KH-JXg">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09s-KH-JXg">
                                             <rect key="frame" x="15" y="245" width="253" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Requires restart to take effect. When disabled the preferences will be available from right click on the status bar." id="hoW-CB-4Qx">
@@ -130,11 +128,11 @@
                                             <rect key="frame" x="17" y="214" width="304" height="193"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="MGX-Nz-PZ0">
-                                                <rect key="frame" x="1" y="1" width="302" height="177"/>
+                                                <rect key="frame" x="3" y="3" width="298" height="175"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button identifier="status" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tzy-kn-2nk" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="9" y="124" width="61" height="18"/>
+                                                        <rect key="frame" x="9" y="122" width="61" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Status" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="2g2-a5-9FW">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -142,7 +140,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="lastCheck" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W5N-6t-hMX" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="97" width="91" height="18"/>
+                                                        <rect key="frame" x="10" y="95" width="91" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Last Check" bezelStyle="regularSquare" imagePosition="left" state="on" identifier="lastCheck" inset="2" id="Vq2-GP-gJF">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -150,7 +148,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="duration" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lyP-7U-Xry" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="9" y="70" width="77" height="18"/>
+                                                        <rect key="frame" x="9" y="68" width="77" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Duration" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="uhk-vX-r7q">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -158,7 +156,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="attempt" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u2m-nS-dch" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="9" y="43" width="73" height="18"/>
+                                                        <rect key="frame" x="9" y="41" width="73" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Attempt" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="VDS-rL-55O">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -166,7 +164,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="statusInformation" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n0r-66-iec" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="9" y="16" width="139" height="18"/>
+                                                        <rect key="frame" x="9" y="14" width="139" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Status Information" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dzU-3T-Yfh">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -174,7 +172,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="monitoringInstance" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZQt-Y4-FWR" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="9" y="151" width="150" height="18"/>
+                                                        <rect key="frame" x="9" y="149" width="150" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Monitoring Instance" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="U9N-4O-fXF">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -182,7 +180,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <popUpButton identifier="statusInformationLength" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZY-Kk-RS8" customClass="DefaultPopUpButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="159" y="11" width="59" height="26"/>
+                                                        <rect key="frame" x="159" y="9" width="59" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <popUpButtonCell key="cell" type="push" title="200" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2Yy-T2-lel" id="Cb9-Yh-vLw">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -200,8 +198,8 @@
                                                             </menu>
                                                         </popUpButtonCell>
                                                     </popUpButton>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfj-8P-a4p">
-                                                        <rect key="frame" x="220" y="18" width="38" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfj-8P-a4p">
+                                                        <rect key="frame" x="220" y="16" width="38" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="pixels" id="rTF-cd-uUR">
                                                             <font key="font" metaFont="system"/>
@@ -216,11 +214,11 @@
                                             <rect key="frame" x="17" y="116" width="304" height="94"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="z6x-2e-U10">
-                                                <rect key="frame" x="1" y="1" width="302" height="78"/>
+                                                <rect key="frame" x="3" y="3" width="298" height="76"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5KW-ad-JIY">
-                                                        <rect key="frame" x="15" y="49" width="54" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5KW-ad-JIY">
+                                                        <rect key="frame" x="15" y="47" width="54" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Column" id="aV4-5v-jmi">
                                                             <font key="font" metaFont="system"/>
@@ -228,8 +226,8 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nd2-Zx-vqa">
-                                                        <rect key="frame" x="15" y="18" width="41" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nd2-Zx-vqa">
+                                                        <rect key="frame" x="15" y="16" width="41" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Order" id="TIf-kJ-qsr">
                                                             <font key="font" metaFont="system"/>
@@ -238,7 +236,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <popUpButton identifier="sortColumn" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaY-3o-VKC" customClass="DefaultPopUpButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="126" y="44" width="108" height="26"/>
+                                                        <rect key="frame" x="126" y="42" width="108" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <popUpButtonCell key="cell" type="push" title="None" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="0W4-NO-LDx" id="sUt-CL-Dy4">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -257,7 +255,7 @@
                                                         </popUpButtonCell>
                                                     </popUpButton>
                                                     <popUpButton identifier="sortOrder" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5U-8R-iQC" customClass="DefaultPopUpButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="126" y="8" width="108" height="26"/>
+                                                        <rect key="frame" x="126" y="6" width="108" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <popUpButtonCell key="cell" type="push" title="Ascending" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="TKP-gE-8Eo" id="om6-HD-RVt">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -277,11 +275,11 @@
                                             <rect key="frame" x="336" y="241" width="255" height="166"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="xk6-gt-mno">
-                                                <rect key="frame" x="1" y="1" width="253" height="150"/>
+                                                <rect key="frame" x="3" y="3" width="249" height="148"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button identifier="critical" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yi5-3L-n9d" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="124" width="88" height="18"/>
+                                                        <rect key="frame" x="16" y="122" width="88" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Critical (C)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="KUd-ia-ljs">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -289,7 +287,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="warning" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YgU-LK-I2O" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="97" width="98" height="18"/>
+                                                        <rect key="frame" x="16" y="95" width="98" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Warning (W)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="iGh-mX-umW">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -297,7 +295,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="unknown" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3qU-TA-6Ph" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="70" width="103" height="18"/>
+                                                        <rect key="frame" x="16" y="68" width="103" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Unknown (U)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="buC-Vl-qjh">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -305,7 +303,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="pending" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jUg-y3-w5s" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="43" width="93" height="18"/>
+                                                        <rect key="frame" x="16" y="41" width="93" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Pending (P)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GgD-fd-vmb">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -313,7 +311,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="ok" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="trh-cb-e3c" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="16" width="64" height="18"/>
+                                                        <rect key="frame" x="16" y="14" width="64" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="OK (O)" bezelStyle="regularSquare" imagePosition="left" state="on" identifier="ok" inset="2" id="78n-xZ-Tzf">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -327,11 +325,11 @@
                                             <rect key="frame" x="336" y="76" width="255" height="134"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="Viv-oy-nIu">
-                                                <rect key="frame" x="1" y="1" width="253" height="118"/>
+                                                <rect key="frame" x="3" y="3" width="249" height="116"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button identifier="down" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHu-wX-9eQ" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="39" width="80" height="18"/>
+                                                        <rect key="frame" x="16" y="37" width="80" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Down (D)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="btu-N9-497">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -339,7 +337,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="hostPending" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qki-cj-bgg" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="93" width="100" height="18"/>
+                                                        <rect key="frame" x="16" y="91" width="100" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Pending (PE)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Hfj-Mp-D0O">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -347,7 +345,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="up" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KAu-z6-vJ8" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="66" width="75" height="18"/>
+                                                        <rect key="frame" x="16" y="64" width="75" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Up (UP)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GVJ-DN-hLk">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -355,7 +353,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="unreachable" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVz-ss-VSm" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="12" width="130" height="18"/>
+                                                        <rect key="frame" x="16" y="10" width="130" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Unreachable (UR)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tG2-c2-JIP">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -377,11 +375,11 @@
                                             <rect key="frame" x="7" y="239" width="287" height="163"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="d1k-tv-2qH">
-                                                <rect key="frame" x="1" y="1" width="285" height="147"/>
+                                                <rect key="frame" x="3" y="3" width="281" height="145"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button identifier="scheduledDowntime" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehh-40-EvL" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="121" width="153" height="18"/>
+                                                        <rect key="frame" x="10" y="119" width="153" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Scheduled downtime" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1OU-gU-Slw">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -389,7 +387,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="acknowledged" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SAx-JS-Xwh" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="94" width="114" height="18"/>
+                                                        <rect key="frame" x="10" y="92" width="114" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Acknowledged" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="YCW-eG-u4p">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -397,7 +395,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="flapping" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJ6-nx-PrS" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="67" width="77" height="18"/>
+                                                        <rect key="frame" x="10" y="65" width="77" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Flapping" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="PGu-27-uLx">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -405,7 +403,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="disabledNotifications" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6VZ-fe-Ggd" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="40" width="178" height="18"/>
+                                                        <rect key="frame" x="10" y="38" width="178" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Disabled notifications" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kbL-Hf-Yus">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -413,7 +411,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="softState" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CqS-Pn-3ro" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="12" width="82" height="18"/>
+                                                        <rect key="frame" x="10" y="10" width="82" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Soft State" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Zpz-vj-9tH">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -431,7 +429,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfP-t3-jWE">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfP-t3-jWE">
                                             <rect key="frame" x="10" y="180" width="467" height="28"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="When enabled you can schedule downtime for a host and the services owned by the host will not be displayed." id="iy3-AT-cOM">
@@ -445,7 +443,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" ambiguous="YES" id="OpW-oy-y00">
                                                 <rect key="frame" x="1" y="0.0" width="564" height="117"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="eBA-IH-4gv" viewBased="YES" id="KIp-8d-K7V">
                                                         <rect key="frame" x="0.0" y="0.0" width="564" height="94"/>
@@ -454,7 +452,7 @@
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                         <tableColumns>
-                                                            <tableColumn identifier="" width="200" minWidth="40" maxWidth="200" id="X9H-qx-gAS" customClass="HostTableColumn" customModule="NagBar" customModuleProvider="target">
+                                                            <tableColumn width="200" minWidth="40" maxWidth="200" id="X9H-qx-gAS" customClass="HostTableColumn" customModule="NagBar" customModuleProvider="target">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Host">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -471,7 +469,7 @@
                                                                         <rect key="frame" x="1" y="1" width="200" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
-                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijz-FQ-Owh">
+                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijz-FQ-Owh">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="A13-K1-wgE">
@@ -487,7 +485,7 @@
                                                                     </tableCellView>
                                                                 </prototypeCellViews>
                                                             </tableColumn>
-                                                            <tableColumn identifier="" width="200" minWidth="40" maxWidth="200" id="OCX-Es-9Rv" customClass="ServiceTableColumn" customModule="NagBar" customModuleProvider="target">
+                                                            <tableColumn width="200" minWidth="40" maxWidth="200" id="OCX-Es-9Rv" customClass="ServiceTableColumn" customModule="NagBar" customModuleProvider="target">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Service">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -504,7 +502,7 @@
                                                                         <rect key="frame" x="204" y="1" width="200" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
-                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="98Q-Ju-Bn6">
+                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="98Q-Ju-Bn6">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="qcO-Up-C7e">
@@ -520,7 +518,7 @@
                                                                     </tableCellView>
                                                                 </prototypeCellViews>
                                                             </tableColumn>
-                                                            <tableColumn identifier="" width="155" minWidth="10" maxWidth="164" id="pgU-j3-Zja" customClass="StatusTableColumn" customModule="NagBar" customModuleProvider="target">
+                                                            <tableColumn width="155" minWidth="10" maxWidth="164" id="pgU-j3-Zja" customClass="StatusTableColumn" customModule="NagBar" customModuleProvider="target">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Status">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -537,7 +535,7 @@
                                                                         <rect key="frame" x="407" y="1" width="155" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
-                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3mX-9p-Owm">
+                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3mX-9p-Owm">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Ggm-tj-ACm">
@@ -561,11 +559,11 @@
                                                     </tableView>
                                                 </subviews>
                                             </clipView>
-                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="rQH-Cb-yjp">
+                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="rQH-Cb-yjp">
                                                 <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="AlF-zT-KHd">
+                                            <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="AlF-zT-KHd">
                                                 <rect key="frame" x="224" y="17" width="15" height="102"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
@@ -589,7 +587,7 @@
                                                 <action selector="segControlClicked:" target="PDf-qc-ekg" id="jK3-JI-Xky"/>
                                             </connections>
                                         </segmentedControl>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BSH-It-9jc">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BSH-It-9jc">
                                             <rect key="frame" x="8" y="143" width="137" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Host and service filter" id="U1X-nJ-PEh">
@@ -602,11 +600,11 @@
                                             <rect key="frame" x="311" y="239" width="268" height="163"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="m2K-8h-Z4P">
-                                                <rect key="frame" x="1" y="1" width="266" height="147"/>
+                                                <rect key="frame" x="3" y="3" width="262" height="145"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button identifier="hostScheduledDowntime" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ODi-lv-m1E" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="121" width="153" height="18"/>
+                                                        <rect key="frame" x="10" y="119" width="153" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Scheduled downtime" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GlF-KD-9eB">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -614,7 +612,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="hostAcknowledged" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1bw-5D-ebH" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="94" width="114" height="18"/>
+                                                        <rect key="frame" x="10" y="92" width="114" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Acknowledged" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="8Mk-vk-evO">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -622,7 +620,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="hostFlapping" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgu-6Y-1qi" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="67" width="77" height="18"/>
+                                                        <rect key="frame" x="10" y="65" width="77" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Flapping" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="4RA-W0-dZv">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -630,7 +628,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="hostDisabledNotifications" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nZK-QQ-LPF" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="40" width="173" height="18"/>
+                                                        <rect key="frame" x="10" y="38" width="173" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Disabled notifications" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="TgQ-KI-vYM">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -638,7 +636,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="hostSoftState" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zAa-LQ-VMP" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="13" width="82" height="18"/>
+                                                        <rect key="frame" x="10" y="11" width="82" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Soft State" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Yp1-hP-PAJ">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -656,7 +654,7 @@
                                     <rect key="frame" x="10" y="33" width="729" height="407"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField identifier="refreshInterval" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIv-SD-Dsa">
+                                        <textField identifier="refreshInterval" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIv-SD-Dsa">
                                             <rect key="frame" x="129" y="257" width="45" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="wOL-gc-7lG">
@@ -666,7 +664,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sXO-5C-RPo">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sXO-5C-RPo">
                                             <rect key="frame" x="14" y="259" width="103" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Refresh interval" id="cUL-BD-5NJ">
@@ -710,7 +708,7 @@
                                                 <action selector="openDataFeed:" target="-2" id="imE-BW-c33"/>
                                             </connections>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaU-h6-6fT">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaU-h6-6fT">
                                             <rect key="frame" x="191" y="257" width="181" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Requires restart to take effect" id="f04-tn-Fzt">
@@ -739,11 +737,11 @@
                                             <rect key="frame" x="14" y="211" width="376" height="145"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="Hfr-qr-GTt">
-                                                <rect key="frame" x="1" y="1" width="374" height="129"/>
+                                                <rect key="frame" x="3" y="3" width="370" height="127"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button identifier="enableAudibleAlarmsCritical" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wmz-GY-O86" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="99" width="67" height="18"/>
+                                                        <rect key="frame" x="16" y="97" width="67" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Critical" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="MEi-Cv-f1Q">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -751,7 +749,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="enableAudibleAlarmsWarning" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrd-NO-Psr" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="72" width="74" height="18"/>
+                                                        <rect key="frame" x="16" y="70" width="74" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Warning" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GV0-UE-kuD">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -759,7 +757,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="enableAudibleAlarmsDown" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J8X-o1-68E" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="45" width="58" height="18"/>
+                                                        <rect key="frame" x="16" y="43" width="58" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Down" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="4l6-wZ-5Za">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -767,7 +765,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <button identifier="enableAudibleAlarmsUnreachable" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YAE-xc-HCB" customClass="DefaultButton" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="18" width="100" height="18"/>
+                                                        <rect key="frame" x="16" y="16" width="100" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <buttonCell key="cell" type="check" title="Unreachable" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Fkq-N0-vjC">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -775,7 +773,7 @@
                                                         </buttonCell>
                                                     </button>
                                                     <popUpButton identifier="audibleAlarmsCriticalSoundFile" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dAt-82-3Wt">
-                                                        <rect key="frame" x="165" y="95" width="194" height="26"/>
+                                                        <rect key="frame" x="165" y="93" width="194" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <popUpButtonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="TBw-qW-fRV" id="h8X-PD-qGY">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -796,7 +794,7 @@
                                                         </connections>
                                                     </popUpButton>
                                                     <popUpButton identifier="audibleAlarmsWarningSoundFile" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BbE-Pl-WXM">
-                                                        <rect key="frame" x="165" y="68" width="194" height="26"/>
+                                                        <rect key="frame" x="165" y="66" width="194" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="Wvm-97-YDG">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -815,7 +813,7 @@
                                                         </connections>
                                                     </popUpButton>
                                                     <popUpButton identifier="audibleAlarmsDownSoundFile" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WsG-sN-vKW">
-                                                        <rect key="frame" x="165" y="41" width="194" height="26"/>
+                                                        <rect key="frame" x="165" y="39" width="194" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="Kh4-gc-GaZ">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -834,7 +832,7 @@
                                                         </connections>
                                                     </popUpButton>
                                                     <popUpButton identifier="audibleAlarmsUnreachableSoundFile" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nPk-Ik-iHJ">
-                                                        <rect key="frame" x="165" y="14" width="194" height="26"/>
+                                                        <rect key="frame" x="165" y="12" width="194" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="RJo-1o-E3A">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -863,7 +861,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mt5-I8-rkG">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mt5-I8-rkG">
                                             <rect key="frame" x="31" y="106" width="254" height="72"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="i2W-mG-l98">
@@ -896,23 +894,23 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Commands" identifier="6" id="Hhb-Zz-UuG">
-                                <view key="view" id="UIX-6a-Sya">
+                                <view key="view" ambiguous="YES" id="UIX-6a-Sya">
                                     <rect key="frame" x="10" y="33" width="729" height="407"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField identifier="acknowledgementDefaultComment" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xzy-YT-Hfg">
+                                        <textField identifier="acknowledgementDefaultComment" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xzy-YT-Hfg">
                                             <rect key="frame" x="17" y="277" width="251" height="86"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="GSm-qD-9al">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
                                                 <outlet property="delegate" destination="hBn-uq-8pV" id="DVZ-fj-Ata"/>
                                             </connections>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1S8-qL-u6r">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1S8-qL-u6r">
                                             <rect key="frame" x="15" y="371" width="232" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Acknowledgement default comment" id="vdh-2N-Q7s">
@@ -921,19 +919,19 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField identifier="scheduleDowntimeDefaultComment" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQM-3p-wuu">
+                                        <textField identifier="scheduleDowntimeDefaultComment" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQM-3p-wuu">
                                             <rect key="frame" x="17" y="135" width="251" height="86"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="dDB-06-vLO">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
                                                 <outlet property="delegate" destination="hBn-uq-8pV" id="yOy-f3-vcv"/>
                                             </connections>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNy-rq-kxD">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNy-rq-kxD">
                                             <rect key="frame" x="15" y="229" width="238" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Schedule downtime default comment" id="8PE-fT-Xfp">
@@ -954,11 +952,11 @@
                                             <rect key="frame" x="6" y="199" width="207" height="192"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="jjW-O6-NRC">
-                                                <rect key="frame" x="2" y="2" width="203" height="175"/>
+                                                <rect key="frame" x="3" y="3" width="201" height="174"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Um9-xy-B8O">
-                                                        <rect key="frame" x="8" y="143" width="80" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Um9-xy-B8O">
+                                                        <rect key="frame" x="8" y="142" width="80" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Critical (C)" id="ZKp-i4-vry">
                                                             <font key="font" metaFont="system"/>
@@ -966,8 +964,8 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NiY-Hr-lNn">
-                                                        <rect key="frame" x="8" y="112" width="80" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NiY-Hr-lNn">
+                                                        <rect key="frame" x="8" y="111" width="80" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Warning (W)" id="pom-K5-9Jw">
                                                             <font key="font" metaFont="system"/>
@@ -975,8 +973,8 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBZ-1t-ZrG">
-                                                        <rect key="frame" x="8" y="81" width="80" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBZ-1t-ZrG">
+                                                        <rect key="frame" x="8" y="80" width="80" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Unknown (U)" id="d3b-x0-nw1">
                                                             <font key="font" metaFont="system"/>
@@ -984,8 +982,8 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mka-Fd-ch1">
-                                                        <rect key="frame" x="8" y="50" width="80" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mka-Fd-ch1">
+                                                        <rect key="frame" x="8" y="49" width="80" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Pending (P)" id="FcK-uQ-Jaj">
                                                             <font key="font" metaFont="system"/>
@@ -993,8 +991,8 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOR-kF-oqO">
-                                                        <rect key="frame" x="8" y="19" width="80" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOR-kF-oqO">
+                                                        <rect key="frame" x="8" y="18" width="80" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="OK (O)" id="Vcl-PT-Fyq">
                                                             <font key="font" metaFont="system"/>
@@ -1003,27 +1001,27 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <colorWell identifier="criticalColor" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m27-pA-vNl" customClass="DefaultColorWell" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="150" y="137" width="44" height="23"/>
+                                                        <rect key="frame" x="150" y="136" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </colorWell>
                                                     <colorWell identifier="warningColor" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LrY-Qk-0uQ" customClass="DefaultColorWell" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="150" y="106" width="44" height="23"/>
+                                                        <rect key="frame" x="150" y="105" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </colorWell>
                                                     <colorWell identifier="unknownColor" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jYy-Qk-Ocu" customClass="DefaultColorWell" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="150" y="75" width="44" height="23"/>
+                                                        <rect key="frame" x="150" y="74" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </colorWell>
                                                     <colorWell identifier="pendingColor" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jWH-Nx-uoF" customClass="DefaultColorWell" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="150" y="44" width="44" height="23"/>
+                                                        <rect key="frame" x="150" y="43" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </colorWell>
                                                     <colorWell identifier="okColor" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14b-4K-uoZ" customClass="DefaultColorWell" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="150" y="13" width="44" height="23"/>
+                                                        <rect key="frame" x="150" y="12" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </colorWell>
@@ -1034,11 +1032,11 @@
                                             <rect key="frame" x="219" y="260" width="207" height="131"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="tzl-g6-cM7">
-                                                <rect key="frame" x="2" y="2" width="203" height="114"/>
+                                                <rect key="frame" x="3" y="3" width="201" height="113"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cV0-Oa-MWu">
-                                                        <rect key="frame" x="8" y="82" width="80" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cV0-Oa-MWu">
+                                                        <rect key="frame" x="8" y="81" width="80" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Up (U)" id="nIL-BY-Yqh">
                                                             <font key="font" metaFont="system"/>
@@ -1046,8 +1044,8 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tsw-KM-U8v">
-                                                        <rect key="frame" x="8" y="51" width="80" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tsw-KM-U8v">
+                                                        <rect key="frame" x="8" y="50" width="80" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Down (D)" id="Ipr-9a-dOo">
                                                             <font key="font" metaFont="system"/>
@@ -1055,8 +1053,8 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kZL-7l-pMN">
-                                                        <rect key="frame" x="8" y="20" width="119" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kZL-7l-pMN">
+                                                        <rect key="frame" x="8" y="19" width="119" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Uncreachable (UR)" id="mOV-xa-1SR">
                                                             <font key="font" metaFont="system"/>
@@ -1065,17 +1063,17 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <colorWell identifier="upColor" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s2P-Me-2h3" customClass="DefaultColorWell" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="149" y="76" width="44" height="23"/>
+                                                        <rect key="frame" x="149" y="75" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </colorWell>
                                                     <colorWell identifier="downColor" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tyb-RZ-zrp" customClass="DefaultColorWell" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="149" y="45" width="44" height="23"/>
+                                                        <rect key="frame" x="149" y="44" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </colorWell>
                                                     <colorWell identifier="unreachableColor" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdU-Sb-Un7" customClass="DefaultColorWell" customModule="NagBar" customModuleProvider="target">
-                                                        <rect key="frame" x="149" y="14" width="44" height="23"/>
+                                                        <rect key="frame" x="149" y="13" width="44" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </colorWell>

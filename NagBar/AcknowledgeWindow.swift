@@ -22,7 +22,7 @@ class AcknowledgeWindow: NSWindowController {
     
     @IBAction func buttonClicked(_ sender: NSButton) {
         if self.comment.stringValue == "" {
-            NSBeep()
+            NSSound.beep()
             return
         }
         

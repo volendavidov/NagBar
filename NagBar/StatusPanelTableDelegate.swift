@@ -39,7 +39,7 @@ class StatusTableRowView : NSTableRowView {
 //        let contextPointer = NSGraphicsContext.currentContext()!.graphicsPort
 //        let context = unsafeBitCast(contextPointer, CGContextRef.self)
         
-        let context = NSGraphicsContext.current()!.cgContext
+        let context = NSGraphicsContext.current!.cgContext
         
         context.setFillColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         
@@ -66,14 +66,14 @@ class SPTableColumn : NSTableColumn, SPTableColumnProtocol  {
     
     // we want to set the column width in the initialization
     init(results: Array<MonitoringItem>) {
-        super.init(identifier: "")
+        super.init(identifier: NSUserInterfaceItemIdentifier(rawValue: ""))
         self.results = results
     
         self.initTable()
     }
     
     // this function must be overwritten
-    func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<String,NSFont>) -> CGFloat {
+    func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<NSAttributedString.Key,NSFont>) -> CGFloat {
         return CGFloat(0)
     }
     
@@ -83,7 +83,7 @@ class SPTableColumn : NSTableColumn, SPTableColumnProtocol  {
     }
     
     func initTable() {
-        let font = [NSFontAttributeName: NSFont.systemFont(ofSize: 16.0)]
+        let font = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 16.0)]
         
         var columnWidth = CGFloat(0)
         
@@ -154,7 +154,7 @@ class SPMonitoringInstanceTableColumn : SPTableColumn {
         return self.results[row].monitoringInstance!.name
     }
     
-    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<String,NSFont>) -> CGFloat {
+    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<NSAttributedString.Key,NSFont>) -> CGFloat {
         return monitoringItem.monitoringInstance!.name.size(withAttributes: font).width
     }
 }
@@ -179,7 +179,7 @@ class SPHostTableColumn : SPTableColumn {
         return ""
     }
     
-    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<String,NSFont>) -> CGFloat {
+    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<NSAttributedString.Key,NSFont>) -> CGFloat {
         return monitoringItem.host.size(withAttributes: font).width
     }
 }
@@ -189,7 +189,7 @@ class SPServiceTableColumn : SPTableColumn {
         return self.results[row].service
     }
     
-    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<String,NSFont>) -> CGFloat {
+    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<NSAttributedString.Key,NSFont>) -> CGFloat {
         return monitoringItem.service
             .size(withAttributes: font).width
     }
@@ -209,7 +209,7 @@ class SPAcknowledgedDowntimeTableColumn : SPTableColumn {
         }
     }
     
-    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<String,NSFont>) -> CGFloat {
+    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<NSAttributedString.Key,NSFont>) -> CGFloat {
         if monitoringItem.acknowledged && monitoringItem.downtime {
             return "✓🕒".size(withAttributes: font).width
         } else if monitoringItem.acknowledged {
@@ -228,7 +228,7 @@ class SPStatusTableColumn : SPTableColumn {
         return self.results[row].status
     }
     
-    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<String,NSFont>) -> CGFloat {
+    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<NSAttributedString.Key,NSFont>) -> CGFloat {
         return monitoringItem.status.size(withAttributes: font).width
     }
 }
@@ -238,7 +238,7 @@ class SPDurationTableColumn : SPTableColumn {
         return self.results[row].duration
     }
     
-    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<String,NSFont>) -> CGFloat {
+    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<NSAttributedString.Key,NSFont>) -> CGFloat {
         return monitoringItem.duration.size(withAttributes: font).width
     }
 }
@@ -248,7 +248,7 @@ class SPLastCheckTableColumn : SPTableColumn {
         return self.results[row].lastCheck
     }
     
-    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<String,NSFont>) -> CGFloat {
+    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<NSAttributedString.Key,NSFont>) -> CGFloat {
         return monitoringItem.lastCheck.size(withAttributes: font).width
     }
 }
@@ -261,7 +261,7 @@ class SPStatusInformationTableColumn : SPTableColumn {
         return self.results[row].statusInformation
     }
     
-    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<String,NSFont>) -> CGFloat {
+    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<NSAttributedString.Key,NSFont>) -> CGFloat {
         var width = monitoringItem.statusInformation.size(withAttributes: font).width
         if width > statusInformationLength {
             width = statusInformationLength
@@ -275,7 +275,7 @@ class SPAttemptTableColumn : SPTableColumn {
         return self.results[row].attempt
     }
     
-    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<String,NSFont>) -> CGFloat {
+    override func columnWidth(_ monitoringItem: MonitoringItem, font: Dictionary<NSAttributedString.Key,NSFont>) -> CGFloat {
         return monitoringItem.attempt.size(withAttributes: font).width
     }
 }
@@ -296,8 +296,8 @@ class TableViewCellBackground : NSView {
         let startingColor = NSColor(calibratedRed: self.color.redComponent - 0.1, green: self.color.greenComponent - 0.1, blue: self.color.blueComponent - 0.1, alpha: 0.8)
         let endingColor = NSColor(calibratedRed: self.color.redComponent, green: self.color.greenComponent, blue: self.color.blueComponent, alpha: 0.8)
         
-        let topShineStartColor = NSColor(calibratedWhite: 1.0, alpha: 0.05).usingColorSpaceName("NSCalibratedRGBColorSpace")
-        let topShineEndColor = NSColor(calibratedWhite: 1.0, alpha: 0.0).usingColorSpaceName("NSCalibratedRGBColorSpace")
+        let topShineStartColor = NSColor(calibratedWhite: 1.0, alpha: 0.05).usingColorSpace(.genericRGB)
+        let topShineEndColor = NSColor(calibratedWhite: 1.0, alpha: 0.0).usingColorSpace(.genericRGB)
         
         let topShineRect = CGRect(x: dirtyRect.minX, y: dirtyRect.midY, width: dirtyRect.width, height: CGFloat(floorf(Float(dirtyRect.height) / 2.0)))
         
@@ -305,14 +305,14 @@ class TableViewCellBackground : NSView {
 //        let contextPointer = NSGraphicsContext.currentContext()!.graphicsPort
 //        let context = unsafeBitCast(contextPointer, CGContextRef.self)
         
-        let context = NSGraphicsContext.current()!.cgContext
+        let context = NSGraphicsContext.current!.cgContext
         
         drawLinearGradient(context, startColor: startingColor, endColor: endingColor, rect: dirtyRect);
         
         drawLinearGradient(context, startColor: topShineStartColor!, endColor: topShineEndColor!, rect: topShineRect);
         
-        let bottomShineStartColor = NSColor(calibratedWhite: 0.0, alpha: 0.0).usingColorSpaceName("NSCalibratedRGBColorSpace")
-        let bottomShineEndColor = NSColor(calibratedWhite: 0.0, alpha: 0.05).usingColorSpaceName("NSCalibratedRGBColorSpace")
+        let bottomShineStartColor = NSColor(calibratedWhite: 0.0, alpha: 0.0).usingColorSpace(.genericRGB)
+        let bottomShineEndColor = NSColor(calibratedWhite: 0.0, alpha: 0.05).usingColorSpace(.genericRGB)
         
         let bottomShineRect = CGRect(x: dirtyRect.minX, y: dirtyRect.minY, width: dirtyRect.width, height: CGFloat(floorf(Float(dirtyRect.height) / 2.0)))
         

@@ -17,40 +17,41 @@ class NagiosCommands : MonitoringProcessorBase, CommandInterface {
     
     func getTime(_ monitoringItems: Array<MonitoringItem>) -> Promise<(String,String)> {
         
-        return Promise{ fulfill, reject in
+        return Promise<(String,String)>{ seal in
         
             let nagiosTimeUrl = NagiosParser.stripStatusCGI(self.monitoringInstance!.url) + String(format: "cmd.cgi?cmd_typ=55&host=%@", monitoringItems[0].host)
         
-            let promise: Promise<Data> = Promise<Data>(value: Data())
+            let promise: Promise<Data> = Promise<Data>.value(Data())
         
             promise.then { _ -> Promise<Data> in
                 // get the start time from nagios first
                 return self.monitoringInstance!.monitoringProcessor().httpClient().get(nagiosTimeUrl)
-                }.then { data -> Void in
+                }.done { data -> Void in
                     // parse the start time
                     let startTime = NagiosParser(self.monitoringInstance!).parseStartTime(data)
                     let endTime = NagiosParser(self.monitoringInstance!).parseEndTime(data)
-                    fulfill(startTime, endTime)
+                    seal.fulfill((startTime, endTime))
                 }.catch { error in
-                    reject(error)
+                    seal.reject(error)
                 }
         }
     }
     
     func recheck(_ monitoringItems: Array<MonitoringItem>) {
         
-        var promise: Promise<String> = Promise<String>(value: "")
+        var promise: Promise<String> = Promise<String>.value("")
         
         let nagiosTimeUrl = NagiosParser.stripStatusCGI(self.monitoringInstance!.url) + String(format: "cmd.cgi?cmd_typ=55&host=%@", monitoringItems[0].host)
+        
         
         promise = promise.then { _ -> Promise<Data> in
             // get the start time from nagios first
             return self.monitoringInstance!.monitoringProcessor().httpClient().get(nagiosTimeUrl)
         }.then { data -> Promise<String> in
             // parse the start time
-            return Promise { fulfill, _ in
+            return Promise { seal in
                 let parser = NagiosParser(self.monitoringInstance!)
-                fulfill(parser.parseStartTime(data as Data))
+                seal.fulfill(parser.parseStartTime(data as Data))
             }
         }
         
@@ -84,7 +85,7 @@ class NagiosCommands : MonitoringProcessorBase, CommandInterface {
     
     func scheduleDowntime(_ monitoringItems: Array<MonitoringItem>, from: String, to: String, comment: String, type: String, hours: String, minutes: String) {
         
-        var promise: Promise<Data> = Promise<Data>(value: Data())
+        var promise: Promise<Data> = Promise<Data>.value(Data())
         
         for monitoringItem in monitoringItems {
             promise = promise.then { _ -> Promise<Data> in
@@ -122,7 +123,7 @@ class NagiosCommands : MonitoringProcessorBase, CommandInterface {
     
     func acknowledge(_ monitoringItems: Array<MonitoringItem>, comment: String) {
 
-        var promise: Promise<Data> = Promise<Data>(value: Data())
+        var promise: Promise<Data> = Promise<Data>.value(Data())
         
         for monitoringItem in monitoringItems {
             promise = promise.then { _ -> Promise<Data> in

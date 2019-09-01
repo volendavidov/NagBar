@@ -18,7 +18,7 @@ class StatusBar : NSObject {
         return self.statusBar
     }
     
-    let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
     private var statusItemFailed: NSStatusItem?
     
@@ -44,13 +44,15 @@ class StatusBar : NSObject {
         
         statusItemView.statusItem = self.statusItem
         
-        self.statusItem.view = statusItemView
+        self.statusItem.button?.subviews = [statusItemView]
         
         if Settings().boolForKey("showExtendedStatusInformation") {
             statusItemView.setStatusItemTitle(self.resultsToCodes(results))
         } else {
             statusItemView.setStatusItemTitle(NSLocalizedString("totalCount", comment: "") + " " + String(results.count))
         }
+        
+        statusItemView.frame = self.statusItem.button!.frame
         
         // finally animate the status bar (shake, change color and etc.)
         self.animateStatusBar()
@@ -61,7 +63,7 @@ class StatusBar : NSObject {
     private func failedMonitoringInstancesView(_ failedMonitoringInstances: FailedMonitoringInstances) {
         
         if failedMonitoringInstances.count > 0 {
-            self.statusItemFailed = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+            self.statusItemFailed = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         } else {
             self.statusItemFailed = nil
             return
@@ -72,7 +74,7 @@ class StatusBar : NSObject {
         let cautionImage = NSImage(named: "NSCaution")
         cautionImage?.size = CGSize(width: 18, height: 18)
         
-        statusItemFailed!.image = cautionImage
+        statusItemFailed!.button?.image = cautionImage
         
         let menu = NSMenu()
         
@@ -117,13 +119,13 @@ class StatusBar : NSObject {
         self.statusPanel = nil
         
         self.statusPanel = StatusPanel(results: self.results!, panelBounds: frameOrigin!)
-        observer = Foundation.NotificationCenter.default.addObserver(forName: NSNotification.Name.NSWindowDidResignKey, object: nil, queue: nil, using: {_ in
+        observer = Foundation.NotificationCenter.default.addObserver(forName: NSWindow.didResignKeyNotification, object: nil, queue: nil, using: {_ in
             // dismiss the panel only if another application is in foreground
             // otherwise the panel will be dismissed also on functions which open a modal inside the app
             // (e.g. acknowledge, schedule downtime) and when submitting the modal, the error
             // "sent to deallocated instance" will occur because the StatusPanel keeps reference to
             // these modals
-            if NSWorkspace.shared().frontmostApplication!.bundleIdentifier! != Bundle.main.bundleIdentifier! {
+            if NSWorkspace.shared.frontmostApplication!.bundleIdentifier! != Bundle.main.bundleIdentifier! {
                 self.statusPanel?.panel?.close()
                 self.statusPanel = nil
                 Foundation.NotificationCenter.default.removeObserver(self.observer as! NSObjectProtocol)
@@ -167,14 +169,14 @@ class StatusBar : NSObject {
         }
         
         // break up the following statements to avoid compiler error "Expression was too complex to be solved in reasonable time"
-        let criticalText = Bool(cCount) ? "C:" + String(cCount) : ""
-        let warningText = Bool(wCount) ? " W:" + String(wCount) : ""
-        let unknownText = Bool(uCount) ? " U:" + String(uCount) : ""
-        let pendingText = Bool(pCount) ? " P:" + String(pCount) : ""
-        let okText = Bool(oCount) ? " O:" + String(oCount) : ""
-        let unreachableText = Bool(unreachableCount) ? " UR:" + String(unreachableCount) : ""
-        let downText = Bool(downCount) ? " D:" + String(downCount) : ""
-        let upText = Bool(upCount) ? " UP:" + String(upCount) : ""
+        let criticalText = cCount > 0 ? "C:" + String(cCount) : ""
+        let warningText = wCount > 0 ? " W:" + String(wCount) : ""
+        let unknownText = uCount > 0 ? " U:" + String(uCount) : ""
+        let pendingText = pCount > 0 ? " P:" + String(pCount) : ""
+        let okText = oCount > 0 ? " O:" + String(oCount) : ""
+        let unreachableText = unreachableCount > 0 ? " UR:" + String(unreachableCount) : ""
+        let downText = downCount > 0 ? " D:" + String(downCount) : ""
+        let upText = upCount > 0 ? " UP:" + String(upCount) : ""
         
         let text = criticalText + warningText + unknownText + pendingText + okText + unreachableText + downText + upText
         

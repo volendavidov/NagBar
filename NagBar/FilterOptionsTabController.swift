@@ -25,10 +25,10 @@ class FilterOptionsTabController: NSWindowController {
         super.awakeFromNib()
         
         // refresh the table after the FilterItemWindow was closed
-        Foundation.NotificationCenter.default.addObserver(self, selector: #selector(FilterOptionsTabController.refreshTable), name: NSNotification.Name.NSWindowWillClose, object: filterItemWindow)
+        Foundation.NotificationCenter.default.addObserver(self, selector: #selector(FilterOptionsTabController.refreshTable), name: NSWindow.willCloseNotification, object: filterItemWindow)
     }
     
-    func refreshTable() {
+    @objc func refreshTable() {
         self.filterItemsTable.reloadData()
     }
     

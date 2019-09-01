@@ -43,7 +43,7 @@ class CheckMKParser : MonitoringProcessorBase, ParserInterface {
             
             // get the site part; i.e. if we have URL http://testmonitoring/test/check_mk/ then
             // get the "test" string
-            let sitePart = self.monitoringInstance!.url.characters.split{$0 == "/"}.map(String.init)[2]
+            let sitePart = self.monitoringInstance!.url.split{$0 == "/"}.map(String.init)[2]
             
             let itemUrlHostPart = self.monitoringInstance!.url + "/view.py?host=" + monitoringItem.host
             
@@ -80,7 +80,7 @@ class CheckMKParser : MonitoringProcessorBase, ParserInterface {
             
             // get the site part; i.e. if we have URL http://testmonitoring/test/check_mk/ then
             // get the "test" string
-            let sitePart = self.monitoringInstance!.url.characters.split{$0 == "/"}.map(String.init)[2]
+            let sitePart = self.monitoringInstance!.url.split{$0 == "/"}.map(String.init)[2]
             
             let itemUrlServicePart = itelUrlHostPart + "&service=" + monitoringItem.service + "&site=" + sitePart + "&view_name=service"
             
@@ -95,7 +95,11 @@ class CheckMKParser : MonitoringProcessorBase, ParserInterface {
     }
     
     func getJSON(_ data: Data) -> [JSON]? {
-        let json = JSON(data: data)
+        guard let json = try? JSON(data: data) else {
+            NSLog("Invalid JSON")
+            return nil
+        }
+        
         guard var jsonResults = json.array else {
             return nil
         }

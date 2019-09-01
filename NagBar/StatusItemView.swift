@@ -9,19 +9,19 @@
 import Foundation
 import Cocoa
 
-class StatusItemView: NSView {
+class StatusItemView: NSStatusBarButton {
     let StatusItemViewPaddingWidth = CGFloat(6)
     let StatusItemViewPaddingHeight = CGFloat(3)
     
-    var title: String?
+//    var title: String?
     var statusItem: NSStatusItem?
     
     override func draw(_ dirtyRect: NSRect) {
         let origin = NSMakePoint(StatusItemViewPaddingWidth, StatusItemViewPaddingHeight);
-        title?.draw(at: origin, withAttributes: titleAttributes())
+        title.draw(at: origin, withAttributes: titleAttributes())
     }
     
-    private func titleAttributes() -> Dictionary<String, AnyObject> {
+    private func titleAttributes() -> Dictionary<NSAttributedString.Key, AnyObject> {
         let font = NSFont.menuBarFont(ofSize: 0)
         
         var color = NSColor.black
@@ -36,7 +36,7 @@ class StatusItemView: NSView {
             }
         }
         
-        return [NSFontAttributeName: font, NSForegroundColorAttributeName: color]
+        return [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: color]
     }
     
     override func rightMouseDown(with theEvent: NSEvent) {
@@ -61,7 +61,7 @@ class StatusItemView: NSView {
         StatusBar.get().onClick()
     }
     
-    func refresh() {
+    @objc func refresh() {
         LoadMonitoringData().refreshStatusData()
     }
     
@@ -79,6 +79,6 @@ class StatusItemView: NSView {
     }
     
     func titleBoundingRect() -> NSRect {
-        return title!.boundingRect(with: NSMakeSize(0, 0), options: .oneShot, attributes: self.titleAttributes())
+        return title.boundingRect(with: NSMakeSize(0, 0), options: .usesFontLeading, attributes: self.titleAttributes())
     }
 }

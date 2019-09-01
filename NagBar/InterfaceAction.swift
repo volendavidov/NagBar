@@ -23,10 +23,10 @@ class DefaultButton : NSButton, InterfaceAction {
             return
         }
         
-        if Settings().boolForKey(identifier) {
-            self.state = NSOnState
+        if Settings().boolForKey(identifier.rawValue) {
+            self.state = NSControl.StateValue.on
         } else {
-            self.state = NSOffState
+            self.state = NSControl.StateValue.off
         }
     }
     
@@ -41,7 +41,11 @@ class DefaultButton : NSButton, InterfaceAction {
             return
         }
         
-        Settings().setBool(Bool(self.state), forKey: identifier)
+        if(self.state == NSControl.StateValue.on) {
+            Settings().setBool(true, forKey: identifier.rawValue)
+        } else {
+            Settings().setBool(false, forKey: identifier.rawValue)
+        }
     }
 }
 
@@ -64,13 +68,13 @@ class DefaultPopUpButton : NSPopUpButton {
             return
         }
         
-        guard let popUpButtonDict = self.popUpButtons[identifier] else {
-            NSLog("Button identifier " + identifier + " not found in dictionary")
+        guard let popUpButtonDict = self.popUpButtons[identifier.rawValue] else {
+            NSLog("Button identifier " + identifier.rawValue + " not found in dictionary")
             return
         }
         
         for i in popUpButtonDict {
-            if (Settings().integerForKey(identifier) == i.0) {
+            if (Settings().integerForKey(identifier.rawValue) == i.0) {
                 self.selectItem(withTitle: i.1)
             }
         }
@@ -88,7 +92,7 @@ class DefaultPopUpButton : NSPopUpButton {
         }
         
         for (popUpButton, values) in self.popUpButtons {
-            if identifier != popUpButton {
+            if identifier.rawValue != popUpButton {
                 continue
             }
             
@@ -111,8 +115,8 @@ class DefaultColorWell : NSColorWell {
             return
         }
         
-        guard let colorWheelColors = Settings().stringForKey(identifier) else {
-            NSLog("Color well " + identifier + " not found in dictionary")
+        guard let colorWheelColors = Settings().stringForKey(identifier.rawValue) else {
+            NSLog("Color well " + identifier.rawValue + " not found in dictionary")
             return
         }
         
@@ -132,6 +136,6 @@ class DefaultColorWell : NSColorWell {
             + String(format: "%.3f", self.color.greenComponent) + ","
             + String(format: "%.3f", self.color.blueComponent) + ",1.0"
         
-        Settings().setString(stringToSave, forKey: self.identifier!)
+        Settings().setString(stringToSave, forKey: self.identifier?.rawValue ?? "")
     }
 }

@@ -63,7 +63,7 @@ class AddToFilterAction : NSObject, MenuAction {
         alert.messageText = NSLocalizedString("addToFilter", comment: "")
         alert.informativeText = NSLocalizedString("addToFilterConfirm", comment: "")
         alert.alertStyle = .warning
-        if alert.runModal() == NSAlertSecondButtonReturn {
+        if alert.runModal() == NSApplication.ModalResponse.alertSecondButtonReturn {
             let monitoringItems = sender.representedObject as! Array<MonitoringItem>
             self.addToFilter(monitoringItems)
         }

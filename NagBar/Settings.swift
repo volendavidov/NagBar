@@ -10,8 +10,8 @@ import Foundation
 import RealmSwift
 
 class Setting : Object {
-    dynamic var key = ""
-    dynamic var value = ""
+    @objc dynamic var key = ""
+    @objc dynamic var value = ""
     
     override static func primaryKey() -> String? {
         return "key"

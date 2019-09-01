@@ -18,7 +18,7 @@ class Icinga2HTTPClient : NagiosHTTPClient {
             "Accept": "application/json"
         ]
         
-        return Promise{ fulfill, reject in
+        return Promise{ seal in
             
             ConnectionManager.sharedInstance.manager!.request(url, method: .post, parameters: postData, encoding: JSONEncoding.default, headers: headers).authenticate(user: self.monitoringInstance!.username, password: self.monitoringInstance!.password).response { response in
                 
@@ -26,12 +26,12 @@ class Icinga2HTTPClient : NagiosHTTPClient {
                     // if the response is 401, then we have basic auth
                     // otherwise we have cookie auth enabled
                     if response.response!.statusCode == 401 {
-                        reject(NSError(domain: "", code: -999, userInfo: nil))
+                        seal.reject(NSError(domain: "", code: -999, userInfo: nil))
                     } else {
-                        fulfill(response.data!)
+                        seal.fulfill(response.data!)
                     }
                 } else {
-                    reject(response.error!)
+                    seal.reject(response.error!)
                 }
             }
         }

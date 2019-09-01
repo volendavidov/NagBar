@@ -12,9 +12,9 @@ import PromiseKit
 class CheckMKHTTPClient : MonitoringProcessorBase, HTTPClient {
     func get(_ url: String) -> Promise<Data> {
         
-        return Promise{ fulfill, reject in
+        return Promise{ seal in
             
-            var promise: Promise<Void> = Promise<Void>(value: Void())
+            var promise: Promise<Void> = Promise<Void>.value(Void())
             
             promise = promise
                 .then { _ -> Promise<Bool> in
@@ -28,10 +28,10 @@ class CheckMKHTTPClient : MonitoringProcessorBase, HTTPClient {
                             // try to log in and return the result of the login
                             return self.login(self.monitoringInstance!)
                         } else {
-                            return Promise<Bool>(value: true)
+                            return Promise<Bool>.value(true)
                         }
                     } else {
-                        return Promise<Bool>(value: true)
+                        return Promise<Bool>.value(true)
                     }
                 }
                 .then { shouldProceed -> Promise<Data> in
@@ -40,21 +40,21 @@ class CheckMKHTTPClient : MonitoringProcessorBase, HTTPClient {
                     if shouldProceed {
                         return self.getBasicAuth(url, monitoringInstance: self.monitoringInstance!)
                     } else {
-                        return Promise<Data>(value: Data())
+                        return Promise<Data>.value(Data())
                     }
                 }
-                .then { data -> Void in
+                .done { data -> Void in
                     if data == Data() {
-                        reject(NSError(domain: "", code: -999, userInfo: nil))
+                        seal.reject(NSError(domain: "", code: -999, userInfo: nil))
                     } else {
-                        fulfill(data)
+                        seal.fulfill(data)
                     }
                 }
         }
     }
     
     private func login(_ monitoringInstance: MonitoringInstance) -> Promise<Bool> {
-        return Promise{ fulfill, reject in
+        return Promise{ seal in
             
             let params = ["_username": monitoringInstance.username,
                 "_password": monitoringInstance.password,
@@ -63,7 +63,7 @@ class CheckMKHTTPClient : MonitoringProcessorBase, HTTPClient {
             ConnectionManager.sharedInstance.manager!.request(monitoringInstance.url + "login.py", method: .post, parameters: params).response { response in
                 
                 if response.error != nil {
-                    reject(response.error!)
+                    seal.reject(response.error!)
                 }
                 
                 var failed: Bool = true
@@ -77,9 +77,9 @@ class CheckMKHTTPClient : MonitoringProcessorBase, HTTPClient {
                 }
                 
                 if failed == false {
-                    fulfill(true)
+                    seal.fulfill(true)
                 } else {
-                    fulfill(false)
+                    seal.fulfill(false)
                 }
             }
 
@@ -88,20 +88,20 @@ class CheckMKHTTPClient : MonitoringProcessorBase, HTTPClient {
     
     private func checkBasicAuth(_ url: String) -> Promise<Bool> {
         
-        return Promise{ fulfill, reject in
+        return Promise{ seal in
             
             ConnectionManager.sharedInstance.manager!.request(url, method: .head).response { response in
                 
                 if response.error != nil {
-                    reject(response.error!)
+                    seal.reject(response.error!)
                 }
                 
                 // if the response is 401, then we have basic auth
                 // otherwise we have cookie auth enabled
                 if response.response!.statusCode == 401 {
-                    fulfill(true)
+                    seal.fulfill(true)
                 } else {
-                    fulfill(false)
+                    seal.fulfill(false)
                 }
             }
         }
@@ -109,20 +109,20 @@ class CheckMKHTTPClient : MonitoringProcessorBase, HTTPClient {
     
     func getBasicAuth(_ url: String, monitoringInstance: MonitoringInstance) -> Promise<Data> {
         
-        return Promise{ fulfill, reject in
+        return Promise{ seal in
             
             ConnectionManager.sharedInstance.manager!.request(url).authenticate(user: monitoringInstance.username, password: monitoringInstance.password).response { response in
                 
                 // if the response is 401, then we have basic auth
                 // otherwise we have cookie auth enabled
                 if response.response!.statusCode == 401 {
-                    fulfill(Data())
+                    seal.fulfill(Data())
                 }
                 
                 if response.error == nil {
-                    fulfill(response.data!)
+                    seal.fulfill(response.data!)
                 } else {
-                    reject(response.error!)
+                    seal.reject(response.error!)
                 }
             }
         }
@@ -130,19 +130,19 @@ class CheckMKHTTPClient : MonitoringProcessorBase, HTTPClient {
     
     // TODO: complete this
     func checkConnection() -> Promise<Bool> {
-        return Promise{ fulfill, reject in
+        return Promise{ seal in
             
             ConnectionManager.sharedInstance.manager!.request(self.monitoringInstance!.url).authenticate(user: self.monitoringInstance!.username, password: self.monitoringInstance!.password).response { response in
                 
-                fulfill(true)
+                seal.fulfill(true)
             }
         }
     }
     
     // TODO: implement Check_MK commands
     func post(_ url: String, postData: Dictionary<String, String>) -> Promise<Data> {
-        return Promise { fulfill, _ in
-            fulfill(Data())
+        return Promise { seal in
+            seal.fulfill(Data())
         }
     }
 }

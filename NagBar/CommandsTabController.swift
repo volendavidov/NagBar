@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class CommandsTabController: NSWindowController, NSTextFieldDelegate {
+class CommandsTabController: NSWindowController, NSControlTextEditingDelegate {
     @IBOutlet weak var acknowledgementDefaultComment: NSTextField!
     @IBOutlet weak var scheduleDowntimeDefaultComment: NSTextField!
     
@@ -18,10 +18,10 @@ class CommandsTabController: NSWindowController, NSTextFieldDelegate {
         scheduleDowntimeDefaultComment.stringValue = Settings().stringForKey("scheduleDowntimeDefaultComment")!
     }
     
-    override func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         let key = (obj.object as! NSTextField).identifier!
         let value = (obj.object as! NSTextField).stringValue
         
-        Settings().setString(value, forKey: key)
+        Settings().setString(value, forKey: key.rawValue)
     }
 }

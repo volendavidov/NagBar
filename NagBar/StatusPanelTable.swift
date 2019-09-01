@@ -312,7 +312,7 @@ class StatusPanelTable : NSTableView {
 
 class SelectedTableViewCellBackground : NSView {
     override func draw(_ dirtyRect: NSRect) {
-        let context = NSGraphicsContext.current()!.cgContext
+        let context = NSGraphicsContext.current!.cgContext
         context.setFillColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.2)
         context.fill(NSRectToCGRect(dirtyRect))
     }

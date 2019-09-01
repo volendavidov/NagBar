@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class FilterItemWindowController: NSWindowController, NSTextFieldDelegate {
+class FilterItemWindowController: NSWindowController, NSControlTextEditingDelegate {
     @IBOutlet weak var host: NSTextField!
     @IBOutlet weak var service: NSTextField!
     
@@ -44,7 +44,7 @@ class FilterItemWindowController: NSWindowController, NSTextFieldDelegate {
         let hostStatusMapping: Dictionary<Int, String> = [1: "hostPending", 4: "hostDown", 8: "hostUnreachable"]
         
         // if there is more than one letter in the "service" field, enable the service buttons
-        if filterItem!.service.characters.count != 0 {
+        if filterItem!.service.count != 0 {
             setStates(filterItem!, mapping: serviceStatusMapping)
             setHostButtonsEnabled(false)
         } else {
@@ -62,7 +62,7 @@ class FilterItemWindowController: NSWindowController, NSTextFieldDelegate {
                 object.isEnabled = true
                 status -= key
             } else {
-                object.state = NSOffState
+                object.state = NSControl.StateValue.off
             }
         }
     }
@@ -75,14 +75,33 @@ class FilterItemWindowController: NSWindowController, NSTextFieldDelegate {
         
         let key = FilterItems.generateKey(host.stringValue, service: service.stringValue)
         
-        var status: Int?
-        if service.stringValue.characters.count != 0 {
-            status = (Bool(critical.state) ? 16 : 0) + (Bool(unknown.state) ? 8 : 0) + (Bool(warning.state) ? 4 : 0) + (Bool(pending.state) ? 1 : 0)
+        var status: Int = 0
+        if service.stringValue.count != 0 {
+            if(critical.state == NSControl.StateValue.on) {
+                status += 16
+            }
+            if(unknown.state == NSControl.StateValue.on) {
+                status += 8
+            }
+            if(warning.state == NSControl.StateValue.on) {
+                status += 4
+            }
+            if(pending.state == NSControl.StateValue.on) {
+                status += 1
+            }
         } else {
-            status = (Bool(hostUnreachable.state) ? 8 : 0) + (Bool(hostDown.state) ? 4 : 0) + (Bool(hostPending.state) ? 1 : 0)
+            if(hostUnreachable.state == NSControl.StateValue.on) {
+                status += 8
+            }
+            if(hostDown.state == NSControl.StateValue.on) {
+                status += 4
+            }
+            if(hostPending.state == NSControl.StateValue.on) {
+                status += 1
+            }
         }
         
-        let filterItem = FilterItem().initDefault(host: host.stringValue, service: service.stringValue, status: status!)
+        let filterItem = FilterItem().initDefault(host: host.stringValue, service: service.stringValue, status: status)
         
         // Do not allow something with empty host and service to be saved
         if key == "" {
@@ -123,7 +142,7 @@ class FilterItemWindowController: NSWindowController, NSTextFieldDelegate {
         window?.close()
     }
     
-    override func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         // react only on changed service field
         if (obj.object as AnyObject).identifier != "service" {
             return

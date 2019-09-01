@@ -39,7 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         self.refreshStatusData()
         let timer = Timer(timeInterval: Settings().doubleForKey("refreshInterval"), target: self, selector: #selector(self.refreshStatusData), userInfo: nil, repeats: true)
-        RunLoop.current.add(timer, forMode: RunLoopMode.commonModes)
+        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
     }
     
     @IBAction func openPreferences(_ sender: AnyObject) {
@@ -49,7 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.preferencesWindow!.showWindow(self)
     }
     
-    func refreshStatusData() {
+    @objc func refreshStatusData() {
         LoadMonitoringData().refreshStatusData()
     }
     

@@ -20,6 +20,7 @@ enum LoginType : Int {
 
     let realm = try! Realm()
     
+    @objc
     func sshLogin(_ sender: NSMenuItem) {
         let monitoringItem = sender.representedObject as! MonitoringItem
         let loginMethod = SSHLogin()
@@ -30,6 +31,7 @@ enum LoginType : Int {
         self.login(monitoringItem, loginMethod: loginMethod)
     }
     
+    @objc
     func sshITermLogin(_ sender: NSMenuItem) {
         let monitoringItem = sender.representedObject as! MonitoringItem
         let loginMethod = SSHITermLogin()
@@ -40,6 +42,7 @@ enum LoginType : Int {
         self.login(monitoringItem, loginMethod: loginMethod)
     }
     
+    @objc
     func rdpLogin(_ sender: NSMenuItem) {
         let monitoringItem = sender.representedObject as! MonitoringItem
         let loginMethod = RDPLogin()
@@ -68,7 +71,7 @@ enum LoginType : Int {
             
             let button = alert.runModal()
             
-            if button == NSAlertFirstButtonReturn {
+            if button == NSApplication.ModalResponse.alertFirstButtonReturn {
                 username = inputTextField.stringValue
                 self.setUsername(monitoringItem, username: inputTextField.stringValue)
             }
@@ -79,7 +82,7 @@ enum LoginType : Int {
         }
     }
     
-    func removeLoginSettings(_ sender: NSMenuItem) {
+    @objc func removeLoginSettings(_ sender: NSMenuItem) {
         
         let monitoringItem = sender.representedObject as! MonitoringItem
 
@@ -132,9 +135,9 @@ enum LoginType : Int {
 }
 
 class ServerLoginItem : Object {
-    dynamic var host = ""
-    dynamic var username = ""
-    dynamic var loginType = 0
+    @objc dynamic var host = ""
+    @objc dynamic var username = ""
+    @objc dynamic var loginType = 0
     
     override static func primaryKey() -> String? {
         return "host"

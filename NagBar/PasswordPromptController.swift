@@ -95,7 +95,7 @@ class PasswordPromptController : NSWindowController {
         alert.informativeText = informativeText
         alert.alertStyle = .warning
         
-        if alert.runModal() == NSAlertSecondButtonReturn {
+        if alert.runModal() == NSApplication.ModalResponse.alertSecondButtonReturn {
             if self.nextMonitoringInstance() {
                 self.textField.stringValue = String(format:NSLocalizedString("pleaseEnterPassword", comment: ""), self.currentMonitoringInstance!.name)
             } else {

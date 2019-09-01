@@ -48,7 +48,7 @@ class SavePasswordButton : DefaultButton {
     override func performAction() {
         super.performAction()
         
-        if self.state == NSOffState {
+        if self.state == NSControl.StateValue.off {
             let monitoringInstances = MonitoringInstances().getAll()
             for (_, value) in monitoringInstances {
                 // this will automatically delete the password if the save password option is disabled

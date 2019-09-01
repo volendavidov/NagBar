@@ -164,7 +164,10 @@ class Icinga2Parser : MonitoringProcessorBase, ParserInterface {
     }
     
     func getJSON(_ data: NSData) -> [JSON]? {
-        let json = JSON(data: data as Data)
+        guard let json = try? JSON(data: data as Data) else {
+            return nil
+        }
+        
         guard let jsonResults = json["results"].array else {
             return nil
         }

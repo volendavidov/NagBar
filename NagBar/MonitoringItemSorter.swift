@@ -128,8 +128,8 @@ class MonitoringItemSorter {
                 // remove the string (that is, the last character) from the component,
                 // so that it becomes 32 instead of 32m
                 // Also convert it to Int
-                let truncatedFirst = Int(value.substring(to: value.characters.index(before: value.endIndex)))
-                let truncatedSecond = Int(secondArr[index].substring(to: secondArr[index].characters.index(before: secondArr[index].endIndex)))
+                let truncatedFirst = Int(String(value[..<value.index(before: value.endIndex)]))
+                let truncatedSecond = Int(secondArr[index][..<secondArr[index].index(before: secondArr[index].endIndex)])
                 
                 if truncatedFirst < truncatedSecond {
                     return self.ascOrDesc(sortOrder, value: true)

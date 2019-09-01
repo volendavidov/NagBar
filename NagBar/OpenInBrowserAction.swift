@@ -26,6 +26,6 @@ class OpenInBrowserAction: NSObject, MenuAction {
             return
         }
         
-        NSWorkspace.shared().open(url!)
+        NSWorkspace.shared.open(url!)
     }
 }

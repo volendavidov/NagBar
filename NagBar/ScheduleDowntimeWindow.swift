@@ -30,7 +30,8 @@ class ScheduleDowntimeWindow : NSWindowController {
         
         let time = monitoringInstance!.monitoringProcessor().command().getTime(self.monitoringItems)
         
-        time.then { startTime, endTime -> Void in
+        time.done { (arg) -> Void in
+            let (startTime, endTime) = arg
             self.startTime.stringValue = startTime
             self.endTime.stringValue = endTime
         }.catch { _ in
@@ -48,7 +49,7 @@ class ScheduleDowntimeWindow : NSWindowController {
     @IBAction func buttonClicked(_ sender: NSButton) {
         
         if self.comment.stringValue == "" {
-            NSBeep()
+            NSSound.beep()
             return
         }
         
@@ -83,22 +84,22 @@ class ScheduleDowntimeWindow : NSWindowController {
 class HourNumberFormatter : NumberFormatter {
     override func isPartialStringValid(_ partialString: String, newEditingString newString: AutoreleasingUnsafeMutablePointer<NSString?>?, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
         
-        if partialString.characters.count == 0 {
+        if partialString.count == 0 {
             return true
         }
         
-        if partialString.characters.count > 2 {
-            NSBeep()
+        if partialString.count > 2 {
+            NSSound.beep()
             return false
         }
         
         if let hourEntered = Int(partialString) {
             if hourEntered < 0 {
-                NSBeep()
+                NSSound.beep()
                 return false
             }
         } else {
-            NSBeep()
+            NSSound.beep()
             return false
         }
         
@@ -109,22 +110,22 @@ class HourNumberFormatter : NumberFormatter {
 class MinuteNumberFormatter : NumberFormatter {
     override func isPartialStringValid(_ partialString: String, newEditingString newString: AutoreleasingUnsafeMutablePointer<NSString?>?, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
         
-        if partialString.characters.count == 0 {
+        if partialString.count == 0 {
             return true
         }
         
-        if partialString.characters.count > 3 {
-            NSBeep()
+        if partialString.count > 3 {
+            NSSound.beep()
             return false
         }
         
         if let minutesEntered = Int(partialString) {
             if minutesEntered < 0 || minutesEntered > 59 {
-                NSBeep()
+                NSSound.beep()
                 return false
             }
         } else {
-            NSBeep()
+            NSSound.beep()
             return false
         }
         

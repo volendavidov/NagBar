@@ -35,7 +35,7 @@ class LoadMonitoringData {
         // get all enabled monitoring instances
         let monitoringInstances = MonitoringInstances().getAllEnabled()
         
-        var promise: Promise<Void> = Promise<Void>(value: Void())
+        var promise: Promise<Void> = Promise<Void>.value(Void())
         
         // store the results from all monitoring instances here
         var allResults: Array<MonitoringItem> = []
@@ -60,7 +60,7 @@ class LoadMonitoringData {
                     .then { _ -> Promise<Data> in
                         return monitoringInstance.monitoringProcessor().httpClient().get(url.url)
                     }
-                    .then { data -> Void in
+                    .done { data -> Void in
                         // parse the data into Array<HostMonitoringItem>
                         let urlResults = monitoringInstance.monitoringProcessor().parser().parse(urlType: url.urlType, data: data as Data)
                         
@@ -76,7 +76,7 @@ class LoadMonitoringData {
                 }
             }
             
-            _ = promise.then { _ -> Void in
+            _ = promise.done { _ -> Void in
                 // add the results from the current monitoring instance to the
                 // results with all monitoring instances
                 allResults += monitoringInstanceResults
@@ -85,7 +85,7 @@ class LoadMonitoringData {
         }
         
         // after all data is parsed and filtered, update the status bar
-        _ = promise.then { _ -> Void in
+        _ = promise.done { _ -> Void in
             
             // before the update, do some other tasks (e.g. visual notifications and sound alarms based on the difference
             // of the old and new monitoring data)

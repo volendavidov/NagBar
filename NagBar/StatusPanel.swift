@@ -39,7 +39,7 @@ class StatusPanel : NSObject {
         var xCoords = (self.panelBounds.origin.x + self.panelBounds.size.width - (allColumnsWidth))
         
         // We always want to start from the leftmost part of the display, including the dock if its position is on the left side.
-        let visibleScreenRect = NSScreen.main()?.visibleFrame
+        let visibleScreenRect = NSScreen.main?.visibleFrame
         if (xCoords < visibleScreenRect!.origin.x) {
             xCoords = visibleScreenRect!.origin.x
         }
@@ -56,7 +56,7 @@ class StatusPanel : NSObject {
         
         let frame = NSMakeRect(xCoords, yCoords, allColumnsWidth, panelHeight)
         
-        panel = StatusNSPanel(contentRect: frame, styleMask: NSBorderlessWindowMask, backing: .buffered, defer: false)
+        panel = StatusNSPanel(contentRect: frame, styleMask: .borderless, backing: .buffered, defer: false)
         panel!.hasShadow = true
         panel!.makeKeyAndOrderFront(nil)
         

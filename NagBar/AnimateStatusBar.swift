@@ -92,7 +92,7 @@ class LightFlashStatusBar : AnimateStatusBarBase {
     }
     
     fileprivate func flashStatusBar(_ color: NSColor) {
-        let view = StatusBar.get().statusItem.view!
+        let view = StatusBar.get().statusItem.button!
         view.needsDisplay = true
         
         let subview = NSView(frame: view.frame)

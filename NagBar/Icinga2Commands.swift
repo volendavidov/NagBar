@@ -18,7 +18,7 @@ class Icinga2Commands : MonitoringProcessorBase, CommandInterface {
     
     func acknowledge(_ monitoringItems: Array<MonitoringItem>, comment: String) {
         
-        var promise: Promise<Data> = Promise<Data>(value: Data())
+        var promise: Promise<Data> = Promise<Data>.value(Data())
         
         for monitoringItem in monitoringItems {
             promise = promise.then { _ -> Promise<Data> in
@@ -46,7 +46,7 @@ class Icinga2Commands : MonitoringProcessorBase, CommandInterface {
         let fromDate = dateFormatter.date(from: from)
         let toDate = dateFormatter.date(from: to)
         
-        var promise: Promise<Data> = Promise<Data>(value: Data())
+        var promise: Promise<Data> = Promise<Data>.value(Data())
 
         for monitoringItem in monitoringItems {
             promise = promise.then { _ -> Promise<Data> in
@@ -78,7 +78,7 @@ class Icinga2Commands : MonitoringProcessorBase, CommandInterface {
     
     func recheck(_ monitoringItems: Array<MonitoringItem>) {
         
-        var promise: Promise<Data> = Promise<Data>(value: Data())
+        var promise: Promise<Data> = Promise<Data>.value(Data())
         
         for monitoringItem in monitoringItems {
             promise = promise.then { _ -> Promise<Data> in
@@ -112,20 +112,20 @@ class Icinga2Commands : MonitoringProcessorBase, CommandInterface {
     
     func getTime(_ monitoringItems: Array<MonitoringItem>) -> Promise<(String,String)> {
         
-        return Promise{ fulfill, reject in
+        return Promise{ seal in
             
             let timeUrl = self.monitoringInstance!.url + "/status"
             
-            let promise: Promise<Data> = Promise<Data>(value: Data())
+            let promise: Promise<Data> = Promise<Data>.value(Data())
             
             promise.then { _ -> Promise<Data> in
                 // get the start time from nagios first
                 return self.monitoringInstance!.monitoringProcessor().httpClient().get(timeUrl)
-                }.then { data -> Void in
+                }.done { data -> Void in
                     // parse the start time
                     
                     guard let jsonResults = Icinga2Parser(self.monitoringInstance!).getJSON(data as NSData) else {
-                        reject("Invalid JSON" as! Error)
+                        seal.reject("Invalid JSON" as! Error)
                         return
                     }
                     
@@ -151,9 +151,9 @@ class Icinga2Commands : MonitoringProcessorBase, CommandInterface {
                     let startTime = dayTimePeriodFormatter.string(from: startTimestamp)
                     let endTime = dayTimePeriodFormatter.string(from: endTimestamp)
                     
-                    fulfill(startTime, endTime)
+                    seal.fulfill((startTime, endTime))
                 }.catch { error in
-                    reject(error)
+                    seal.reject(error)
             }
         }
     }

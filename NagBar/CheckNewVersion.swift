@@ -25,7 +25,11 @@ class CheckNewVersion {
     
     private func compareVersions(_ data: Data) {
         
-        let json = JSON(data: data)
+        guard let json = try? JSON(data: data) else {
+            NSLog("Invalid JSON")
+            return
+        }
+        
         guard let newVersion = json["version"].string else {
             NSLog("Unable to find new version key")
             return
@@ -46,7 +50,10 @@ class CheckNewVersion {
     
     private func showAlert(_ jsonData: Data) {
         
-        let json = JSON(data: jsonData)
+        guard let json = try? JSON(data: jsonData) else {
+            return
+        }
+        
         let newVersion = json["version"].string!
         
         guard let changelog = json["changelog"].string else {

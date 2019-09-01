@@ -33,8 +33,8 @@ class MITextField : NSTextField, NSTextFieldDelegate {
 }
 
 class MIUsernameTextField: MITextField {
-    override func controlTextDidEndEditing(_ obj: Notification) {
-        let monitoringInstance = MonitoringInstances().getById((obj.object as! NSTextField).tag)
+    override func textDidEndEditing(_ obj: Notification) {
+        let monitoringInstance = MonitoringInstances().getById(self.tag)
         MonitoringInstances().updateUsername(monitoringInstance: monitoringInstance, username: self.stringValue)
     }
 }
@@ -53,15 +53,15 @@ class MIPasswordTextField: NSSecureTextField, NSTextFieldDelegate {
         self.init(coder: coder)
     }
     
-    override func controlTextDidEndEditing(_ obj: Notification) {
-        let monitoringInstance = MonitoringInstances().getById((obj.object as! NSTextField).tag)
+    override func textDidEndEditing(_ obj: Notification) {
+        let monitoringInstance = MonitoringInstances().getById(self.tag)
         MonitoringInstances().updatePassword(monitoringInstance: monitoringInstance, password: self.stringValue)
     }
 }
 
 class MIURLTextField: MITextField {
-    override func controlTextDidEndEditing(_ obj: Notification) {
-        let monitoringInstance = MonitoringInstances().getById((obj.object as! NSTextField).tag)
+    override func textDidEndEditing(_ obj: Notification) {
+        let monitoringInstance = MonitoringInstances().getById(self.tag)
         MonitoringInstances().updateUrl(monitoringInstance: monitoringInstance, url: self.stringValue)
     }
 }
@@ -69,11 +69,11 @@ class MIURLTextField: MITextField {
 class MINameTextField: MITextField {
     var nameTextOrig: String?
     
-    override func controlTextDidBeginEditing(_ obj: Notification) {
-        nameTextOrig = (obj.object as AnyObject).stringValue
+    override func textDidBeginEditing(_ obj: Notification) {
+        nameTextOrig = self.stringValue
     }
     
-    override func controlTextDidEndEditing(_ obj: Notification) {
+    override func textDidEndEditing(_ obj: Notification) {
         
         // this check is needed to prevent exceptions when nameTextOrig is nil and the following case:
         // 1. edit some name in the list
@@ -85,13 +85,13 @@ class MINameTextField: MITextField {
         }
         
         // First check if there is already a monitoring instance with the entered name. We should not add it if it already exists. After that check if the name entered for monitoring instance is empty.
-        if MonitoringInstances().getByKey((obj.object as! NSTextField).stringValue) != nil {
+        if MonitoringInstances().getByKey(self.stringValue) != nil {
             let messageText = NSLocalizedString("monitoringInstanceExistsMessage", comment: "")
-            let informativeText = String(format: NSLocalizedString("monitoringInstanceExistsInformative", comment: ""), (obj.object! as AnyObject).stringValue, (obj.object! as AnyObject).stringValue)
+            let informativeText = String(format: NSLocalizedString("monitoringInstanceExistsInformative", comment: ""), self.stringValue, self.stringValue)
             NagBarAlert().showWarningAlert(messageText, informativeText: informativeText)
             
             stringValue = nameTextOrig!
-        } else if (obj.object as AnyObject).stringValue == "" {
+        } else if self.stringValue == "" {
             let messageText = NSLocalizedString("monitoringInstanceEmptyMessage", comment: "")
             let informativeText = NSLocalizedString("monitoringInstanceEmptyInformative", comment: "")
             NagBarAlert().showWarningAlert(messageText, informativeText: informativeText)
@@ -135,16 +135,16 @@ class MIEnabledTableColumn : NSTableColumn, MonitoringInstancesTableColumn  {
         
         // we set a tag for the checkbox, because the checkbox can be clicked without a row being clicked and then we do not know for which row the checkbox was clicked
         button.tag = row
-        button.state = MonitoringInstances().getById(row).enabled 
+        button.state = NSControl.StateValue(rawValue: MonitoringInstances().getById(row).enabled)
         
         return button
     }
     
-    func checkButtonClick(_ sender: NSButton) {
+    @objc func checkButtonClick(_ sender: NSButton) {
         let monitoringInstance = MonitoringInstances().getById(sender.tag)
-        MonitoringInstances().updateEnabled(monitoringInstance: monitoringInstance, enabled: sender.state)
+        MonitoringInstances().updateEnabled(monitoringInstance: monitoringInstance, enabled: sender.state.rawValue)
         
-        if sender.state == NSOffState {
+        if sender.state == NSControl.StateValue.off {
             self.connectionStateUnknown(sender.tag)
         } else {
             self.connectionStateChecking(sender.tag)
@@ -174,7 +174,7 @@ class MIEnabledTableColumn : NSTableColumn, MonitoringInstancesTableColumn  {
         
         let monitoringInstance = MonitoringInstances().getById(tag)
         
-        _ = monitoringInstance.monitoringProcessor().httpClient().checkConnection().then { result -> Void in
+        _ = monitoringInstance.monitoringProcessor().httpClient().checkConnection().done { result -> Void in
             
             if result {
                 self.setConnectionState(tag, text: "ok", image: "NSStatusAvailable")
@@ -213,7 +213,7 @@ class MIStatusTableColumn : NSTableColumn, MonitoringInstancesTableColumn  {
             statusView.addSubview(text)
         }
         
-        _ = monitoringInstance.monitoringProcessor().httpClient().checkConnection().then { result -> Void in
+        _ = monitoringInstance.monitoringProcessor().httpClient().checkConnection().done { result -> Void in
             
             if result {
                 image.image = NSImage.init(named: "NSStatusAvailable")
@@ -276,7 +276,7 @@ class MITypeTableColumn : NSTableColumn, MonitoringInstancesTableColumn  {
         return type
     }
     
-    func popupButtonClick(_ sender: NSPopUpButton) {
+    @objc func popupButtonClick(_ sender: NSPopUpButton) {
         let monitoringInstance = MonitoringInstances().getById(sender.tag)
         MonitoringInstances().updateType(monitoringInstance: monitoringInstance, type: MonitoringInstanceType(rawValue: sender.title)!)
     }

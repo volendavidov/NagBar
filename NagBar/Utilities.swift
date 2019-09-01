@@ -22,12 +22,8 @@ extension String {
 }
 
 extension Bool {
-    init<T : Integer>(_ integer: T) {
-        if integer == 0 {
-            self.init(false)
-        } else {
-            self.init(true)
-        }
+    var intValue: Int {
+        return self ? 1 : 0
     }
 }
 
