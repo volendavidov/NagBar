@@ -59,10 +59,15 @@ class ConnectionManager {
         let monitoringInstances = MonitoringInstances().getAll()
         
         for (_,value) in monitoringInstances {
-            guard let host = URL(string: value.url) else {
+            guard let url = URL(string: value.url) else {
+                NSLog("Invalid URL: " + value.url)
                 continue
             }
-            serverTrustPolicies[host.host!] = .disableEvaluation
+            guard let host = url.host else {
+                NSLog("Invalid URL: " + value.url)
+                continue
+            }
+            serverTrustPolicies[host] = .disableEvaluation
         }
         
         return Alamofire.SessionManager(
