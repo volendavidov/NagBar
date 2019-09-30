@@ -16,4 +16,8 @@ class ThrukProcessor : NagiosProcessor {
     override func parser() -> ParserInterface {
         return ThrukParser(self.monitoringInstance!)
     }
+    
+    override func httpClient() -> HTTPClient {
+        return ThrukHTTPClient(self.monitoringInstance!)
+    }
 }

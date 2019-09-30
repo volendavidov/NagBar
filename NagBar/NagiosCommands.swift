@@ -108,8 +108,7 @@ class NagiosCommands : MonitoringProcessorBase, CommandInterface {
                     parameters["service"] = monitoringItem.service
                 }
                 
-                let httpClient = NagiosHTTPClient(self.monitoringInstance!)
-                return httpClient.post(NagiosParser.stripStatusCGI(self.monitoringInstance!.url) + "cmd.cgi", postData: parameters)
+                return self.monitoringInstance!.monitoringProcessor().httpClient().post(NagiosParser.stripStatusCGI(self.monitoringInstance!.url) + "cmd.cgi", postData: parameters)
                 
             }
         }
@@ -141,8 +140,7 @@ class NagiosCommands : MonitoringProcessorBase, CommandInterface {
                     parameters["service"] = monitoringItem.service
                 }
                 
-                let httpClient = NagiosHTTPClient(self.monitoringInstance!)
-                return httpClient.post(NagiosParser.stripStatusCGI(self.monitoringInstance!.url) + "cmd.cgi", postData: parameters)
+                return self.monitoringInstance!.monitoringProcessor().httpClient().post(NagiosParser.stripStatusCGI(self.monitoringInstance!.url) + "cmd.cgi", postData: parameters)
                 
             }
         }

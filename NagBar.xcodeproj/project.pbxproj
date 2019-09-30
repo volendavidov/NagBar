@@ -49,6 +49,7 @@
 		5E246A5A1F49E3450015CA71 /* HostMonitoringItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A591F49E3450015CA71 /* HostMonitoringItem.swift */; };
 		5E246A5C1F49E34D0015CA71 /* ServiceMonitoringItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E246A5B1F49E34D0015CA71 /* ServiceMonitoringItem.swift */; };
 		5E377AC01F49DC2F00297FC3 /* NagBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E377ABF1F49DC2F00297FC3 /* NagBarTests.swift */; };
+		5E3C9705233F74B500CE55B9 /* ThrukHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3C9704233F74B500CE55B9 /* ThrukHTTPClient.swift */; };
 		5E7719631F51B47A0058029E /* Check_MKHostStatus in Resources */ = {isa = PBXBuildFile; fileRef = 5E77194B1F51B47A0058029E /* Check_MKHostStatus */; };
 		5E7719641F51B47A0058029E /* Check_MKServiceStatus in Resources */ = {isa = PBXBuildFile; fileRef = 5E77194C1F51B47A0058029E /* Check_MKServiceStatus */; };
 		5E7719651F51B47A0058029E /* CheckMKParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E77194D1F51B47A0058029E /* CheckMKParserTests.swift */; };
@@ -228,6 +229,7 @@
 		5E377ABB1F49DC2F00297FC3 /* NagBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NagBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E377ABF1F49DC2F00297FC3 /* NagBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NagBarTests.swift; sourceTree = "<group>"; };
 		5E377AC11F49DC2F00297FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E3C9704233F74B500CE55B9 /* ThrukHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrukHTTPClient.swift; sourceTree = "<group>"; };
 		5E77194B1F51B47A0058029E /* Check_MKHostStatus */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Check_MKHostStatus; sourceTree = "<group>"; };
 		5E77194C1F51B47A0058029E /* Check_MKServiceStatus */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Check_MKServiceStatus; sourceTree = "<group>"; };
 		5E77194D1F51B47A0058029E /* CheckMKParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMKParserTests.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 				5E246A211F49DFD00015CA71 /* ThrukParser.swift */,
 				5E246A221F49DFD00015CA71 /* ThrukProcessor.swift */,
 				5E246A231F49DFD00015CA71 /* ThrukURLProvider.swift */,
+				5E3C9704233F74B500CE55B9 /* ThrukHTTPClient.swift */,
 			);
 			name = Thruk;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 				5E9B05271F49EEF200F90135 /* AnimateStatusBar.swift in Sources */,
 				5E9494C71F51F9D00027FE0E /* ConnectionManager.swift in Sources */,
 				5E246A321F49E0140015CA71 /* IcingaParser.swift in Sources */,
+				5E3C9705233F74B500CE55B9 /* ThrukHTTPClient.swift in Sources */,
 				5E246A531F49E2D90015CA71 /* MonitoringInstance.swift in Sources */,
 				5E246A251F49DFD00015CA71 /* ThrukProcessor.swift in Sources */,
 				5E246A1D1F49DFBC0015CA71 /* CheckMKParser.swift in Sources */,
