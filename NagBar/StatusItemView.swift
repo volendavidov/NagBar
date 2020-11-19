@@ -36,6 +36,11 @@ class StatusItemView: NSStatusBarButton {
             }
         }
         
+        // fix for Big Sur
+        if self.statusItem?.button?.effectiveAppearance.name.rawValue == "NSAppearanceNameVibrantDark" {
+            color = NSColor.white
+        }
+        
         return [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: color]
     }
     
