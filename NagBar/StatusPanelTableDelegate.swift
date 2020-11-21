@@ -19,6 +19,9 @@ class StatusPanelTableDelegate: NSObject, NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         tableView.intercellSpacing = NSMakeSize(0, 2)
+        if #available(OSX 11.0, *) {
+            tableView.style = .plain
+        }
         
         let tableColumn = tableColumn as! SPTableColumn
         
@@ -99,9 +102,15 @@ class SPTableColumn : NSTableColumn, SPTableColumnProtocol  {
     
     func createViewForRow(_ row: Int) -> NSView {
 
-        let background = TableViewCellBackground(frame: NSMakeRect(0, 0, self.width, 16), color: self.getColor(status: self.results[row].status))
+        var rowHeight = CGFloat(16)
         
-        let text = NSTextField(frame: NSMakeRect(0, 0, self.width, 16))
+        if #available(OSX 11.0, *) {
+            rowHeight = CGFloat(20)
+        }
+        
+        let background = TableViewCellBackground(frame: NSMakeRect(0, 0, self.width, rowHeight), color: self.getColor(status: self.results[row].status))
+        
+        let text = NSTextField(frame: NSMakeRect(0, 0, self.width, rowHeight))
         text.isEditable = false
         text.isBezeled = false
         text.isBordered = false

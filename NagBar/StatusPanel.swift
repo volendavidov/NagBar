@@ -44,9 +44,13 @@ class StatusPanel : NSObject {
             xCoords = visibleScreenRect!.origin.x
         }
         
-        // The height of the panel is the number of rows * 19 (the height of a single row).
+        // The height of the panel is the number of rows * 26 (the height of a single row).
         // The height cannot be more than maxPanelHeight. If it is, we will add scroller and arrow several lines below.
-        let rowHeight = 19
+        var rowHeight = 19
+        if #available(OSX 11.0, *) {
+            rowHeight = 26
+        }
+        
         var panelHeight = CGFloat(rowHeight * self.results.count);
         if (panelHeight > maxPanelHeight) {
             panelHeight = maxPanelHeight
